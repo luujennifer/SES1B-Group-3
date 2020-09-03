@@ -1,0 +1,70 @@
+/* Apply to whole doc */
+*{
+	font-family: helvetica;
+}
+
+/* top navigation bar */
+.navigation {
+	overflow: hidden;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	vertical-align: middle;
+}
+.navigation > a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 25px;
+	text-decoration: none;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+.navigation img{
+	height: 50px;
+	cursor: pointer;
+	vertical-align: -13px;
+}
+
+/* body of the site = everything outside the navbar and footer bar */
+.body{
+	margin-top: 65px;
+	margin-bottom: 53px;
+	margin-left: 20px;
+	margin-right: 20px;
+	overflow: auto;
+	top: 7
+}
+
+/* body content format, centres all the content regardless of screen size */
+.contentContainer {
+	padding: 16px;
+	max-width: 800px;
+	margin: auto;
+	line-height: 1.5;
+}
+
+/*fixed footer bar */
+.footer {
+	text-align: center;
+	position: fixed;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background-color: white;
+	color: black;
+}
+
+.etcDetails a{
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	padding: 10px;
+
+}
