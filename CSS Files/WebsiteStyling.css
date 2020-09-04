@@ -1,6 +1,6 @@
 /* Apply to whole doc */
 *{
-	font-family: helvetica;
+	font-family: armata;
 }
 
 /* top navigation bar */
@@ -14,7 +14,7 @@
 	width: 100%;
 	vertical-align: middle;
 }
-.navigation > a {
+.navigation a {
 	float: left;
 	display: block;
 	color: black;
@@ -51,9 +51,10 @@
 
 /*fixed footer bar */
 .footer {
+	/* overflow: hidden; */
 	text-align: center;
 	position: fixed;
-	bottom: 10px;
+	bottom: 0px;
 	left: 0;
 	right: 0;
 	width: 100%;
@@ -65,6 +66,7 @@
 	text-align: center;
 	text-decoration: none;
 	color: black;
-	padding: 10px;
+	padding-left: 10px;
 
 }
+
