@@ -26,6 +26,17 @@
         });
       });
     </script>
+    <script language="JavaScript" type="text/JavaScript">
+      function settingLocation(){
+        var x = getWidth();
+        document.write(var);
+        document.getElementById('settings').style.left = (var - 10) + "px";
+      }
+
+      function searchFunction() {
+
+      }
+    </script>
   </head>
   <body>
     <!--h1>Bookshelf Account</h1-->
@@ -34,8 +45,9 @@
 			<div class="navigation" >
 				<a onclick="window.location.href='index.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
         <div class="settingsbutton">
-
-          <a onclick="window.location.href='Setting.html'"><i class="fa fa-gear settings" style="font-size:48px;"></i></a>
+          <div class="settings">
+            <a onclick="window.location.href='Setting.html'"><i class="fa fa-gear" style="font-size:48px"></i></a>
+          </div>
         </div>
 			</div>
       <hr>
@@ -50,7 +62,7 @@
         <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
 
     </div>
-
+    <h1></h1>
     <div class="imagepos">
       <a onclick="window.location.href='User Library.html'"><img class="books" src="../Misc Files/borrow.png" width=200px height=200px></a> <!--Image links to whole library-->
       <a onclick="window.location.href='Loan.html'"><img class="loan" src="../Misc Files/manageloan.png" width=200px height=200px></a> <!-- Image link to user loan-->
@@ -64,12 +76,5 @@
 
 			<p id="copyRight">Created by Group 3 for Software Engineering Studio 1B</p>
 		</div>
-
-
-    <script>
-      function searchFunction() {
-
-      }
-    </script>
   </body>
 </html>
