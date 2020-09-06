@@ -1,6 +1,6 @@
 /*Welcome message*/
 .welcomeMessage{
-    font-size: 30px;
+    font-size: 250%;
     font-family: Arial;
     background: linear-gradient(to right, #f7055e, #8B00ff);
     display: inline-block;
@@ -22,14 +22,14 @@
 
 .settings{
   position: absolute;
-  top: 15px;
-  left: 800px;
+  top: 30%;
+  left: 1750%;
 }
 
 .books{
   position: absolute;
-  top: 10px;
-  left: 350px;
+  top: 40%;
+  left: 600%;
 }
 
 .loan{
@@ -40,8 +40,8 @@
 
 div.body{
     position: relative;
-    top: 30px;
-    margin-left: 100px;
+    top: 45%;
+    margin-left: 10%;
     display:inline-block;
     row-gap: 20px;
     justify-content: space-between;
@@ -61,7 +61,7 @@ body{
 input#search-bar{
   margin: 0 auto;
   overflow: hidden;
-  width: 900px;
+  width: 90%;
   height: 45px;
   border-radius: 20px;
   padding: 0 20px;
@@ -90,9 +90,9 @@ input#search-bar{
 .search-icon{
   position: relative;
   float: right;
-  width: 75px;
-  height: 75px;
-  top: -13px;
-  right: 111px;
+  width: 10%;
+  height:10%;
+  top: -300%;
+  right: 1%;
   overflow: hidden;
 }
