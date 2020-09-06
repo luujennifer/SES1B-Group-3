@@ -23,7 +23,7 @@
 .settings{
   position: absolute;
   top: 30%;
-  left: 1750%;
+  float: left;
 }
 
 .books{
