@@ -14,7 +14,7 @@
       $document.ready(function()){
         function imageresize(){
           var contentwidth = $(window).width();
-          /*if(contentwdith < 1500){
+          /*if(contentwidth < 1500){
             $(".books").css("height", "480px");
           }else{
             $(".books").css("height", "768px");
@@ -27,14 +27,13 @@
       });
     </script>
     <script language="JavaScript" type="text/JavaScript">
-      function settingLocation(){
-        var x = getWidth();
-        document.write(var);
-        document.getElementById('settings').style.left = (var - 10) + "px";
-      }
-
       function searchFunction() {
 
+      }
+      function positionElements(){
+        var contentwidth = getWidth();
+        document.getElementById("books").style.left=(getWidth() / 2 - 50) + "px";
+        document.getElementById("loan").style.right= (getWidth()/2 - 50) + "px";
       }
     </script>
   </head>
@@ -64,8 +63,8 @@
     </div>
     <h1></h1>
     <div class="imagepos">
-      <a onclick="window.location.href='User Library.html'"><img class="books" src="../Misc Files/borrow.png" width=200px height=200px></a> <!--Image links to whole library-->
-      <a onclick="window.location.href='Loan.html'"><img class="loan" src="../Misc Files/manageloan.png" width=200px height=200px></a> <!-- Image link to user loan-->
+      <a onclick="window.location.href='User Library.html'"><img id="books" src="../Misc Files/borrow.png" width=200px height=200px></a> <!--Image links to whole library-->
+      <a onclick="window.location.href='Loan.html'"><img id="loan" src="../Misc Files/manageloan.png" width=200px height=200px></a> <!-- Image link to user loan-->
     </div>
     <!-- fixed footer bar copied from login-page -->
 		<div class="footer">
