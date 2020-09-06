@@ -8,6 +8,24 @@
     <link rel="icon" type="image/x-icon"  href="../Misc Files/logo.ico"> <!--Icon image for logo-->
     <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--stylesheet for gear-->
+    <script scr="https://a.jax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--script to resize image based on screen size-->
+    <script type="text/javascript">
+      $document.ready(function()){
+        function imageresize(){
+          var contentwidth = $(window).width();
+          /*if(contentwdith < 1500){
+            $(".books").css("height", "480px");
+          }else{
+            $(".books").css("height", "768px");
+          }*/
+        }
+        image.resize();
+        $(window).on("resize", function()){
+          imageresize();
+        });
+      });
+    </script>
   </head>
   <body>
     <!--h1>Bookshelf Account</h1-->
@@ -17,7 +35,7 @@
 				<a onclick="window.location.href='index.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
         <div class="settingsbutton">
 
-          <a onclick="window.location.href='Setting.html'"><i class="fa fa-gear settings" style="font-size:48px;"></i>
+          <a onclick="window.location.href='Setting.html'"><i class="fa fa-gear settings" style="font-size:48px;"></i></a>
         </div>
 			</div>
       <hr>
@@ -25,10 +43,10 @@
 
     <hr>
 
-    <div class = "body">
+    <div class="body">
     <!--html welcome message saying welcome user need to modify Lisa to user after login is completed-->
       <h1 class = "welcomeMessage">Welcome back Lisa!</h1>
-        <input type="text" id="search-bar" placeholder="Search">
+        <input type="text" id="search-bar" placeholder="Search" onkeyup="searchFunction()">
         <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
 
     </div>
@@ -48,24 +66,10 @@
 		</div>
 
 
-          <!--rework script for next iteration does not work in the changing browser to display content-->
-          <!--script>
-            function searchFunction() {
-              var input, filter, ul, li, a, i, txtValue;
-              input = document.getElementById("myInput");
-              filter = input.value.toUpperCase();
-              ul = document.getElementById("myUL");
-              li = ul.getElementsByTagName("li");
-              for (i = 0; i < li.length; i++) {
-                a = li[i].getElementsByTagName("a")[0];
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  li[i].style.display = "";
-                } else{
-                  li[i].style.display = "none";
-                }
-              }
-            }
-          </script-->
+    <script>
+      function searchFunction() {
+
+      }
+    </script>
   </body>
 </html>

@@ -10,8 +10,8 @@
 }
 
 .imagepos{
-      position: relative;
-      display:inline-block;
+  position:relative;
+  display: inline-block;
 }
 
 /*class for settings to set up parent class*/
@@ -28,13 +28,13 @@
 
 .books{
   position: absolute;
-  top: 40%;
-  left: 600%;
+  top: -100px;
+  left: 400px;
 }
 
 .loan{
   position: absolute;
-  top: 10px;
+  top: -100px;
   left: 600px;
 }
 
@@ -92,7 +92,7 @@ input#search-bar{
   float: right;
   width: 10%;
   height:10%;
-  top: -300%;
-  right: 1%;
+  top: -72px;
+  right: 40px;
   overflow: hidden;
 }
