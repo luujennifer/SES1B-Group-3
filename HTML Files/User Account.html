@@ -10,61 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--stylesheet for gear-->
   </head>
   <body>
-    <!--h1>Bookshelf Account</h1-->
-    <!-- fixed top navigation bar copied from logn-page -->
-	<header>
-		<div class="navigation" >
-				<a onclick="window.location.href='index.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
-        		<div class="settingsbutton">
-				<a onclick="window.location.href='Setting.html'"><i class="fa fa-gear settings" style="font-size:48px;"></i></a>
-        		</div>
-		</div>
-      		<hr>
-	</header>
-
-    <hr>
-
-    <div class = "body">
-    <!--html welcome message saying welcome user need to modify Lisa to user after login is completed-->
-      <h1 class = "welcomeMessage">Welcome back Lisa!</h1>
-        <input type="text" id="search-bar" placeholder="Search">
-        <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
-
-    </div>
-
-    <div class="imagepos">
-      <a onclick="window.location.href='User Library.html'"><img class="books" src="../Misc Files/borrow.png" width=200px height=200px></a> <!--Image links to whole library-->
-      <a onclick="window.location.href='Loan.html'"><img class="loan" src="../Misc Files/manageloan.png" width=200px height=200px></a> <!-- Image link to user loan-->
-    </div>
-    <!-- fixed footer bar copied from login-page -->
-	<div class="footer">
-		<div class="etcDetails">
-			<a href="https://github.com/luujennifer/SES1B-Group-3"><i class="fab fa-github"></i> GitHub</a>
-			<a href="https://drive.google.com/drive/u/2/folders/0ALuTuEVm4VA2Uk9PVA"><i class="fab fa-google-drive"></i> Google Drive</a>
-		</div>
-
-		<p id="copyRight">Created by Group 3 for Software Engineering Studio 1B</p>
-	</div>
-
-
-          <!--rework script for next iteration does not work in the changing browser to display content-->
-          <!--script>
-            function searchFunction() {
-              var input, filter, ul, li, a, i, txtValue;
-              input = document.getElementById("myInput");
-              filter = input.value.toUpperCase();
-              ul = document.getElementById("myUL");
-              li = ul.getElementsByTagName("li");
-              for (i = 0; i < li.length; i++) {
-                a = li[i].getElementsByTagName("a")[0];
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  li[i].style.display = "";
-                } else{
-                  li[i].style.display = "none";
-                }
-              }
-            }
-          </script-->
+    
   </body>
 </html>
