@@ -49,6 +49,14 @@
 	line-height: 1.5;
 }
 
+.wideContentContainer {
+	padding: 16px;
+	max-width: 1600px;
+	margin: auto;
+	line-height: 1.5;
+}
+
+
 /*fixed footer bar */
 .footer {
 	/* overflow: hidden; */
