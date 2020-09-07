@@ -25,6 +25,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  indent-text: 5em;
 }
 
 div.body{
@@ -50,6 +51,7 @@ body{
 input#search-bar{
   margin: 0 auto;
   overflow: hidden;
+  background: #fafafa;
   width: 90%;
   height: 45px;
   border-radius: 20px;
@@ -81,7 +83,7 @@ input#search-bar{
   float: right;
   width: 10%;
   height:10%;
-  top: -76px;
+  top: -80px;
   right: 40px;
   overflow: hidden;
 }
