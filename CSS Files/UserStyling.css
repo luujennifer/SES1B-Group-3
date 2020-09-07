@@ -32,7 +32,7 @@ input[type=text] { /* design consistent with other input */
   width: 10%;
   height:10%;
   top: -38px;
-  left: 40px;
+  left: 50px;
   overflow: hidden;
   color: black;
 }
