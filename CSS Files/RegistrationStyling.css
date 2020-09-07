@@ -8,6 +8,7 @@
 	font-size: 30px;
 	color:#D6085B;
 }
+	
 .signup input[type=text] {
 	width: 100%;
 	padding: 12px 20px;
@@ -52,6 +53,10 @@
 	height: 41px;
 	border:0px;
 	outline:none;
+	cursor: pointer;
+}
+option {
+	cursor: pointer;
 }
 .signup button {
 	padding: 14px 20px;
