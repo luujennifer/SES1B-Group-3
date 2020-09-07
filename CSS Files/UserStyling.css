@@ -9,33 +9,23 @@
     color: transparent;
 }
 
-.imagepos{
-      position: relative;
-      display:inline-block;
-}
 
 /*class for settings to set up parent class*/
 .settingsbutton{
   position: relative;
-  display: inline-block;
 }
 
 .settings{
   position: absolute;
-  top: 30%;
-  left: 1750%;
-}
-
-.books{
-  position: absolute;
-  top: 40%;
-  left: 600%;
-}
-
-.loan{
-  position: absolute;
   top: 10px;
-  left: 600px;
+  right: 16px;
+}
+
+.imagepos{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  column-gap: 5%;
 }
 
 div.body{
@@ -61,6 +51,7 @@ body{
 input#search-bar{
   margin: 0 auto;
   overflow: hidden;
+  background: #fafafa;
   width: 90%;
   height: 45px;
   border-radius: 20px;
@@ -92,7 +83,7 @@ input#search-bar{
   float: right;
   width: 10%;
   height:10%;
-  top: -300%;
-  right: 1%;
+  top: -83px;
+  right: 50px;
   overflow: hidden;
 }
