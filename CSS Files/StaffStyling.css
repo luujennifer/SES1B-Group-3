@@ -1,0 +1,80 @@
+/*Welcome message*/
+.welcomeMessage{
+    font-size: 35px;
+    background: linear-gradient(to right, #E30A51, #B30275);
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+/*class for settings to set up parent class*/
+#settings { /* aligning the settings cog */
+	float: right;
+	padding: 25px;
+
+	cursor: pointer;
+}
+input[type=text] { /* design consistent with other input */
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	background: #fafafa;
+	border-radius: 17px;
+}
+#search-icon { 
+  position: relative;
+  float: right;
+  width: 10%;
+  height:10%;
+  top: -38px;
+  left: 50px;
+  overflow: hidden;
+  color: black;
+}
+#menuOptions{ /* div for the buttons on user account */
+	padding: 35px;
+	text-align: center;
+	width: %;
+	margin: auto;
+}
+
+#borrow { /* borrow materials link */
+	/* float: left; */
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	padding-right: 120px;
+	
+}
+#manage { /* manage loans link */
+	/* float: right; */
+	text-align: center;
+	cursor: pointer;
+	padding-right: 120px;
+	display: inline-block;
+}
+#request {
+display: inline-block;
+	/* float: right; */
+	text-align: center;
+	cursor: pointer;
+}
+	
+img { /* sizing images for borrow and manage */
+	height: 120px;
+	width: auto;
+}
+#name {
+	float: right;
+	padding: 10px;
+
+	}
+#name p {
+	float: left;
+	padding-top: 4px;
+}
