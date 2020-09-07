@@ -1,4 +1,4 @@
-<!-- BASIC WEBSITE SKELETON -->
+<!-- REGISTRATION PAGE -->
 
 <!DOCTYPE html>
 <html> 
@@ -21,8 +21,7 @@
 		<!-- content body of website -->
 		<div class="body">
 			<section class="contentContainer">
-			
-				<form class="signup" action="" method="POST"> 
+				<form class="signup" action="" method="POST"> <!-- registration form -->
 					<label for="signupTitle" id="signupTitle"><b>Sign Up</b></label>
 						
 					<br>
@@ -35,13 +34,19 @@
 					<!-- <label id="emaillabel" for="email"><b>Email</b></label> -->
 					<!-- <input type="email" id="emailfield" name="Email" placeholder="johnsmith@email.com" required> -->
 					<!-- <label id="accounttypelabel" for="accountType"><b>Account Type</b></label> -->
-					<!-- <input type="text" id="lastname" name="LastName" placeholder="Smith" required> -->
+					<!-- <div id="accountType"> -->
+						<!-- <select id="selectBox"> -->
+							<!-- <option value="" disabled selected hidden>Choose Account Type</option> -->
+							<!-- <option value="student">Student</option> -->
+							<!-- <option value="staff">Staff</option> -->
+						<!-- </select> -->
+					<!-- </div> -->
 					<!-- <label id="password1label" for="password"><b>Password</b></label> -->
 					<!-- <input id="password1field"type="password" placeholder="Password must have at least 5 characters" minlength="5" name="password" required> -->
 					<!-- <label id="password2label" for="password"><b>Confirm Password</b></label> -->
 					<!-- <input id="password2label" type="password" placeholder="Password must have at least 5 characters" minlength="5" name="password" required> -->
 					
-					<div id="left">
+					<div id="left"> <!-- left aligned items -->
 						<label id="firstnamelabel" for="firstName"><b>First Name</b></label>
 						<input type="text" id="firstnamefield" name="FirstName" placeholder="John" required>
 						<label id="emaillabel" for="email"><b>Email</b></label>
@@ -50,19 +55,26 @@
 						<input id="password1field"type="password" placeholder="Password must have at least 5 characters" minlength="5" name="password" required>
 					</div>
 								
-					<div id="right">		
+					<div id="right"> <!-- right aligned items -->
 						<label id="lastnamelabel" for="lastName"><b>Last Name</b></label>
 						<input type="text" id="lastnamefield" name="LastName" placeholder="Smith" required>
 						<label id="accounttypelabel" for="accountType"><b>Account Type</b></label><br>
-						<input type="text" id="lastnamefield" name="LastName" placeholder="tmp for account type" required>
+						<div id="accountType">
+							<select id="selectBox">
+								<option value="" disabled selected hidden>Choose Account Type</option>
+								<option value="student">Student</option>
+								<option value="staff">Staff</option>
+							</select>
+						</div>
+						
 						<label id="password2label" for="password"><b>Confirm Password</b></label>
 						<input id="password2field" type="password" placeholder="Password must have at least 5 characters" minlength="5" name="password" required>
 					</div>
 					
+					<!-- button and link group -->
 					<button id="signupBtn" type="submit"><b>CREATE ACCOUNT</b></button>
 					<p class="login">Already have an account? <a href="/HTML Files/login-page.html">sign in</a>.</p>
 				</form>
-			
 			</section>
 		</div>
 		

@@ -1,5 +1,5 @@
-/*login form */
-.signup {
+/* registration form */
+.signup { /* form formatting */
 	padding: 16px;
 	/* max-width: 550px; */
 	margin: auto;
@@ -38,6 +38,20 @@
 	background: #fafafa;
 	border-radius: 17px;
 }
+.signup #accountType { /* div for custom select box */
+	margin: 8px 0;
+	border-radius:17px;
+	overflow:hidden;
+	border:1px solid #cccccc;
+	width:100%;
+}
+.signup #selectBox{ /* select box formatting */
+	background:#fafafa;
+	padding: 12px 17px;
+	width:100%;
+	border:0px;
+	outline:none;
+}
 .signup button {
 	padding: 14px 20px;
 	margin: 8px 0;
@@ -69,16 +83,15 @@
 	text-decoration: none;
 	color:#D6085B;
 }
-.signup #left {
+.signup #left { /* left aligned items */
 	float: left;
 	display: inline-block;
 	width: 49%;
 	padding-bottom: 20px;
 }
-.signup #right {
+.signup #right { /* right aligned items */
 	float: right;
 	display: inline-block;
 	width: 49%;
 	padding-bottom: 20px;
 }
-
