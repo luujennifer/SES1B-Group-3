@@ -9,9 +9,6 @@
     color: transparent;
 }
 
-.imagepos{
-  position:relative;
-}
 
 /*class for settings to set up parent class*/
 .settingsbutton{
@@ -24,16 +21,15 @@
   right: 16px;
 }
 
-#books{
-  position: absolute;
-  top: -100px;
-  left: 400px;
+.imagepos{
+  position:relative;
+  text-align: center;
 }
 
-#loan{
+#imagecenter{
   position: absolute;
-  top: -100px;
-  left: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.body{
