@@ -25,7 +25,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  column-gap: 10%; 
+  column-gap: 5%;
 }
 
 div.body{
@@ -84,6 +84,6 @@ input#search-bar{
   width: 10%;
   height:10%;
   top: -80px;
-  right: 45px;
+  right: 50px;
   overflow: hidden;
 }
