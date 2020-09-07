@@ -8,8 +8,68 @@
     <link rel="icon" type="image/x-icon"  href="../Misc Files/logo.ico"> <!--Icon image for logo-->
     <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--stylesheet for gear-->
+    <script scr="https://a.jax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+    <!--script to resize image based on screen size-->
+    <script type="text/javascript">
+      $document.ready(function()){
+        function imageresize(){
+          var contentwidth = $(window).width();
+          /*if(contentwidth < 1500){
+            $(".books").css("height", "480px");
+          }else{
+            $(".books").css("height", "768px");
+          }*/
+        }
+        image.resize();
+        $(window).on("resize", function()){
+          imageresize();
+        });
+      });
+    </script>
+    <script language="JavaScript" type="text/JavaScript">
+      function searchFunction() {
+
+      }
+      function positionElements(){
+        var contentwidth = screen.width;
+        document.getElementById("books").style.left=(getWidth() / 2 - 50) + "px";
+        document.getElementById("loan").style.right= (getWidth()/2 - 50) + "px";
+      }
+    </script>
   </head>
+  
   <body>
-    
+    <!--h1>Bookshelf Account</h1-->
+    <!-- fixed top navigation bar copied from logn-page -->
+		<header>
+			<div class="navigation" >
+				<a onclick="window.location.href='User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+        		<a id="settings" onclick="window.location.href=''"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
+			</div>
+		</header>
+
+		<div class="body">
+			<section class="contentContainer">
+				<h1 class="welcomeMessage">Welcome back Lisa!</h1>
+				<input type="text" id="search-bar" placeholder="Search" onkeyup="searchFunction()">
+				<a href="#"><i id="search-icon" class="fas fa-search"></i></a>
+				
+				<div id="menuOptions">
+					<a id="borrow" onclick="window.location.href='index.html'"><img src="../Misc Files/borrow-material.png"/><br><b> Borrow<br>Material</b></a>
+					<a id="manage" onclick="window.location.href='index.html'"><img src="../Misc Files/manage-loans.png"/><br><b> Manage<br>Loans</b></a>
+				</div>
+			</section>
+		</div>
+		
+    <!-- fixed footer bar copied from login-page -->
+		<div class="footer">
+			<div class="etcDetails">
+				<a href="https://github.com/luujennifer/SES1B-Group-3"><i class="fab fa-github"></i> GitHub</a>
+				<a href="https://drive.google.com/drive/u/2/folders/0ALuTuEVm4VA2Uk9PVA"><i class="fab fa-google-drive"></i> Google Drive</a>
+			</div>
+
+			<p id="copyRight">Created by Group 3 for Software Engineering Studio 1B</p>
+		</div>
   </body>
 </html>

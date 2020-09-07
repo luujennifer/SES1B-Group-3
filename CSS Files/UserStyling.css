@@ -1,98 +1,58 @@
 /*Welcome message*/
 .welcomeMessage{
-    font-size: 250%;
-    font-family: Arial;
-    background: linear-gradient(to right, #f7055e, #8B00ff);
+    font-size: 35px;
+    background: linear-gradient(to right, #E30A51, #B30275);
     display: inline-block;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
-.imagepos{
-      position: relative;
-      display:inline-block;
-}
 
 /*class for settings to set up parent class*/
-.settingsbutton{
-  position: relative;
-  display: inline-block;
+#settings { /* aligning the settings cog */
+	float: right;
+	padding: 25px;
+	cursor: pointer;
 }
-
-.settings{
-  position: absolute;
-  top: 30%;
-  left: 1750%;
+input[type=text] { /* design consistent with other input */
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	background: #fafafa;
+	border-radius: 17px;
 }
-
-.books{
-  position: absolute;
-  top: 40%;
-  left: 600%;
-}
-
-.loan{
-  position: absolute;
-  top: 10px;
-  left: 600px;
-}
-
-div.body{
-    position: relative;
-    top: 45%;
-    margin-left: 10%;
-    display:inline-block;
-    row-gap: 20px;
-    justify-content: space-between;
-}
-
-/*code for search function*/
-body{
-  padding-top: 75px;
-}
-
-.search-container{
-  width: 490px;
-  display: block;
-  margin: 0 auto;
-}
-
-input#search-bar{
-  margin: 0 auto;
-  overflow: hidden;
-  width: 90%;
-  height: 45px;
-  border-radius: 20px;
-  padding: 0 20px;
-  font-size: 1rem;
-  border: 1px solid #D0CFCE;
-  outline: none;
-  &:focus{
-    border: 1px solid #008ABF;
-    transition: 0.35s ease;
-    color: #008ABF;
-    &::-webkit-input-placeholder{
-      transition: opacity 0.45s ease;
-  	  opacity: 0;
-     }
-    &::-moz-placeholder {
-      transition: opacity 0.45s ease;
-  	  opacity: 0;
-     }
-    &:-ms-placeholder {
-     transition: opacity 0.45s ease;
-  	 opacity: 0;
-     }
-   }
- }
-
-.search-icon{
+#search-icon { 
   position: relative;
   float: right;
   width: 10%;
   height:10%;
-  top: -300%;
-  right: 1%;
+  top: -38px;
+  left: 40px;
   overflow: hidden;
+  color: black;
+}
+#menuOptions{ /* div for the buttons on user account */
+	padding: 35px;
+	text-align: center;
+	width: 50%;
+	margin: auto;
+}
+#borrow { /* borrow materials link */
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	
+}
+#manage { /* manage loans link */
+	float: right;
+	text-align: center;
+	cursor: pointer;
+}
+img { /* sizing images for borrow and manage */
+	height: 120px;
+	width: auto;
 }
