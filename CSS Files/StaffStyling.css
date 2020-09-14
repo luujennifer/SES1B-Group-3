@@ -10,10 +10,18 @@
 
 
 /*class for settings to set up parent class*/
+#name {
+	float: right;
+	padding: 10px;
+
+	}
+#name p {
+	float: left;
+	padding-top: 4px;
+}
 #settings { /* aligning the settings cog */
 	float: right;
 	padding: 25px;
-
 	cursor: pointer;
 }
 input[type=text] { /* design consistent with other input */
@@ -68,13 +76,4 @@ display: inline-block;
 img { /* sizing images for borrow and manage */
 	height: 120px;
 	width: auto;
-}
-#name {
-	float: right;
-	padding: 10px;
-
-	}
-#name p {
-	float: left;
-	padding-top: 4px;
 }
