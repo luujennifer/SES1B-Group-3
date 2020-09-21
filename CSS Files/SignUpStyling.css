@@ -74,6 +74,20 @@
 	font-weight: normal;
 	font-family: armata;
 }
+.signup #msgCondition{
+	width: 40%;
+	padding-left: 20px;
+	font-size: xx-small;
+	color: red;
+	display: none;
+}
+.signup #msgConfirm{
+	width: 40%;
+	padding-left: 20px;
+	font-size: xx-small;
+	color: red;
+	display: none;
+}
 .signup .loginRedirect {
 	padding-top: 22px;
 }

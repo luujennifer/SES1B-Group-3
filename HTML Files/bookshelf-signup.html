@@ -37,10 +37,8 @@
           </select>
           <input type="password" id="psw" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
           <input type="password" id="pswConfirm" placeholder="Confirm Password" name="confirmPass" required>
-          <div>
-            <p id="msgCondition">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</p>
-            <p id="msgConfirm">Passwords do not match</p>
-          </div>
+          <label id="msgCondition">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</label>
+          <label id="msgConfirm">Password does not match</label>
         </div>
         <br>
 
@@ -55,35 +53,33 @@
         var password = document.getElementById("psw");
         var confirmPassword = document.getElementById("pswConfirm");
 
-        // When the user clicks on the password field, show the message box
-        /*
-        password.onfocus = function() {
-          document.getElementById("msgCondition").style.display = "block";
-        }
-        confirmPassword.onfocus = function() {
-          document.getElementById("msgConfirm").style.display = "block";
-        }
-        */
-
-        // When the user starts to type something inside the password field
-        password.onkeyup = function() {
-          // Validate lowercase letters
+        function validPassword() {
           var lowerCaseLetters = /[a-z]/g;
           var upperCaseLetters = /[A-Z]/g;
           var numbers = /[0-9]/g;
           if(password.value.match(lowerCaseLetters) && password.value.match(upperCaseLetters) && password.value.match(numbers) && password.value.length >= 8) {
             document.getElementById("msgCondition").style.display = "none";
-          } else {
-            document.getElementById("msgCondition").style.display = "block";
+          }
+          else{
+            document.getElementById("msgCondition").style.display = "inline-block";
           }
         }
-        confirmPassword.onkeyup = function() {
+
+        function matchedPassword(){
           if(confirmPassword.value.match(password.value)){
             document.getElementById("msgConfirm").style.display = "none";
-          } else {
-            document.getElementById("msgConfirm").style.display = "block";
+          }
+          else{
+            document.getElementById("msgConfirm").style.display = "inline-block";
           }
         }
+
+        password.onfocus = function() {validPassword();}
+        confirmPassword.onfocus = function() {matchedPassword();}
+
+        password.onkeyup = function() {validPassword();}
+        confirmPassword.onkeyup = function() {matchedPassword();}
+
       </script>
 
     </section>
