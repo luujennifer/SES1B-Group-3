@@ -9,7 +9,9 @@ Link to localhost set up instructions: https://studentutsedu-my.sharepoint.com/:
 
 ## Repository Structure
 CSS Files - Contains all the CSS documents used throughout the website
+
 HTML Files - Contains all the HTML documents (excluding index.html) that form part of the repository
+
 MISC Files - Miscellaneous files such as image and icon files used in the website
 
 ## Sprint 1 Achievements
