@@ -27,9 +27,9 @@
 
         <br>
         <div class="inputFields">
-          <input type="text" id="firstName" placeholder="First Name" name="firstName" required>
-          <input type="text" id="lastName" placeholder="Last Name" name="lastName" required>
-          <input type="email" id="email" placeholder="Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+          <input type="text" id="firstName" placeholder="First Name" name="firstName" pattern="[A-Z][a-zA-Z- ]{1,}" required>
+          <input type="text" id="lastName" placeholder="Last Name" name="lastName" pattern="[A-Z][a-zA-Z-]{1,}" required>
+          <input type="email" id="email" placeholder="Email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
           <select id="accType" class="accountDropDown" required>
             <option value="" disabled selected hidden>Account Type</option>
             <option value="student">Student</option>
@@ -37,8 +37,8 @@
           </select>
           <input type="password" id="psw" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
           <input type="password" id="pswConfirm" placeholder="Confirm Password" name="confirmPass" required>
-          <label id="msgCondition">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</label>
-          <label id="msgConfirm">Password does not match</label>
+          <span id="msgCondition">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
+          <span id="msgConfirm">Passwords do not match</span>
         </div>
         <br>
 
@@ -61,7 +61,7 @@
             document.getElementById("msgCondition").style.display = "none";
           }
           else{
-            document.getElementById("msgCondition").style.display = "inline-block";
+            document.getElementById("msgCondition").style.display = "block";
           }
         }
 
@@ -70,12 +70,15 @@
             document.getElementById("msgConfirm").style.display = "none";
           }
           else{
-            document.getElementById("msgConfirm").style.display = "inline-block";
+            document.getElementById("msgConfirm").style.display = "block";
           }
         }
 
         password.onfocus = function() {validPassword();}
         confirmPassword.onfocus = function() {matchedPassword();}
+
+        password.onblur = function() {validPassword();}
+        confirmPassword.onblur = function() {matchedPassword();}
 
         password.onkeyup = function() {validPassword();}
         confirmPassword.onkeyup = function() {matchedPassword();}
