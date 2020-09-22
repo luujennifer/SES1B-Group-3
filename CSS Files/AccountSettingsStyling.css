@@ -1,15 +1,29 @@
 /* registration form */
-.signup { /* form formatting */
+#name {
+	float: right;
+	padding: 10px;
+
+}
+#name p {
+	float: left;
+	padding-top: 4px;
+}
+#settings { /* aligning the settings cog */
+	float: right;
+	padding: 25px;
+	cursor: pointer;
+}
+.settings { /* form formatting */
 	padding: 16px;
 	/* max-width: 550px; */
 	margin: auto;
 }
-.signup #signupTitle {
+.settings #settingsTitle {
 	font-size: 30px;
 	color:#D6085B;
 }
 	
-.signup input[type=text] {
+.settings input[type=text] {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -19,7 +33,7 @@
 	background: #fafafa;
 	border-radius: 17px;
 }
-.signup input[type=email] {
+.settings input[type=email] {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -29,7 +43,7 @@
 	background: #fafafa;
 	border-radius: 17px;
 }
-.signup input[type=password] {
+.settings input[type=password] {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -39,42 +53,16 @@
 	background: #fafafa;
 	border-radius: 17px;
 }
-.signup #accountType { /* div for custom select box */
-	margin: 8px 0;
-	border-radius:17px;
-	overflow:hidden;
-	border:1px solid #cccccc;
-	width:100%;
-	background:#fafafa;
-}
-.signup #selectBox{ /* select box formatting */
-	background:#fafafa;
-	/* color: gray; */
-	padding: 12px 17px;
-	width:100%;
-	height: 41px;
-	border:0px;
-	outline:none;
-	cursor: pointer;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-	background-repeat: no-repeat, repeat;
-	background-position: right .7em top 50%, 0 0;
-}
-.signup #selectBox::-ms-expand {
-	display: none;
-}
-.signup button {
+.settings button {
 	padding: 14px 20px;
 	margin: 8px 0;
 	cursor: pointer;
 	font-size: 15px;
 	border-radius: 17px;
 }
-.signup #signupBtn {
-	float: left;
+.settings #updateAcc {
+	/* float: left; */
+	width: 30%;
 	color: white;
 	border: solid 3px transparent;
 	background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(to bottom right, #E30A51, #B30275);
@@ -82,30 +70,46 @@
 	background-clip: content-box, border-box;
 
 }
-.signup #signupBtn:hover {
+.settings #updateAcc:hover {
 	color: #D6085B;
 	box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
 	border: solid 3px transparent;
 	box-shadow: 2px 1000px 1px #fff inset;
 }
-.signup .login {
-	padding-left: 30px;
-	padding-top: 5px;	
-	display: inline-block;
+.settings #clearChanges {
+	/* float: right; */
+	width: 30%;
+	color: #D6085B;
+	box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+	border: solid 3px transparent;
+	background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(to bottom right, #E30A51, #B30275);
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+	box-shadow: 2px 1000px 1px #fff inset;
 }
-.signup .login a {
-	text-decoration: none;
-	color:#D6085B;
+.settings #clearChanges:hover {
+	box-shadow: none;
+	color: white;
 }
-.signup #left { /* left aligned items */
+.settings #left { /* left aligned items */
 	float: left;
 	display: inline-block;
 	width: 49%;
 	padding-bottom: 20px;
 }
-.signup #right { /* right aligned items */
+.settings #right { /* right aligned items */
 	float: right;
 	display: inline-block;
 	width: 49%;
 	padding-bottom: 20px;
+}
+.buttons #updateAcc {
+	float: left;
+}
+.buttons #clearChanges {
+	float: right;
+}
+.buttons {
+	margin: auto;
+	max-width: 650px;
 }
