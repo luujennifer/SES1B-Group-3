@@ -1,0 +1,16 @@
+/*styling for manage users page */
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	color: #D6085B;
+	font-size: 14px;
+	text-align: left;
+}
+th {
+	background-color: #D6085B;
+	color: white;
+}
+tr: nth-child(even) {
+	background-color: f2f2f2;
+}
