@@ -1,8 +1,10 @@
-/* registration form */
+/* account settings */
+#message {
+	color: red;
+}
 #name {
 	float: right;
 	padding: 10px;
-
 }
 #name p {
 	float: left;
