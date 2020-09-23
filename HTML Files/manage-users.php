@@ -25,6 +25,10 @@
 		<header>
 			<div class="navigation" > 
 				<a onclick="window.location.href='index.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+				<div id="name">
+					<p><b>Jane Smith</b><br>Admin</p>
+					<a id="settings" onclick="window.location.href='admin-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
+				</div>
 			</div>
 		</header>
 		
