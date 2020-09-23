@@ -35,7 +35,7 @@
 		<!-- content body of website -->
 		<div class="body">
 			<section class="contentContainer">
-			
+				<label for="manageUsersTitle" id="manageUsersTitle"><b>Manage Users</b></label>
 				<table>
 					<tr>
 						<th>User ID</th>
