@@ -7,6 +7,7 @@
 	$dbpass = "689iABj";
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error); 
+	$message = "Edit your account details below, remember to click Update Account to save changes.";
 
 	$sqlValue = "SELECT * FROM `users` WHERE `account_type`='Admin' AND 'firstname'='$' AND 'lastname'='$'"; // need to match up name to admin account name
 	$resultValue = mysqli_query($conn,$sqlValue);
@@ -73,6 +74,12 @@
 		</header>
 		
 		<!-- <?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> --> 
+		<!-- <script> 
+			function data_entry_message () {
+				alert("'.$message.'");
+			}
+		
+		</script> -->
 		
 		<!-- content body of website -->
 		<div class="body">
@@ -80,8 +87,8 @@
 			
 				<form class="settings" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST"> <!-- account  settings form -->
 					<label for="settingsTitle" id="settingsTitle"><b>Account Settings</b></label>
-					<p>Edit your account details below, remember to click <b>Update Account</b> to save changes.</p>
-					<br>
+					<!-- <p>Edit your account details below, remember to click <b>Update Account</b> to save changes.</p> -->
+					<!-- <br> -->
 					<p id="message" name="message"><?php echo $message ?></p>
 					<br>
 					
