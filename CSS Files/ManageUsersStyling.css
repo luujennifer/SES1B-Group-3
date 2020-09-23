@@ -1,5 +1,21 @@
 /*styling for manage users page */
+#name {
+	float: right;
+	padding: 10px;
 
+	}
+#name p {
+	float: left;
+	padding-top: 4px;
+}
+#settings { /* aligning the settings cog */
+	float: right;
+	padding: 25px;
+	cursor: pointer;
+}
+#manageUsersTitle {
+	font-size: 30px;
+}
 table {
 	border-collapse: collapse;
 	width: 100%;

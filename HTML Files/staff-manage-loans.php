@@ -1,4 +1,4 @@
-<!-- MANAGE USERS PAGE -->
+<!-- MANAGE LOANS PAGE -->
 <!-- establish connection with db -->
 <?php
 	$dbhost = "localhost";
@@ -7,7 +7,8 @@
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
 
-	$sqlValue = "SELECT * FROM `users`";
+	$sqlValue = "SELECT * FROM `loans` WHERE account_type = '$' AND firstname ='$' and lastname ='$' "; // need to match up firstname and lastname and account type
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,6 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
-		<link rel="stylesheet" href="../CSS Files/ManageUsersStyling.css"> <!-- Skeleton css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -24,10 +24,10 @@
 		<!-- fixed top navigation bar -->
 		<header>
 			<div class="navigation" > 
-				<a onclick="window.location.href='admin-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+				<a onclick="window.location.href='staff-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<p><b>Jane Smith</b><br>Admin</p>
-					<a id="settings" onclick="window.location.href='admin-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
+					<p><b>Lisa Ron</b><br>Student</p>
+					<a id="settings" onclick="window.location.href='staff-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
 				</div>
 			</div>
 		</header>
@@ -35,37 +35,23 @@
 		<!-- content body of website -->
 		<div class="body">
 			<section class="contentContainer">
-				<label for="manageUsersTitle" id="manageUsersTitle"><b>Manage Users</b></label>
+				<h1>Manage my Materials</h1>
+				<input type="text" id="search-bar" placeholder="Search" onkeyup="">
+				<a href="#"><i id="search-icon" class="fas fa-search"></i></a>
+			
 				<table>
 					<tr>
-						<th>User ID</th>
-						<th>Firstname</th>
-						<th>Lastname</th>
-						<th>Email</th>
-						<th>Phone Number</th>
-						<th>Account Type</th>
+						<th> </th>
 					</tr>
 					
 					<!-- print all database data into a table -->
 					<?php
-						if($resultValue = mysqli_query($conn,$sqlValue);)
+						if()
 						{
-							while($row = $resultValue->fetch_assoc())
+							while()
 							{
-								$id = $row["user_id"];
-								$firstname = $row["firstname"];
-								$lastname = $row["lastname"];
-								$email = $row["email"];
-								$phonenumber = $row["phonenumber"];
-								$account_type = $row["account_type"];
-								
 								echo'<tr>
-										<td>'.$id.'</td>
-										<td>'.$firstname.'</td>
-										<td>'.$lastname.'</td>
-										<td>'.$email.'</td>
-										<td>'.$phonenumber.'</td>
-										<td>'.$account_type.'</td>
+										<td>'.$.'</td>
 									</tr>';
 							}
 							

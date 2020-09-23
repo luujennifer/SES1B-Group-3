@@ -7,7 +7,7 @@
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
 
-	$sqlValue = "SELECT * FROM `loans` WHERE";
+	$sqlValue = "SELECT * FROM `loans` WHERE account_type = '$' AND firstname ='$' and lastname ='$' "; // need to match up firstname and lastname and account type
 
 ?>
 
@@ -24,13 +24,20 @@
 		<!-- fixed top navigation bar -->
 		<header>
 			<div class="navigation" > 
-				<a onclick="window.location.href='index.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+				<a onclick="window.location.href='User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+				<div id="name">
+					<p><b>Lisa Ron</b><br>Student</p>
+					<a id="settings" onclick="window.location.href='user-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
+				</div>
 			</div>
 		</header>
 		
 		<!-- content body of website -->
 		<div class="body">
 			<section class="contentContainer">
+				<h1>Manage my Materials</h1>
+				<input type="text" id="search-bar" placeholder="Search" onkeyup="">
+				<a href="#"><i id="search-icon" class="fas fa-search"></i></a>
 			
 				<table>
 					<tr>
