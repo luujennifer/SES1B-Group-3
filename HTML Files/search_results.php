@@ -73,8 +73,8 @@
 		
 		//$num = mysqli_num_rows($raw_results)
 		if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-		//$num = mysqli_num_rows($raw_results)
-			//echo "<br><br><br>There are ".$num."results.";
+		$num = mysqli_num_rows($raw_results);
+		echo "<br><br><br>There are ".$num."&nbspmaterials that match the search criteria.<br>";
 			while($results = $raw_results->fetch_assoc()){
 			// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 			
