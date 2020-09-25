@@ -1,0 +1,32 @@
+/*styling for manage users page */
+#name {
+	float: right;
+	padding: 10px;
+
+	}
+#name p {
+	float: left;
+	padding-top: 4px;
+}
+#settings { /* aligning the settings cog */
+	float: right;
+	padding: 25px;
+	cursor: pointer;
+}
+#manageUsersTitle {
+	font-size: 30px;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+	color: #D6085B;
+	font-size: 14px;
+	text-align: left;
+}
+th {
+	background-color: #D6085B;
+	color: white;
+}
+tr: nth-child(even) {
+	background-color: f2f2f2;
+}

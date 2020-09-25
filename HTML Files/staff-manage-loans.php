@@ -1,4 +1,15 @@
-<!-- BASIC WEBSITE SKELETON -->
+<!-- MANAGE LOANS PAGE -->
+<!-- establish connection with db -->
+<?php
+	$dbhost = "localhost";
+	$dbuser = "root";
+	$dbpass = "689iABj";
+	$db = "bookshelf";
+	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+
+	$sqlValue = "SELECT * FROM `loans` WHERE account_type = '$' AND firstname ='$' and lastname ='$' "; // need to match up firstname and lastname and account type
+
+?>
 
 <!DOCTYPE html>
 <html> 
@@ -6,7 +17,6 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
-		<link rel="stylesheet" type="text/css" href="../CSS Files/StaffStyling.css"> <!--Styling for staff account-->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -16,7 +26,7 @@
 			<div class="navigation" > 
 				<a onclick="window.location.href='staff-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<p><b>John Smith</b><br>Staff</p>
+					<p><b>Lisa Ron</b><br>Student</p>
 					<a id="settings" onclick="window.location.href='staff-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
 				</div>
 			</div>
@@ -25,17 +35,30 @@
 		<!-- content body of website -->
 		<div class="body">
 			<section class="contentContainer">
-			
-				<h1 class="welcomeMessage">Welcome back John!</h1>
-				<input type="text" id="search-bar" placeholder="Search" onkeyup="searchFunction()">
+				<h1>Manage my Materials</h1>
+				<input type="text" id="search-bar" placeholder="Search" onkeyup="">
 				<a href="#"><i id="search-icon" class="fas fa-search"></i></a>
-				<div id="menuOptions">
-				
-					<a id="borrow" onclick="window.location.href='index.html'"><img src="../Misc Files/borrow-material.png"/><br><b> Borrow<br>Material</b></a>
-					<a id="manage" onclick="window.location.href='index.html'"><img src="../Misc Files/manage-loans.png"/><br><b> Manage<br>Loans</b></a>
-				
-				<a id="request" onclick="window.location.href='index.html'"><img src="../Misc Files/request-materials.png"/><br><b> Request<br>Materials</b></a>
-			</div>
+			
+				<table>
+					<tr>
+						<th> </th>
+					</tr>
+					
+					<!-- print all database data into a table -->
+					<?php
+						if()
+						{
+							while()
+							{
+								echo'<tr>
+										<td>'.$.'</td>
+									</tr>';
+							}
+							
+						}
+					?>
+				</table>
+			
 			</section>
 		</div>
 		
