@@ -1,3 +1,5 @@
+<!-- search results page -->
+
 <?php
 	// mysql_connect("localhost", "root", "689iABj") or die("Error connecting to database: ".mysql_error());
 	/*

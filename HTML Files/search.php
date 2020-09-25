@@ -1,4 +1,4 @@
-<!-- BASIC WEBSITE SKELETON -->
+<!-- search form page -->
 
 <!DOCTYPE html>
 <html> 
@@ -6,7 +6,7 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="WebsiteStyling.css"> <!-- Skeleton css file -->
-		<link rel="stylesheet" href="SearchStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" href="SearchStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="/logo.ico"/> <!-- icon file -->
 	</head>	
