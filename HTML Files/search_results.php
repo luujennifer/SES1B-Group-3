@@ -1,3 +1,5 @@
+<!-- search results page -->
+
 <?php
 	// mysql_connect("localhost", "root", "689iABj") or die("Error connecting to database: ".mysql_error());
 	/*
@@ -23,7 +25,7 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="WebsiteStyling.css"> <!-- Skeleton css file -->
-		<link rel="stylesheet" href="SearchStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" href="SearchStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -43,6 +45,7 @@
 		<div class="body">
 			<section class="contentContainer">
 			<!-- return to search -->
+			<a id="returntosearch" href="../HTML Files/search.php"><i class="fas fa-caret-left"></i><!-- this is a non breaking space --> &nbsp; &nbsp; Return to Search</a>
 <?php
 	$query = $_GET['query']; 
 	// gets value sent over search form

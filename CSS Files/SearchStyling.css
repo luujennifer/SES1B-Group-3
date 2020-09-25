@@ -5,9 +5,7 @@
 #name {
 	float: right;
 	padding: 10px;
-
-
-	}
+}
 #name p {
 	float: left;
 	padding-top: 4px;
@@ -38,4 +36,8 @@ input[type=text] { /* design consistent with other input */
   overflow: hidden;
   color: black;
   display: inline-block;
+}
+#returntosearch {
+	text-decoration: none;
+	color:black;
 }
