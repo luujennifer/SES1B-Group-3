@@ -7,10 +7,9 @@
 	
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 		
+	$email = $_POST['email'];
+	$password = $_POST['password'];
 	
-	if (isset($_POST['users'])) {
-		$email = mysqli_real_escape_string($db, $_POST['email']);
-		$password = mysqli_real_escape_string($db, $_POST['password']);
 
 	$sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' ";
 		$result = mysqli_query($conn,$sql);
@@ -22,7 +21,7 @@
 		
 	}
 	
-	}
+	
 		else {
 			
 			echo "<script>alert('Check your Credentials')</script>";
