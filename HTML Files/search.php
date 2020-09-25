@@ -26,10 +26,13 @@
 		<div class="body">
 			<section class="contentContainer">
 				<form class="search" action="search_results.php" method="GET">
+					<br>
+					<label for="searchtitle" id="searchtitle"><b>Search for Materials</b></label>
+					<p>Enter the material title or author to search, alternatively filter results by parameters.</p>
+					<br>
 					<input type="text" id="search-bar" name="query" placeholder=""/>
-					<input type="submit" value="Search"/>
-					<!-- <a onclick="searchPosts(0)" href="#"><i id="search-icon" class="fas fa-search"></i></a> -->
-					<!-- <button onclick="searchPosts(0)" href="#"><i id="search-icon" class="fas fa-search"></i>Search</button> -->
+					<center><button id="searchbtn" type="submit"><b>SEARCH</b></button></center>
+					
 				</form>
 			
 			</section>
