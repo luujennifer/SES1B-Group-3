@@ -32,7 +32,7 @@
 					<br>
 					<input type="text" id="search-bar" name="query" placeholder=""/>
 					<center><button id="searchbtn" type="submit"><b>SEARCH</b></button></center>
-					
+
 				</form>
 			
 			</section>
