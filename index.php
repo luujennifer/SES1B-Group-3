@@ -25,7 +25,7 @@
 		<!-- content body of website -->
 		<div class="body">
 			<section class="contentContainer">
-				<form class="login" action="HTML Files/process.php" method="POST"> 
+				<form class="login" action="HTML Files/process.php" method="POST">
 					<center>
 						<label for="loginTitle" id="loginTitle"><b>Welcome Back!</b></label>
 						<p id="signinText">Sign in to continue where you left off.</p>
@@ -59,6 +59,7 @@
 		</div>
 		
 		<!-- fixed footer bar -->
+
 		<div class="footer" style="position: fixed; z-index: 100;">
 			<div class="etcDetails">
 				<a href="https://github.com/luujennifer/SES1B-Group-3"><i class="fab fa-github"></i> GitHub</a>
