@@ -1,6 +1,7 @@
 <!-- REGISTRATION PAGE -->
 
 <!DOCTYPE html>
+
 <html> 
 	<script src="https://kit.fontawesome.com/56b24aa4ed.js" crossorigin="anonymous"></script>
 	<head>
@@ -24,7 +25,7 @@
 			<style>
 				select:invalid {color: gray;}
 		    </style>
-				<form class="signup" action="" method="POST"> <!-- registration form -->
+				<form class="signup" action="registrationdb.php" method="POST"> <!-- registration form -->
 					<label for="signupTitle" id="signupTitle"><b>Sign Up</b></label>
 					
 					<br>
@@ -44,7 +45,7 @@
 						<input type="text" id="lastnamefield" name="LastName" placeholder="Smith" required>
 						<label id="accounttypelabel" for="accountType"><b>Account Type</b></label><br>
 						<div id="accountType">
-							<select id="selectBox">
+							<select id="selectBox" >
 								<option value="" disabled selected hidden>Choose Account Type</option>
 								<option value="student">Student</option>
 								<option value="staff">Staff</option>
@@ -56,7 +57,7 @@
 					</div>
 					
 					<!-- button and link group -->
-					<button id="signupBtn" type="submit"><b>CREATE ACCOUNT</b></button>
+					<button id="signupBtn" type="submit" name="reg"><b>CREATE ACCOUNT</b></button>
 					<p class="login">Already have an account? <a href="../index.html">sign in</a>.</p>
 				</form>
 			</section>

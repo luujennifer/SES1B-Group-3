@@ -1,4 +1,4 @@
-<!-- search form page -->
+<!-- BASIC WEBSITE SKELETON -->
 
 <!DOCTYPE html>
 <html> 
@@ -6,7 +6,7 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="WebsiteStyling.css"> <!-- Skeleton css file -->
-		<link rel="stylesheet" href="SearchStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" href="SearchStyling.css"> <!-- Skeleton css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -26,13 +26,10 @@
 		<div class="body">
 			<section class="contentContainer">
 				<form class="search" action="search_results.php" method="GET">
-					<br>
-					<label for="searchtitle" id="searchtitle"><b>Search for Materials</b></label>
-					<p>Enter the material title or author to search, alternatively filter results by parameters.</p>
-					<br>
 					<input type="text" id="search-bar" name="query" placeholder=""/>
-					<center><button id="searchbtn" type="submit"><b>SEARCH</b></button></center>
-
+					<input type="submit" value="Search"/>
+					<!-- <a onclick="searchPosts(0)" href="#"><i id="search-icon" class="fas fa-search"></i></a> -->
+					<!-- <button onclick="searchPosts(0)" href="#"><i id="search-icon" class="fas fa-search"></i>Search</button> -->
 				</form>
 			
 			</section>

@@ -10,6 +10,7 @@
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
+		// Login system
 
 	$sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' ";
 		$result = mysqli_query($conn,$sql);
@@ -18,18 +19,13 @@
 
 	if ($row['email'] == $email && $row['password'] == $password) {
 		echo "Welcome ".$email." You have successfully logged in!";
-		
 	}
 	
-	
 		else {
-			
 			echo "<script>alert('Check your Credentials')</script>";
 			echo "<script>location.replace('../index.php')</script>"; 
-			
 		}
    
-
-	
-	
+			
+			
 ?>
