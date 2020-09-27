@@ -1,3 +1,5 @@
+<!-- search results page -->
+
 <?php
 	// mysql_connect("localhost", "root", "689iABj") or die("Error connecting to database: ".mysql_error());
 	/*
@@ -23,7 +25,7 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="WebsiteStyling.css"> <!-- Skeleton css file -->
-		<link rel="stylesheet" href="SearchStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" href="SearchStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -43,6 +45,7 @@
 		<div class="body">
 			<section class="contentContainer">
 			<!-- return to search -->
+			<a id="returntosearch" href="../HTML Files/search.php"><i class="fas fa-caret-left"></i><!-- this is a non breaking space --> &nbsp; &nbsp; Return to Search</a>
 <?php
 	$query = $_GET['query']; 
 	// gets value sent over search form
@@ -58,9 +61,13 @@
 		// $query = mysqli_real_escape_string($conn, $query);
 		// makes sure nobody uses SQL injection
 		
-		$raw_results = mysqli_query($conn, "SELECT * FROM books
-			WHERE (`title` LIKE '%".$query."%')") or die($conn -> error);
-			
+		if($query == '*'){
+			$raw_results = mysqli_query($conn, "SELECT * FROM books") or die($conn -> error);
+		} 
+		else {
+			$raw_results = mysqli_query($conn, "SELECT * FROM books
+			WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%')") or die($conn -> error);
+		}
 		// * means that it selects all fields, you can also write: `id`, `title`, `text`
 		// articles is the name of our table
 		
@@ -70,23 +77,26 @@
 		
 		//$num = mysqli_num_rows($raw_results)
 		if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-		//$num = mysqli_num_rows($raw_results)
-			//echo "<br><br><br>There are ".$num."results.";
+		$num = mysqli_num_rows($raw_results);
+		echo "<br><br>There are ".$num."&nbspmaterials that match the search criteria.<br>";
 			while($results = $raw_results->fetch_assoc()){
 			// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
-			
-				echo "<br><br><br><p><h3 id='booktitle'>".$results['title']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['topic']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."</p>";
-				// posts results gotten from database(title and text) you can also show id ($results['id'])
+				if($results['type'] == 'Fiction'){
+					echo "<p><h3 id='booktitle'>".$results['title']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."</p><br>";
+				}
+				else {
+					echo "<p><h3 id='booktitle'>".$results['title']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."</p><br>";
+				}
 			}
 			
 		}
 		else{ // if there is no matching rows do following
-			echo "<br><br><br>No results";
+			echo "<br><br>No results";
 		}
 		
 	}
 	else{ // if query length is less than minimum
-		echo "<br><br><br>Minimum length is ".$min_length;
+		echo "<br><br>Please enter a valid search parameter.";
 	}
 ?>
 </section>
