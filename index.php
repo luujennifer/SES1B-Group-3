@@ -51,8 +51,8 @@
 					
 					<br>
 					
-					<button id="loginBtn" type="submit"><b>Login</b></button>
-					<a id="signupBtn" href="HTML%20Files/bookshelf-signup.php"><b>Sign Up</b></a>
+					<button id="loginBtn" type="submit" value="submit"><b>Login</b></button>
+					<a id="signupBtn" href="HTML%20Files/bookshelf-signup.html"><b>Sign Up</b></a>
 				</form>
 			
 			</section>
