@@ -61,9 +61,13 @@
 		// $query = mysqli_real_escape_string($conn, $query);
 		// makes sure nobody uses SQL injection
 		
-		$raw_results = mysqli_query($conn, "SELECT * FROM books
+		if($query == '*'){
+			$raw_results = mysqli_query($conn, "SELECT * FROM books") or die($conn -> error);
+		} 
+		else {
+			$raw_results = mysqli_query($conn, "SELECT * FROM books
 			WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%')") or die($conn -> error);
-			
+		}
 		// * means that it selects all fields, you can also write: `id`, `title`, `text`
 		// articles is the name of our table
 		
