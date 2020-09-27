@@ -1,101 +1,133 @@
+<!-- REGISTRATION PAGE -->
+
 <!DOCTYPE html>
-<html>
-  <script src="https://kit.fontawesome.com/56b24aa4ed.js" crossorigin="anonymous"></script>
-  <head>
-    <title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
-    <link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
-    <link rel="stylesheet" href="../CSS Files/SignUpStyling.css"> <!-- Login css file -->
-    <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
-    <link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
-  </head>
-  <body>
-  <!-- fixed top navigation bar -->
-  <header>
-    <div class="navigation" >
-      <a onclick="window.location.href='index.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
-    </div>
-  </header>
+<html> 
+	<script src="https://kit.fontawesome.com/56b24aa4ed.js" crossorigin="anonymous"></script>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Imports JQuery librry -->
+        <script src="../Javascript%20Files/KeepFloating.js"></script> <!-- Script for keeping labels afloat -->
 
-  <!-- content body of website -->
-  <div class="body">
-    <section class="wideContentContainer">
-      <style>
-        select:invalid {color: gray;}
-      </style>
-      <form class="signup" action="" method="POST">
-        <label for="signupTitle" id="signupTitle"><b>Sign Up</b></label>
+		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
+		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" href="../CSS Files/SignupStyling.css"> <!-- Sign up css file -->
+        <link rel="stylesheet" href="../CSS Files/FloatingLabels.css"> <!-- Floating labels css file -->
+		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
+		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- Icon file -->
+	</head>	
+	<body>
+		<!-- Fixed top navigation bar -->
+		<header style="position: fixed; z-index: 100;">
+			<div class="navigation" > 
+				<a onclick="window.location.href='../index.php'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+			</div>
+		</header>
+		
+		<!-- Content body of website -->
+		<div class="body">
+			<section class="wideContentContainer">
+			<style>
+				select:invalid {color: gray;}
+		    </style>
+				<!-- Registration form -->
+				<form class="signup" action="../index.php" method="POST">
+					<label for="signupTitle" id="signupTitle"><b>Sign Up</b></label>
 
-        <br>
-        <div class="inputFields">
-          <input type="text" id="firstName" placeholder="First Name" name="firstName" pattern="[A-Z][a-zA-Z- ]{1,}" required>
-          <input type="text" id="lastName" placeholder="Last Name" name="lastName" pattern="[A-Z][a-zA-Z-]{1,}" required>
-          <input type="email" id="email" placeholder="Email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-          <select id="accType" class="accountDropDown" required>
-            <option value="" disabled selected hidden>Account Type</option>
-            <option value="student">Student</option>
-            <option value="staff">Staff</option>
-          </select>
-          <input type="password" id="psw" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-          <input type="password" id="pswConfirm" placeholder="Confirm Password" name="confirmPass" required>
-          <span id="msgCondition">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
-          <span id="msgConfirm">Passwords do not match</span>
-        </div>
-        <br>
+					<br>
+					<br>
+					<!-- All input fields -->
+					<div class="inputFields">
+						<div class="floating-label-wrap">
+							<input type="text" id="firstName" pattern="[A-Z][a-zA-Z-\s]{1,}" required>
+							<label for="firstName" class="floating-label">First Name</label>
+						</div>
+						<div class="floating-label-wrap">
+							<input type="text" id="lastName" pattern="[A-Z][a-zA-Z-]{1,}" required>
+							<label for="lastName" class="floating-label">Last Name</label>
+						</div>
+						<div class="floating-label-wrap">
+							<input type="email" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+							<label for="email" class="floating-label">Email</label>
+						</div>
 
-        <button type="submit" id="createAccBtn" value="Submit" onclick=""><b>Create Account</b></button>
-        <div class="loginRedirect">
-          <label>Already have an account?</label>
-          <span class="login"><a href="../HTML%20Files/index.html">Sign in.</a></span>
-        </div>
-      </form>
+						<div class="floating-label-wrap">
+							<select id="accType" class="accountDropDown" required>
+								<option value="" disabled selected hidden></option>
+								<option value="student">Student</option>
+								<option value="staff">Staff</option>
+							</select>
+							<label for="accType" class="floating-label">Account Type</label>
+						</div>
 
-      <script>
-        var password = document.getElementById("psw");
-        var confirmPassword = document.getElementById("pswConfirm");
+						<!-- Password group -->
+						<div class="floating-label-wrap">
+							<input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+							<label for="psw" class="floating-label">Password</label>
+						</div>
+						<div class="floating-label-wrap">
+							<input type="password" id="pswConfirm" required>
+							<label for="pswConfirm" class="floating-label">Confirm Password</label>
+						</div>
+						<!-- Password message group -->
+						<span id="msgCondition" class="msg">Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
+						<span id="msgConfirm" class="msg">Passwords do not match</span>
+					</div>
+					<br>
 
-        function validPassword() {
-          var lowerCaseLetters = /[a-z]/g;
-          var upperCaseLetters = /[A-Z]/g;
-          var numbers = /[0-9]/g;
-          if(password.value.match(lowerCaseLetters) && password.value.match(upperCaseLetters) && password.value.match(numbers) && password.value.length >= 8) {
-            document.getElementById("msgCondition").style.display = "none";
-          }
-          else{
-            document.getElementById("msgCondition").style.display = "block";
-          }
-        }
+					<!-- Button and return login group -->
+					<button type="submit" id="createAccBtn" value="Submit" onclick=""><b>Create Account</b></button>
+					<label class="login">Already have an account? <a href="../index.php">Sign in</a>.</label>
 
-        function matchedPassword(){
-          if(confirmPassword.value.match(password.value)){
-            document.getElementById("msgConfirm").style.display = "none";
-          }
-          else{
-            document.getElementById("msgConfirm").style.display = "block";
-          }
-        }
+					<br>
+					<br>
+				</form>
 
-        password.onfocus = function() {validPassword();}
-        confirmPassword.onfocus = function() {matchedPassword();}
+				<!--Validation message script-->
+				<script type="text/javascript">
+					var password = document.getElementById("psw");
+					var confirmPassword = document.getElementById("pswConfirm");
 
-        password.onblur = function() {validPassword();}
-        confirmPassword.onblur = function() {matchedPassword();}
+					function validPassword() {
+						var lowerCaseLetters = /[a-z]/g;
+						var upperCaseLetters = /[A-Z]/g;
+						var numbers = /[0-9]/g;
+						if(password.value.match(lowerCaseLetters) && password.value.match(upperCaseLetters) && password.value.match(numbers) && password.value.length >= 8) {
+							document.getElementById("msgCondition").style.display = "none";
+						}
+						else{
+							document.getElementById("msgCondition").style.display = "block";
+						}
+					}
 
-        password.onkeyup = function() {validPassword();}
-        confirmPassword.onkeyup = function() {matchedPassword();}
+					function matchedPassword(){
+						if(confirmPassword.value.match(password.value)){
+							document.getElementById("msgConfirm").style.display = "none";
+						}
+						else{
+							document.getElementById("msgConfirm").style.display = "block";
+						}
+					}
 
-      </script>
+					password.onfocus = function() {validPassword();}
+					confirmPassword.onfocus = function() {matchedPassword();}
 
-    </section>
-  </div>
+					password.onblur = function() {validPassword();}
+					confirmPassword.onblur = function() {matchedPassword();}
 
-  <!-- fixed footer bar -->
-  <div class="footer">
-    <div class="etcDetails">
-      <a href="https://github.com/luujennifer/SES1B-Group-3"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://drive.google.com/drive/u/2/folders/0ALuTuEVm4VA2Uk9PVA"><i class="fab fa-google-drive"></i> Google Drive</a>
-    </div>
+					password.onkeyup = function() {validPassword();}
+					confirmPassword.onkeyup = function() {matchedPassword();}
 
-    <p id="copyRight">Created by Group 3 for Software Engineering Studio 1B</p>
-  </div>
-  </body>
+				</script>
+			</section>
+		</div>
+		
+		<!-- Fixed footer bar -->
+		<div class="footer" style="position: fixed; z-index: 100;">
+			<div class="etcDetails">
+				<a href="https://github.com/luujennifer/SES1B-Group-3"><i class="fab fa-github"></i> GitHub</a>
+				<a href="https://drive.google.com/drive/u/2/folders/0ALuTuEVm4VA2Uk9PVA"><i class="fab fa-google-drive"></i> Google Drive</a>
+			</div>
+			
+			<p id="copyRight">Created by Group 3 for Software Engineering Studio 1B</p>
+		</div>
+	</body>
 </html>
