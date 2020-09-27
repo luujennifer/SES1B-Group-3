@@ -25,7 +25,7 @@
 		else {
 			
 			echo "<script>alert('Check your Credentials')</script>";
-			echo "<script>location.replace('../index.php')</script>"; 
+			echo "<script>location.replace('../index.php')</script>";
 			
 		}
    
