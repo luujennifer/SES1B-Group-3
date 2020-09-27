@@ -4,33 +4,13 @@
 <html> 
 	<script src="https://kit.fontawesome.com/56b24aa4ed.js" crossorigin="anonymous"></script>
 	<head>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Imports JQuery librry -->
+        <script src="../Javascript%20Files/KeepFloating.js"></script> <!-- Script for keeping labels afloat -->
+
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
-		<!-- Script for keeping floating labels -->
-		<script>
-			$(document).ready(function() {
-				var $input = $("input");
-				var $selector = $("select");
-				$input.focusout(function() {
-					var value = $.trim($(this).val());
-					if (value) {
-						$(this).next(".floating-label").addClass("input-focus-label");
-					} else {
-						$(this).next(".floating-label").removeClass("input-focus-label");
-					}
-				});
-				$selector.focusout(function() {
-					var value = $.trim($(this).val());
-					if (value) {
-						$(this).next(".floating-label").addClass("input-focus-label");
-					} else {
-						$(this).next(".floating-label").removeClass("input-focus-label");
-					}
-				});
-			});
-		</script>
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
 		<link rel="stylesheet" href="../CSS Files/SignupStyling.css"> <!-- Sign up css file -->
+        <link rel="stylesheet" href="../CSS Files/FloatingLabels.css"> <!-- Floating labels css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- Icon file -->
 	</head>	
@@ -38,7 +18,7 @@
 		<!-- Fixed top navigation bar -->
 		<header style="position: fixed; z-index: 100;">
 			<div class="navigation" > 
-				<a onclick="window.location.href='index.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+				<a onclick="window.location.href='../index.php'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 			</div>
 		</header>
 		
