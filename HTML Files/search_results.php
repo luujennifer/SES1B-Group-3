@@ -55,27 +55,20 @@
 	
 	if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
 		
-		// $query = htmlspecialchars($query); 
+		$query = htmlspecialchars($query); 
 		// changes characters used in html to their equivalents, for example: < to &gt;
 		
 		// $query = mysqli_real_escape_string($conn, $query);
 		// makes sure nobody uses SQL injection
 		
 		if($query == '*'){
-			$raw_results = mysqli_query($conn, "SELECT * FROM books") or die($conn -> error);
+			$raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY 'title'") or die($conn -> error);
 		} 
 		else {
 			$raw_results = mysqli_query($conn, "SELECT * FROM books
-			WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%')") or die($conn -> error);
+			WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY 'title'") or die($conn -> error);
 		}
-		// * means that it selects all fields, you can also write: `id`, `title`, `text`
-		// articles is the name of our table
-		
-		// '%$query%' is what we're looking for, % means anything, for example if $query is Hello
-		// it will match "hello", "Hello man", "gogohello", if you want exact match use `title`='$query'
-		// or if you want to match just full word so "gogohello" is out use '% $query %' ...OR ... '$query %' ... OR ... '% $query'
-		
-		//$num = mysqli_num_rows($raw_results)
+
 		if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 		$num = mysqli_num_rows($raw_results);
 		echo "<br><br>There are ".$num."&nbspmaterials that match the search criteria.<br>";
