@@ -56,6 +56,11 @@
 	line-height: 1.5;
 }
 
+.flexContentContainer {
+	padding: 16px;
+	margin: auto;
+	line-height: 1.5;
+}
 
 /*fixed footer bar */
 .footer {

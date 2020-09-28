@@ -7,28 +7,15 @@
 .login #loginTitle {
 	font-size: 30px;
 }
-.login input[type=email] {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-	background: #fafafa;
-	border-radius: 17px;
+.login input[type=email] { /* Compensation relative to FloatingLabels.css */
+	width: 170%;
 }
-.login input[type=password] {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-	background: #fafafa;
-	border-radius: 17px;
+.login input[type=password] { /* Compensation relative to FloatingLabels.css */
+	width: 170%;
 }
 .login .optionsGroup {
 	padding-top: 14px;
+	font-size: smaller;
 }
 .login input[type=checkbox] {
 	cursor: pointer;
