@@ -15,14 +15,20 @@
 	padding: 10px;
 
 	}
-#name p {
-	float: left;
-	padding-top: 4px;
-}
 #settings { /* aligning the settings cog */
-	float: right;
-	padding: 25px;
+	float: left;
 	cursor: pointer;
+	text-decoration: none;
+	font-size: 15px;
+	
+}
+#logout {
+	float: right;
+	padding-top: 28px;
+	padding-right: 28px;
+	padding-bottom: 28px;
+	cursor: pointer;
+	font-size: 30px;
 }
 input[type=text] { /* design consistent with other input */
 	width: 100%;

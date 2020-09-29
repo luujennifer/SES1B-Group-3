@@ -64,28 +64,30 @@
 						// makes sure nobody uses SQL injection
 						
 						if($query == '*'){
-							switch ($filter){
-								case 'Fiction':
-								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE 'type' = 'Fiction' ORDER BY 'title'") or die($conn -> error);
-								break;
-								case 'Non-Fiction':
-								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE 'type' = 'Non-Fiction' ORDER BY 'title'") or die($conn -> error);
-								break;
-								default:
-								$raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY 'title'") or die($conn -> error);
-								break;
+							$raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY title") or die($conn -> error);
+							// switch ($filter){
+								// case 'Fiction':
+								// $raw_results = mysqli_query($conn, "SELECT * FROM books WHERE 'type' = 'Fiction' ORDER BY 'title'") or die($conn -> error);
+								// break;
+								// case 'Non-Fiction':
+								// $raw_results = mysqli_query($conn, "SELECT * FROM books WHERE 'type' = 'Non-Fiction' ORDER BY 'title'") or die($conn -> error);
+								// break;
+								// default:
+								// $raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY 'title'") or die($conn -> error);
+								// break;
 						} 
 						else {
-							switch ($filter){
-								case 'Fiction':
-								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type' = 'Fiction') ORDER BY 'title'") or die($conn -> error);
-								break;
-								case 'Non-Fiction':
-								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type; = 'Non-Fiction') ORDER BY 'title'") or die($conn -> error);
-								break;
-								default:
-								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY 'title'") or die($conn -> error);
-								break;
+							$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY title") or die($conn -> error);
+							// switch ($filter){
+								// case 'Fiction':
+								// $raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type' = 'Fiction') ORDER BY 'title'") or die($conn -> error);
+								// break;
+								// case 'Non-Fiction':
+								// $raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type; = 'Non-Fiction') ORDER BY 'title'") or die($conn -> error);
+								// break;
+								// default:
+								// $raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY 'title'") or die($conn -> error);
+								// break;
 							
 						}
 
@@ -95,10 +97,10 @@
 							while($results = $raw_results->fetch_assoc()){
 							// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 								if($results['type'] == 'Fiction'){
-									echo "<p><h3 id='booktitle'>".$results['title']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."</p><br>";
+									echo "<p><h3 id='booktitle'>".$results['title']."&nbsp-&nbsp".$results['ISBN']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."</p><br>";
 								}
 								else {
-									echo "<p><h3 id='booktitle'>".$results['title']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."</p><br>";
+									echo "<p><h3 id='booktitle'>".$results['title']."&nbsp-&nbsp".$results['ISBN']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."</p><br>";
 								}
 							}
 							
