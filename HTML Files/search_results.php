@@ -43,56 +43,76 @@
 		
 		<!-- content body of website -->
 		<div class="body">
+		<!-- return to search -->
+		<a id="returntosearch" href="../HTML Files/search.php"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Search</a>
 			<section class="contentContainer">
-			<!-- return to search -->
-			<a id="returntosearch" href="../HTML Files/search.php"><i class="fas fa-caret-left"></i><!-- this is a non breaking space --> &nbsp; &nbsp; Return to Search</a>
-<?php
-	$query = $_GET['query']; 
-	// gets value sent over search form
-	
-	$min_length = 1;
-	// you can set minimum length of the query if you want
-	
-	if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
-		
-		$query = htmlspecialchars($query); 
-		// changes characters used in html to their equivalents, for example: < to &gt;
-		
-		// $query = mysqli_real_escape_string($conn, $query);
-		// makes sure nobody uses SQL injection
-		
-		if($query == '*'){
-			$raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY 'title'") or die($conn -> error);
-		} 
-		else {
-			$raw_results = mysqli_query($conn, "SELECT * FROM books
-			WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY 'title'") or die($conn -> error);
-		}
+				<label for="searchresultstitle" id="searchtitle"><b>Search Results</b></label>
+				<?php
+					$query = $_GET['query']; 
+					$filter = $_GET['category'];
+					// gets value sent over search form
+					
+					$min_length = 1;
+					// you can set minimum length of the query if you want
+					
+					if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
+						
+						$query = htmlspecialchars($query); 
+						// changes characters used in html to their equivalents, for example: < to &gt;
+						
+						// $query = mysqli_real_escape_string($conn, $query);
+						// makes sure nobody uses SQL injection
+						
+						if($query == '*'){
+							switch ($filter){
+								case 'Fiction':
+								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE 'type' = 'Fiction' ORDER BY 'title'") or die($conn -> error);
+								break;
+								case 'Non-Fiction':
+								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE 'type' = 'Non-Fiction' ORDER BY 'title'") or die($conn -> error);
+								break;
+								default:
+								$raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY 'title'") or die($conn -> error);
+								break;
+						} 
+						else {
+							switch ($filter){
+								case 'Fiction':
+								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type' = 'Fiction') ORDER BY 'title'") or die($conn -> error);
+								break;
+								case 'Non-Fiction':
+								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type; = 'Non-Fiction') ORDER BY 'title'") or die($conn -> error);
+								break;
+								default:
+								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY 'title'") or die($conn -> error);
+								break;
+							
+						}
 
-		if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-		$num = mysqli_num_rows($raw_results);
-		echo "<br><br>There are ".$num."&nbspmaterials that match the search criteria.<br>";
-			while($results = $raw_results->fetch_assoc()){
-			// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
-				if($results['type'] == 'Fiction'){
-					echo "<p><h3 id='booktitle'>".$results['title']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."</p><br>";
-				}
-				else {
-					echo "<p><h3 id='booktitle'>".$results['title']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."</p><br>";
-				}
-			}
-			
-		}
-		else{ // if there is no matching rows do following
-			echo "<br><br>No results";
-		}
-		
-	}
-	else{ // if query length is less than minimum
-		echo "<br><br>Please enter a valid search parameter.";
-	}
-?>
-</section>
+						if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+						$num = mysqli_num_rows($raw_results);
+						echo "<br><br>There are ".$num."&nbspmaterials that match the search criteria.<br>";
+							while($results = $raw_results->fetch_assoc()){
+							// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
+								if($results['type'] == 'Fiction'){
+									echo "<p><h3 id='booktitle'>".$results['title']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."</p><br>";
+								}
+								else {
+									echo "<p><h3 id='booktitle'>".$results['title']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."</p><br>";
+								}
+							}
+							
+						}
+						else{ // if there is no matching rows do following
+							echo "<br><br>No results";
+						}
+						
+					}
+					else{ // if query length is less than minimum
+						echo "<br><br>Please enter a valid search parameter.";
+					}
+				?>
+			</section>
 		</div>
 		
 		<!-- fixed footer bar -->
