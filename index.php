@@ -25,7 +25,7 @@
 		<!-- content body of website -->
 		<div class="body">
 			<section class="contentContainer">
-				<form class="login" action="HTML Files/process.php" method="POST">
+				<form class="login" action="PHP Files/process.php" method="POST">
 					<center>
 						<label for="loginTitle" id="loginTitle"><b>Welcome Back!</b></label>
 						<p id="signinText">Sign in to continue where you left off.</p>
