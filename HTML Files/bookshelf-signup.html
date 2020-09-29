@@ -29,7 +29,9 @@
 				select:invalid {color: gray;}
 		    </style>
 				<!-- Registration form -->
-				<form class="signup" action="add-account.php" method="POST">
+
+				<form class="signup" action="../PHP Files/registrationdb.php" method="POST">
+
 					<label for="signupTitle" id="signupTitle"><b>Sign Up</b></label>
 
 					<br>
@@ -37,20 +39,22 @@
 					<!-- All input fields -->
 					<div class="inputFields">
 						<div class="floating-label-wrap">
-							<input type="text" id="firstName" name="firstName" pattern="[A-Z][a-zA-Z-\s]{1,}" required>
+
+							<input type="text" id="firstName" name="FirstName" pattern="[A-Z][a-zA-Z-\s]{1,}" required>
 							<label for="firstName" class="floating-label">First Name</label>
 						</div>
 						<div class="floating-label-wrap">
-							<input type="text" id="lastName" name="lastName" pattern="[A-Z][a-zA-Z-]{1,}" required>
+							<input type="text" id="lastName" name="LastName" pattern="[A-Z][a-zA-Z-]{1,}" required>
 							<label for="lastName" class="floating-label">Last Name</label>
 						</div>
 						<div class="floating-label-wrap">
-							<input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+							<input type="email" id="email" name="Email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+
 							<label for="email" class="floating-label">Email</label>
 						</div>
 
 						<div class="floating-label-wrap">
-							<select id="accType" name="accType" class="accountDropDown" required>
+							<select id="accType" class="accountDropDown" required>
 								<option value="" disabled selected hidden></option>
 								<option value="student">Student</option>
 								<option value="staff">Staff</option>
@@ -60,7 +64,7 @@
 
 						<!-- Password group -->
 						<div class="floating-label-wrap">
-							<input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+							<input type="password" id="psw" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
 							<label for="psw" class="floating-label">Password</label>
 						</div>
 						<div class="floating-label-wrap">
@@ -74,7 +78,7 @@
 					<br>
 
 					<!-- Button and return login group -->
-					<button type="submit" id="createAccBtn" value="submit" onclick=""><b>Create Account</b></button>
+					<button type="submit" id="createAccBtn" value="Submit" onclick=""><b>Create Account</b></button>
 					<label class="login">Already have an account? <a href="../index.php">Sign in</a>.</label>
 
 					<br>

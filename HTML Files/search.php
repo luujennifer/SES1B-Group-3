@@ -62,17 +62,22 @@
 					<label for="searchtitle" id="searchtitle"><b>Search for Materials</b></label>
 					<p>Type to search or enter * to view all materials.</p>
 					<input type="text" id="search-bar" name="query" placeholder="Enter the material title or author to search"/>
-					<p>Or filter by category and/or topic</p>
-					<center>
-						<div>
-							<div id="type">
+
+					<p>Or filter by category.</p>
+					<input type="radio" name="category" value="Fiction">Fiction</input>
+					<input type="radio" name="category" value="Non-Fiction">Non-Fiction</input>
+					<!--<center>-->
+						<!--<div>-->
+							<!--<div id="type">
 								<select id="selectBox" name="category">
 									<option value="" disabled selected hidden>Choose Category</option>
 									<option value="Fiction">Fiction</option>
 									<option value="Non-Fiction">Non-Fiction</option>
 								</select>
-							</div>	
-							<div id="type">
+
+							</div>-->
+							<!--<div id="type">
+
 								<select id="selectBox" name="topic">
 									<option data-value="Non-Fiction" value="" disabled selected hidden>Choose Topic</option>
 									<option data-value="Non-Fiction" value="Architecture">Architecture</option>
@@ -104,9 +109,9 @@
 									<option data-value="Fiction" value="Manga">Manga</option>
 									<option data-value="Fiction" value="Dystopian">Dystopian</option>
 								</select>
-							</div>
-						</div>
-					</center>
+							</div> -->
+						<!--</div>-->
+					<!--</center>-->
 					<center><button id="searchbtn" type="submit"><b>SEARCH</b></button></center>
 
 				</form>
