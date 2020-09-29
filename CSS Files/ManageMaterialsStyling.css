@@ -18,13 +18,12 @@
 .search input[type=text] { /* design consistent with other input */
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin-top: 8px;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
     background: #fafafa;
     border-radius: 17px;
-
 }
 .search button {
     padding: 14px 20px;
@@ -51,18 +50,25 @@
     border: solid 3px transparent;
     box-shadow: 2px 1000px 1px #fff inset;
 }
-.search #search-icon {
-    position: relative;
-    float: right;
-    width: 10%;
-    height:10%;
-    top: -38px;
-    left: 50px;
-    overflow: hidden;
-    color: black;
-    display: inline-block;
-}
+.search .inputIconWrap::after{
+    font-family: FontAwesome;
+    content: '\f002';
+    color: gray;
+    margin-left: -2em;
+ }
 .search #returntosearch {
     text-decoration: none;
     color:black;
+}
+.search .resultContainer{
+    width: 100%;
+    min-height: 250px;
+    max-height: 75%;
+    padding: 8px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background: #fafafa;
+    border-radius: 17px;
+    overflow: auto;
 }
