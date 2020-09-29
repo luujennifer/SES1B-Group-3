@@ -98,6 +98,3 @@ button {
 #selectBox::-ms-expand {
 	display: none;
 }
-.show {
-	display: none;
-}

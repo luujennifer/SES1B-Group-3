@@ -51,7 +51,7 @@ input[type=text] { /* design consistent with other input */
 	margin: auto;
 }
 
-#borrow { /* borrow materials link */
+#manage { /* borrow materials link */
 	/* float: left; */
 	display: inline-block;
 	text-align: center;
@@ -59,7 +59,7 @@ input[type=text] { /* design consistent with other input */
 	padding-right: 120px;
 	
 }
-#manage { /* manage loans link */
+#fines { /* manage loans link */
 	/* float: right; */
 	text-align: center;
 	cursor: pointer;
