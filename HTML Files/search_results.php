@@ -1,18 +1,6 @@
 <!-- search results page -->
 
 <?php
-	// mysql_connect("localhost", "root", "689iABj") or die("Error connecting to database: ".mysql_error());
-	/*
-		localhost - it's location of the mysql server, usually localhost
-		root - your username
-		third is your password
-		
-		if connection fails it will stop loading the page and display an error
-	*/
-	
-	// mysql_select_db("bookshelf") or die(mysql_error());
-	/* tutorial_search is the name of database we've created */
-	
 	$dbhost = "localhost";
 	$dbuser = "root";
 	$dbpass = "689iABj";
@@ -97,10 +85,10 @@
 							while($results = $raw_results->fetch_assoc()){
 							// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 								if($results['type'] == 'Fiction'){
-									echo "<p><h3 id='booktitle'>".$results['title']."&nbsp-&nbsp".$results['ISBN']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."</p><br>";
+									echo "<p><h3 id='booktitle'>".$results['title']."&nbsp-&nbsp".$results['ISBN']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
 								}
 								else {
-									echo "<p><h3 id='booktitle'>".$results['title']."&nbsp-&nbsp".$results['ISBN']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."</p><br>";
+									echo "<p><h3 id='booktitle'>".$results['title']."&nbsp-&nbsp".$results['ISBN']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
 								}
 							}
 							
