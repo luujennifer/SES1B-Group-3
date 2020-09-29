@@ -30,6 +30,10 @@
 	cursor: pointer;
 	vertical-align: -13px;
 }
+.title {
+	margin: 0px 8px;
+	font-size: 30px;
+}
 
 /* body of the site = everything outside the navbar and footer bar */
 .body{

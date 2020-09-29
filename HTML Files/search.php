@@ -5,10 +5,10 @@
 	<script src="https://kit.fontawesome.com/56b24aa4ed.js" crossorigin="anonymous"></script>
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
-		<link rel="stylesheet" href="WebsiteStyling.css"> <!-- Skeleton css file -->
-		<link rel="stylesheet" href="SearchStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" href="../CSS%20Files/WebsiteStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" href="../CSS%20Files/SearchStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
-		<link rel="icon" type="image/x-icon" href="/logo.ico"/> <!-- icon file -->
+		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>
 			$(document).ready(function() {
@@ -16,27 +16,27 @@
 			  // Save all selects' id in an array 
 			  // to determine which select's option and value would be changed
 			  // after you select an option in another select.
-			  var selectors = ['category', 'topic']
+			  var selectors = ['category', 'topic'];
 
 			  $('#type').on('change', function() {
-				var index = selectors.indexOf(this.id)
-				var value = this.value
+				var index = selectors.indexOf(this.id);
+				var value = this.value;
 
 				// check if is the last one or not
 				if (index < selectors.length - 1) {
-				  var next = $('#' + selectors[index + 1])
+				  var next = $('#' + selectors[index + 1]);
 
 				  // Show all the options in next select
-				  $(next).find('option').show()
+				  $(next).find('option').show();
 				  if (value != "") {
 					// if this select's value is not empty
 					// hide some of the options 
-					$(next).find('option[data-value!=' + value + ']').hide()
+					$(next).find('option[data-value!=' + value + ']').hide();
 				  }
 				  
 				  // set next select's value to be the first option's value 
 				  // and trigger change()
-				  $(next).val($(next).find("option:first").val()).change()
+				  $(next).val($(next).find("option:first").val()).change();
 				}
 			  })
 			});
@@ -46,10 +46,10 @@
 		<!-- fixed top navigation bar -->
 		<header>
 			<div class="navigation" > 
-				<a onclick="window.location.href='index.html'"><img src="/logo(colour).png"/><b> Bookshelf</b></a>
+				<a onclick="window.location.href='../index.php'"><img src="../Misc Files/Logo(Colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
 					<p><b>Jane Smith</b><br>Admin</p>
-					<a id="settings" onclick="window.location.href='admin-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
+					<a id="settings" onclick="window.location.href='../HTML%20Files/admin-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
 				</div>
 			</div>
 		</header>

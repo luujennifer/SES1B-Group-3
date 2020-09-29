@@ -74,6 +74,7 @@
 								default:
 								$raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY 'title'") or die($conn -> error);
 								break;
+								}
 						} 
 						else {
 							switch ($filter){
@@ -81,17 +82,17 @@
 								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type' = 'Fiction') ORDER BY 'title'") or die($conn -> error);
 								break;
 								case 'Non-Fiction':
-								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type; = 'Non-Fiction') ORDER BY 'title'") or die($conn -> error);
+								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type' = 'Non-Fiction') ORDER BY 'title'") or die($conn -> error);
 								break;
 								default:
 								$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY 'title'") or die($conn -> error);
 								break;
-							
+							}
 						}
 
 						if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-						$num = mysqli_num_rows($raw_results);
-						echo "<br><br>There are ".$num."&nbspmaterials that match the search criteria.<br>";
+                            $num = mysqli_num_rows($raw_results);
+                            echo "<br><br>There are ".$num."&nbspmaterials that match the search criteria.<br>";
 							while($results = $raw_results->fetch_assoc()){
 							// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 								if($results['type'] == 'Fiction'){

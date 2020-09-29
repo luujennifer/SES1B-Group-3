@@ -19,10 +19,12 @@
 			
 	if (!mysqli_query($conn, $sql)) {
 		echo 'Registration failed';
+
 	}
 	
 	else {
 		echo 'Registration Successful';
+		header('Location: ../index.php');
 	}
 
 ?>
