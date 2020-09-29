@@ -51,15 +51,14 @@
 					
 					<br>
 					
-					<button id="loginBtn" type="submit"><b>LOGIN</b></button>
-					<a id="signupBtn" href="HTML Files/bookshelf-signup.html"><b>SIGN UP</b></a>
+					<button id="loginBtn" type="submit"><b>Login</b></button>
+					<a id="signupBtn" href="HTML Files/bookshelf-signup.html"><b>Sign Up</b></a>
 				</form>
 			
 			</section>
 		</div>
 		
 		<!-- fixed footer bar -->
-
 		<div class="footer" style="position: fixed; z-index: 100;">
 			<div class="etcDetails">
 				<a href="https://github.com/luujennifer/SES1B-Group-3"><i class="fab fa-github"></i> GitHub</a>
