@@ -7,7 +7,7 @@
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
 
-	$sqlValue = "SELECT * FROM `loans` WHERE account_type = '$' AND firstname ='$' and lastname ='$' "; // need to match up firstname and lastname and account type
+	$sqlValue = "SELECT * FROM `loans` WHERE "; // need complete sql query for staff loans
 
 ?>
 
@@ -27,7 +27,7 @@
 				<a onclick="window.location.href='staff-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
 					<p><b>Lisa Ron</b><br>Student</p>
-					<a id="settings" onclick="window.location.href='staff-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
+					<a id="settings" onclick="window.location.href='staff-account-settings.php'"><i class="fas fa-cog"></i></a> 
 				</div>
 			</div>
 		</header>
@@ -41,20 +41,30 @@
 			
 				<table>
 					<tr>
-						<th> </th>
+						<th>Loan ID</th>
+						<th>Title</th>
+						<th>Author</th>
+						<th>Borrow Date</th>
+						<th>Due Date</th>
+						<th>Overdue?</th>
+						<th>Fees</th>
 					</tr>
 					
 					<!-- print all database data into a table -->
 					<?php
-						if()
+						if() //result greater than 0
 						{
-							while()
+							while() //fetch associate
 							{
 								echo'<tr>
 										<td>'.$.'</td>
 									</tr>';
 							}
 							
+						}
+						else 
+						{
+							echo "No current loans.";
 						}
 					?>
 				</table>
