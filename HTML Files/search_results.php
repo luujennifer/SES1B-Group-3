@@ -13,7 +13,7 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="WebsiteStyling.css"> <!-- Skeleton css file -->
-		<link rel="stylesheet" href="SearchStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" href="SearchResultsStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -23,8 +23,8 @@
 			<div class="navigation" > 
 				<a onclick="window.location.href='index.html'"><img src="/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<p><b>Jane Smith</b><br>Admin</p>
-					<a id="settings" onclick="window.location.href='admin-account-settings.php'"><i class="fas fa-cog"></i></a>
+					<a id="settings" onclick="window.location.href='admin-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="logout" onclick="window.location.href=''"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
 			</div>
 		</header>
@@ -32,9 +32,9 @@
 		<!-- content body of website -->
 		<div class="body">
 		<!-- return to search -->
-		<a id="returntosearch" href="../HTML Files/search.php"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Search</a>
+		<a id="returntosearch" href="../HTML Files/admin-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
-				<label for="searchresultstitle" id="searchtitle"><b>Search Results</b></label>
+				<h1 id="searchtitle">Search Results</h1>
 				<?php
 					$query = $_GET['query']; 
 					$filter = $_GET['category'];
@@ -53,35 +53,14 @@
 						
 						if($query == '*'){
 							$raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY title") or die($conn -> error);
-							// switch ($filter){
-								// case 'Fiction':
-								// $raw_results = mysqli_query($conn, "SELECT * FROM books WHERE 'type' = 'Fiction' ORDER BY 'title'") or die($conn -> error);
-								// break;
-								// case 'Non-Fiction':
-								// $raw_results = mysqli_query($conn, "SELECT * FROM books WHERE 'type' = 'Non-Fiction' ORDER BY 'title'") or die($conn -> error);
-								// break;
-								// default:
-								// $raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY 'title'") or die($conn -> error);
-								// break;
 						} 
 						else {
 							$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY title") or die($conn -> error);
-							// switch ($filter){
-								// case 'Fiction':
-								// $raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type' = 'Fiction') ORDER BY 'title'") or die($conn -> error);
-								// break;
-								// case 'Non-Fiction':
-								// $raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') OR ('type; = 'Non-Fiction') ORDER BY 'title'") or die($conn -> error);
-								// break;
-								// default:
-								// $raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY 'title'") or die($conn -> error);
-								// break;
-							
 						}
 
 						if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 						$num = mysqli_num_rows($raw_results);
-						echo "<br><br>There are ".$num."&nbspmaterials that match the search criteria.<br>";
+						echo "<br><p id='message'>There are <b>".$num."</b>&nbspmaterials that match the search criteria.</p><br>";
 							while($results = $raw_results->fetch_assoc()){
 							// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 								if($results['type'] == 'Fiction'){
@@ -91,15 +70,16 @@
 									echo "<p><h3 id='booktitle'>".$results['title']."&nbsp-&nbsp".$results['ISBN']."</h3><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
 								}
 							}
+							echo "<p id='message'>End of search results.</p><br><br>";
 							
 						}
 						else{ // if there is no matching rows do following
-							echo "<br><br>No results";
+							echo "<br><p id='message'>No results.</p>";
 						}
 						
 					}
 					else{ // if query length is less than minimum
-						echo "<br><br>Please enter a valid search parameter.";
+						echo "<br><p id='message'>Please enter a valid search parameter.</p>";
 					}
 				?>
 			</section>
