@@ -7,6 +7,7 @@
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
 		<link rel="stylesheet" type="text/css" href="../CSS Files/StaffStyling.css"> <!--Styling for staff account-->
+		<link rel="stylesheet" href="../CSS Files/SearchStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -14,9 +15,9 @@
 		<!-- fixed top navigation bar -->
 		<header>
 			<div class="navigation" > 
-				<a onclick="window.location.href='staff-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+				<a onclick="window.location.href='../HTML Files/staff-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<a id="settings" onclick="window.location.href='admin-account-settings.php'"><b>Jane Smith</b><br>Admin</a> <!-- linked to settings -->
+					<a id="settings" onclick="window.location.href='staff-account-settings.php'">My Account</a> <!-- linked to settings -->
 					<a id="logout" onclick="window.location.href=''"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
 			</div>
@@ -26,9 +27,13 @@
 		<div class="body">
 			<section class="contentContainer">
 			
-				<h1 class="welcomeMessage">Welcome back John!</h1>
-				<input type="text" id="search-bar" placeholder="Search" onkeyup="searchFunction()">
-				<a href="#"><i id="search-icon" class="fas fa-search"></i></a>
+				<h1 class="welcomeMessage">Welcome back!</h1>
+				<form action="staff-search-results.php" method="GET">
+					<div id="search-container">
+						<input type="text" id="search-bar" name="query" placeholder="Enter * to view all or search via material title or author"/>
+						<button type="submit"><i class="fas fa-search"></i></button>
+					</div>
+				</form>
 				<div id="menuOptions">
 				
 					<a id="borrow" onclick="window.location.href='index.html'"><img src="../Misc Files/borrow-material.png"/><br><b> Borrow<br>Material</b></a>
