@@ -32,6 +32,8 @@
 		<!-- content body of website -->
 		<div class="body">
 		<!-- return to search -->
+		<br>
+		<br>
 		<a id="returntosearch" href="../HTML Files/User Account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
 				<h1 id="searchtitle">Search Results</h1>
