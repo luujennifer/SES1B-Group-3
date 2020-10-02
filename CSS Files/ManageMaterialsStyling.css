@@ -63,12 +63,32 @@
 .search .resultContainer{
     width: 100%;
     min-height: 250px;
-    max-height: 75%;
+    max-height: 400px;
     padding: 8px 20px;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
     background: #fafafa;
     border-radius: 17px;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-x: hidden;
+    -ms-overflow-y: scroll;
+}
+.search .resultContainer .row{
+    width: 100%;
+    padding: 16px;
+    border-bottom: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    background: #fafafa;
+}
+.search .resultContainer .card{
+    display: grid;
+    grid-template-columns: 100fr 1fr;
+}
+.search .resultContainer .card .card-content{
+    display: flex;
+}
+.search .resultContainer .card .card-content > div{
+    flex: 1;
 }

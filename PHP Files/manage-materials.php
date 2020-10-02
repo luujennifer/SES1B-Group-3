@@ -1,4 +1,23 @@
-<?php?>
+<?php
+    session_start();
+    $dbhost = "localhost";
+    $dbuser = "root";
+    $dbpass = "";
+    $db = "bookshelf";
+    $port = "81";
+
+    $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
+    if(!$conn){
+        echo "Connection error: " .mysqli_error();
+    }
+
+    $sql = "SELECT * FROM books ORDER BY book_id";
+    $result = mysqli_query($conn, $sql);
+    $materials = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    mysqli_free_result($result);
+    mysqli_close($conn);
+?>
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +29,7 @@
         <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
         <link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 
-        <script>
+        <!--script>
             $(document).ready(function() {
 
                 // Save all selects' id in an array
@@ -40,7 +59,7 @@
                     }
                 })
             });
-        </script>
+        </script-->
     </head>
     <body>
         <!-- fixed top navigation bar -->
@@ -58,7 +77,6 @@
         <div class="body">
             <section class="contentContainer">
                 <form class="search" action="../HTML%20Files/search_results.php" method="GET">
-                    <br>
                     <label class="title"><b>Manage Materials</b></label>
                     <button type="reset" id="clearBtn" class="formBtn" onclick=""><b>Clear Selection</b></button>
                     <button type="button" id="deleteBtn" class="formBtn" onclick=""><b>Delete Selected</b></button>
@@ -71,11 +89,26 @@
                     <!-- <a href="#"><i id="search-icon" class="fas fa-search"></i></a> -->
                     <br>
                     <br>
-                    <section class="resultContainer">
-                        <?php
-                            //Display code
-                        ?>
-                    </section>
+                    <div class="resultContainer">
+                        <?php foreach($materials as $material){ ?>
+                            <div class="row">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div><?php echo htmlspecialchars($material['author']); ?></div>
+                                        <div><?php echo htmlspecialchars($material['title']); ?></div>
+                                        <div><?php echo htmlspecialchars($material['publisher']); ?></div>
+                                        <div><?php echo htmlspecialchars($material['ISBN']); ?></div>
+                                        <div><?php echo htmlspecialchars($material['type']); ?></div>
+                                        <div><?php echo htmlspecialchars($material['format']); ?></div>
+                                        <div><?php echo htmlspecialchars($material['available']); ?></div>
+                                    </div>
+                                    <div class="card-action">
+                                        <a class="brand-text" href="#">More Info</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
                 </form>
             </section>
         </div>
