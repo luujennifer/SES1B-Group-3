@@ -2,20 +2,25 @@
 
 <!-- PHP SCRIPT FOR DYNAMIC CONTENT -->
 <?php
+	session_start();
+	
 	$dbhost = "localhost";
 	$dbuser = "root";
 	$dbpass = "689iABj";
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error); 
+	
+	$login_email = $_SESSION["acc_email"];
+	$login_password = $_SESSION["acc_pass"];
 
-	$sqlValue = "SELECT * FROM `users` WHERE `account_type`='Admin' AND 'firstname'='$' AND 'lastname'='$'"; // need to match up name to admin account name
+	$sqlValue = "SELECT * FROM `users` WHERE `account_type`='Staff' AND 'email'='$login_email' AND 'password'='$login_password'"; // need to match up name to admin account name
 	$resultValue = mysqli_query($conn,$sqlValue);
 	if (mysqli_num_rows($resultValue) >= 1) {
 		while($row = $resultValue->fetch_assoc()) {
 			$firstname = $row['firstname'];
 			$lastname = $row['lastname'];
 			$phonenumber = $row['phonenumber'];
-			$email = $row['username'];
+			$email = $row['email'];
 			$password = $row['password'];
 		}
 		
@@ -35,7 +40,7 @@
 		$message = "Please ensure password is filled to update account details."; 
 		}
 	} else { 
-		$sql = "SELECT * FROM `users` WHERE `usertype`='Admin' AND 'firstname'='$' AND 'lastname'='$'"; // need to match up name to admin account name
+		$sql = "SELECT * FROM `users` WHERE `usertype`='Admin' AND 'email'='$login_email' AND 'password'='$login_password'"; // need to match up name to admin account name
 		$result = mysqli_query($conn,$sql);
 		if (mysqli_num_rows($result) == 1) {
 		//Pass
@@ -66,8 +71,8 @@
 			<div class="navigation" > 
 				<a onclick="window.location.href='admin-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<p><b>John Smith</b><br>Staff</p>
-					<a id="settings" onclick="window.location.href='staff-account-settings.html'"><i class="fas fa-cog"></i></a>
+					<a id="settings" onclick="window.location.href='staff-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="logout" onclick="window.location.href=''"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
 			</div>
 		</header>
