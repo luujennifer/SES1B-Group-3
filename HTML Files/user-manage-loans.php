@@ -1,11 +1,16 @@
 <!-- MANAGE LOANS PAGE -->
 <!-- establish connection with db -->
 <?php
+	session_start();
+	
 	$dbhost = "localhost";
 	$dbuser = "root";
 	$dbpass = "689iABj";
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+	
+	$login_email = $_SESSION["acc_email"];
+	$login_password = $_SESSION["acc_pass"];
 
 	$sqlValue = "SELECT * FROM `loans` WHERE  "; // need complete sql query for user loans
 
@@ -23,11 +28,11 @@
 	<body>
 		<!-- fixed top navigation bar -->
 		<header>
-			<div class="navigation" > 
-				<a onclick="window.location.href='User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+<div class="navigation" >
+				<a onclick="window.location.href='../HTML Files/User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<p><b>Lisa Ron</b><br>Student</p>
-					<a id="settings" onclick="window.location.href='user-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
+					<a id="settings" onclick="window.location.href='../HTML Files/user-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="logout" onclick="window.location.href='../index.php'"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
 			</div>
 		</header>

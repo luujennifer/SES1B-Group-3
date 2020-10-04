@@ -47,17 +47,16 @@
 			<div class="navigation" >
 				<a onclick="window.location.href='../HTML Files/User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<a id="settings" onclick="window.location.href='user-account-settings.php'">My Account</a> <!-- linked to settings -->
-					<a id="logout" onclick="window.location.href=''"><i id="logout" class="fas fa-sign-out-alt"></i></a>
+					<a id="settings" onclick="window.location.href='../HTML Files/user-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="logout" onclick="window.location.href='../index.php'"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
-        		
 			</div>
 		</header>
 
 		<div class="body">
 			<section class="contentContainer">
 				<h1 class="welcomeMessage">Welcome back!</h1>
-				<form action="user-search-results.php" method="GET">
+				<form action="../HTML Files/user-search-results.php" method="GET">
 					<div id="search-container">
 						<input type="text" id="search-bar" name="query" placeholder="Enter * to view all or search via material title or author"/>
 						<button type="submit"><i class="fas fa-search"></i></button>
@@ -66,7 +65,7 @@
 				
 				<div id="menuOptions">
 					<a id="borrow" onclick="window.location.href='index.html'"><img src="../Misc Files/borrow-material.png"/><br><b> Borrow<br>Material</b></a>
-					<a id="manage" onclick="window.location.href='index.html'"><img src="../Misc Files/manage-loans.png"/><br><b> Manage<br>Loans</b></a>
+					<a id="manage" onclick="window.location.href='user-manage-loans.php'"><img src="../Misc Files/manage-loans.png"/><br><b> Manage<br>Loans</b></a>
 				</div>
 			</section>
 		</div>
