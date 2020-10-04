@@ -72,8 +72,8 @@
 			<div class="navigation" > 
 				<a onclick="window.location.href='admin-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<p><b>Jane Smith</b><br>Admin</p>
-					<a id="settings" onclick="window.location.href='admin-account-settings.html'"><i class="fas fa-cog"></i></a> 
+					<a id="settings" onclick="window.location.href='admin-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="logout" onclick="window.location.href=''"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
 			</div>
 		</header>
