@@ -9,7 +9,7 @@
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 		
 	$email = $_POST['email'];
-	$password = $_POST['password'];
+	$password = $_POST['psw'];
 	
 
 	$sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' ";
