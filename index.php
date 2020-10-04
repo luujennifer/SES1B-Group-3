@@ -34,11 +34,11 @@
 					<br>
 
                     <div class="floating-label-wrap">
-                        <input type="email" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                        <input type="email" name="email" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
                         <label for="email" class="floating-label">Email</label>
                     </div>
                     <div class="floating-label-wrap">
-                        <input type="password" id="psw" required>
+                        <input type="password" name="psw" id="psw" required>
                         <label for="psw" class="floating-label">Password</label>
                     </div>
 					

@@ -1,4 +1,5 @@
 <?php
+	session_start();
 
 	$dbhost = "localhost";
 	$dbuser = "root";
@@ -17,7 +18,17 @@
 		
 
 	if ($row['email'] == $email && $row['password'] == $password) {
-		echo "Welcome ".$email." You have successfully logged in!";
+		$_SESSION['acc_email'] = $email;
+		$_SESSION['acc_pass'] = $password;
+		
+		$account_type = $row['account_type'];
+		if($account_type == "Student"){
+			include ("User Account.html");
+		} else if ($account_type == "Staff") {
+			include ("staff-account.html");
+		} else if ($account_type == "Admin") {
+			include ("admin-account.html");
+		}
 		
 	}
 	
