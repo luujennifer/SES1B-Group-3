@@ -80,13 +80,11 @@
                     <label class="title"><b>Manage Materials</b></label>
                     <button type="reset" id="clearBtn" class="formBtn" onclick=""><b>Clear Selection</b></button>
                     <button type="button" id="deleteBtn" class="formBtn" onclick=""><b>Delete Selected</b></button>
-                    <button type="button" id="addBtn" class="formBtn" onclick=""><b>Add Material</b></button>
+                    <button type="button" id="addBtn" class="formBtn" onclick="window.location.href='../PHP Files/add-material.php'"><b>Add Material</b></button>
                     <br>
                     <span class="inputIconWrap">
                         <input type="text" id="search-bar" placeholder="Search" onkeyup="searchFunction()">
                     </span>
-
-                    <!-- <a href="#"><i id="search-icon" class="fas fa-search"></i></a> -->
                     <br>
                     <br>
                     <div class="resultContainer">
