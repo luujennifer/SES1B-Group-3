@@ -3,7 +3,7 @@
 
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = "";
+	$dbpass = ""; // TO CHANGE TO DESIGNATED PASS
 	$db = "bookshelf";
 	
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
@@ -18,8 +18,8 @@
 		
 
 	if ($row['email'] == $email && $row['password'] == $password) {
-		$_SESSION['acc_email'] = $email;
-		$_SESSION['acc_pass'] = $password;
+		$_SESSION["acc_email"] = $email;
+		$_SESSION["acc_pass"] = $password;
 		
 		$account_type = $row['account_type'];
 		if($account_type == "Student"){
