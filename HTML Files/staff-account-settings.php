@@ -111,7 +111,7 @@
 					<!-- button and link group -->
 					<center>
 						<div class="buttons">
-							<button id="updateAcc" type="submit"><b>UPDATE ACCOUNT</b></button>
+							<button id="updateAcc" name="submit" type="submit"><b>UPDATE ACCOUNT</b></button>
 							<button id="clearChanges" type="reset"><b>CLEAR</b></button>
 						</div>
 					</center>

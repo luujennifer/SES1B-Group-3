@@ -23,11 +23,11 @@
 		
 		$account_type = $row['account_type'];
 		if($account_type == "Student"){
-			include ("User Account.html");
+			include ("../HTML Files/User Account.html");
 		} else if ($account_type == "Staff") {
-			include ("staff-account.html");
+			include ("../HTML Files/staff-account.html");
 		} else if ($account_type == "Admin") {
-			include ("admin-account.html");
+			include ("../HTML Files/admin-account.html");
 		}
 		
 	}

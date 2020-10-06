@@ -12,7 +12,8 @@
 	$login_email = $_SESSION["acc_email"];
 	$login_password = $_SESSION["acc_pass"];
 
-	$sqlValue = "SELECT * FROM `loans` WHERE "; // need complete sql query for staff loans
+	$sqlValue = "SELECT * FROM `loans` WHERE 'email' = $login_email"; // need complete sql query for staff loans
+	$results = mysqli_query($conn, $sqlValue);
 
 ?>
 
@@ -51,18 +52,22 @@
 						<th>Author</th>
 						<th>Borrow Date</th>
 						<th>Due Date</th>
-						<th>Overdue?</th>
 						<th>Fees</th>
 					</tr>
 					
 					<!-- print all database data into a table -->
 					<?php
-						if() //result greater than 0
+						if(mysqli_num_rows($results) > 0 ) //result greater than 0
 						{
-							while() //fetch associate
+							while($results->fetch_assoc()) //fetch associate
 							{
 								echo'<tr>
-										<td>'.$.'</td>
+										<td>'.$loan_id.'</td>
+										<td>'.$book_title.'</td>
+										<td>'.$book_author.'</td>
+										<td>'.$borrow_date.'</td>
+										<td>'.$due_date.'</td>
+										<td>'.$fee.'</td>
 									</tr>';
 							}
 							
