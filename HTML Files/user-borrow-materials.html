@@ -6,6 +6,7 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" href="../CSS Files/BorrowMaterialsStyling.css"> <!-- Borrow css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -24,20 +25,12 @@
 		<!-- content body of website -->
 		<div class="body">
 			<section class="contentContainer">
-				<form class="borrow" action="" method="POST">
+				<form class="borrow" action="../PHP Files/borrowMaterials.php" method="POST">
 					<h1 id="borrowTitle">Borrow Materials</h1>
-					<input type="text" placeholder="Enter material author" name="author" required>
-					<input type="text" placeholder="Enter material title" name="title" required>
-					<input type="text" placeholder="Enter material ISBN" name="ISBN" required>
-					<select>
-						<option>Fiction</option>
-						<option>Non-Fiction</option>
-					</select>
-					<select>
-						<option>Hardcopy</option>
-						<option>E-Book</option>
-					</select>
-					
+					<input type="text" placeholder="Enter material id" name="book_id" required>
+					<input type="text" placeholder="Enter material title" name="book_title" required>
+					<input type="text" placeholder="Enter material author" name="book_author" required>
+					<button name="submit" type="submit"><b>Borrow</b></button>
 				  </form>
 			</section>
 		</div>
