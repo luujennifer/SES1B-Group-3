@@ -15,11 +15,14 @@
 	$email = $_SESSION["acc_email"];
 	
 
-	$sql = "INSERT INTO loans (email, book_id, book_title, book_author, borrow_date, due_date, fee) 
+	$sql = "INSERT INTO 'loans' (email, book_id, book_title, book_author, borrow_date, due_date, fee) 
 			VALUES ('$email', '$book_id', '$book_title','$book_author', now(), DATE_ADD(now(), INTERVAL 2 WEEK), '$fee')";
+		
+		
 			
 	if (!mysqli_query($conn, $sql)) {
 		echo "<script>alert('Oops, an error has occured. Please try again.')</script>";
+		
 	}
 	
 	else {
