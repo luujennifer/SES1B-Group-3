@@ -23,13 +23,15 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" type="text/css" href="../CSS Files/UserStyling.css"> <!--Styling for user account-->
+		<link rel="stylesheet" href="../CSS Files/SearchStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
 	<body>
 		<!-- fixed top navigation bar -->
 		<header>
-<div class="navigation" >
+			<div class="navigation" >
 				<a onclick="window.location.href='../HTML Files/User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
 					<a id="settings" onclick="window.location.href='../HTML Files/user-account-settings.php'">My Account</a> <!-- linked to settings -->
@@ -40,10 +42,17 @@
 		
 		<!-- content body of website -->
 		<div class="body">
+		<br>
+		<br>
+		<a id="returnhome" href="../HTML Files/User Account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
 				<h1>Manage my Materials</h1>
-				<input type="text" id="search-bar" placeholder="Search" onkeyup="">
-				<a href="#"><i id="search-icon" class="fas fa-search"></i></a>
+				<form action="" method=""> <!-- need to write script to search the table below -->
+					<div id="search-container">
+						<input type="text" id="search-bar" name="query" placeholder="Enter * to view all or search via material title or author"/>
+						<button type="submit"><i class="fas fa-search"></i></button>
+					</div>
+				</form>
 			
 				<table>
 					<tr>
@@ -74,7 +83,7 @@
 						}
 						else 
 						{
-							echo "No current loans.";
+							echo "<br><br>No current loans.<br><br>";
 						}
 					?>
 				</table>

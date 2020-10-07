@@ -8,6 +8,10 @@
     color: transparent;
 }
 
+#returnhome {
+	text-decoration: none;
+	color: black;
+}
 
 /*class for settings to set up parent class*/
 #name {
