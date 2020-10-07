@@ -3,7 +3,7 @@
 	
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = ""; // TO CHANGE TO DESIGNATED PASS
+	$dbpass = "689iABj"; // TO CHANGE TO DESIGNATED PASS
 	$db = "bookshelf";
 	
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
