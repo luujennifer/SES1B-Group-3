@@ -1,38 +1,4 @@
 /*manage loans styling */
-#name {
-	float: right;
-	padding: 10px;
-
-	}
-#name p {
-	float: left;
-	padding-top: 4px;
-}
-#settings { /* aligning the settings cog */
-	float: right;
-	padding: 25px;
-	cursor: pointer;
-}
-input[type=text] { /* design consistent with other input */
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-	background: #fafafa;
-	border-radius: 17px;
-}
-#search-icon { 
-  position: relative;
-  float: right;
-  width: 10%;
-  height:10%;
-  top: -38px;
-  left: 50px;
-  overflow: hidden;
-  color: black;
-}
 table {
 	border-collapse: collapse;
 	width: 100%;
