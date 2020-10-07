@@ -18,11 +18,13 @@
 			VALUES ('$firstname', '$lastname', '$email','$password')";
 			
 	if (!mysqli_query($conn, $sql)) {
-		echo 'Registration failed';
+		echo "<script>alert('Registration failed, please try again.')</script>";
+		include("../HTML Files/bookshelf-signup.html");
 	}
 	
 	else {
-		echo 'Registration Successful';
+		echo "<script>alert('Registration successful, you may login.')</script>";
+		include("../index.php")
 	}
 
 ?>
