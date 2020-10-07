@@ -67,7 +67,7 @@
 					
 					<!-- print all database data into a table -->
 					<?php
-						if(mysqli_num_rows($results) > 0 ) //result greater than 0
+						if(mysqli_num_rows($results) > 1 ) //result greater than 0
 						{
 							while($results->fetch_assoc()) //fetch associate
 							{
