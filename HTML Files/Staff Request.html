@@ -6,7 +6,8 @@
   <script src="https://kit.fontawesome.com/56b24aa4ed.js" crossorigin="anonymous"></script>
   <head>
     <title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
-    <link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
+	<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
+	<link rel="stylesheet" type="text/css" href="../CSS Files/StaffStyling.css"> <!--Styling for staff account-->
     <link rel="stylesheet" href="../CSS Files/RequestBookStyling.css"> <!-- Login css file -->
     <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
     <link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
@@ -29,7 +30,7 @@
 	<br>
 	<a id="returnhome" href="../HTML Files/staff-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
     <section class="wideContentContainer">
-      <form class="request" action="" method="POST">
+	  <form class="request" action="" method="POST"> <!--- need to write php script for request-->
         <h1 id="requestTitle">Request Materials</h1>
 		<input type="text" placeholder="Enter material author" name="author" required>
 		<input type="text" placeholder="Enter material title" name="title" required>
@@ -42,7 +43,7 @@
 			<option>Hardcopy</option>
 			<option>E-Book</option>
 		</select>
-		
+		<button type="submit" id="submitBtn" value="Submit" onclick=""><b>Submit</b></button>
 		
       </form>
 
