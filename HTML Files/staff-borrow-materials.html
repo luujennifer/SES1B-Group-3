@@ -6,6 +6,7 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" type="text/css" href="../CSS Files/StaffStyling.css"> <!--Styling for user account-->
 		<link rel="stylesheet" href="../CSS Files/BorrowMaterialsStyling.css"> <!-- Borrow css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
@@ -24,9 +25,13 @@
 		
 		<!-- content body of website -->
 		<div class="body">
+		<br>
+		<br>
+		<a id="returnhome" href="../HTML Files/staff-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
 				<form class="borrow" action="../PHP Files/borrowMaterials.php" method="POST">
 					<h1 id="borrowTitle">Borrow Materials</h1>
+					<p>Fill out the form below to borrow materials.</p>
 					<input type="text" placeholder="Enter material id" name="book_id" required>
 					<input type="text" placeholder="Enter material title" name="book_title" required>
 					<input type="text" placeholder="Enter material author" name="book_author" required>
