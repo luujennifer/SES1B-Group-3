@@ -13,7 +13,7 @@
 	$lastname = $_POST['LastName'];
 	$email = $_POST['Email'];
 	$password = $_POST['password'];
-	$type = $_POST['acc_type']
+	$type = $_POST['acc_type'];
 
 	$sql = "INSERT INTO users (firstname, lastname, email, password, account_type) 
 			VALUES ('$firstname', '$lastname', '$email','$password', '$type')";
