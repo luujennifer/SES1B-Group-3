@@ -1,0 +1,54 @@
+/* SEARCH RESULTS STYLING */
+
+#name {
+	float: right;
+	padding: 10px;
+}
+#settings { /* aligning the settings cog */
+	float: left;
+	cursor: pointer;
+	text-decoration: underline;
+	font-size: 18px;
+	
+}
+#searchtitle {
+	font-size: 30px;
+    background: linear-gradient(to right, #E30A51, #B30275);
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	padding: 0;
+	margin: 0;
+}
+#logout {
+	float: right;
+	padding-top: 12px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	cursor: pointer;
+	font-size: 25px;
+}
+
+#search-icon { 
+  position: relative;
+  float: right;
+  width: 10%;
+  height:10%;
+  overflow: hidden;
+  color: black;
+  display: inline-block;
+}
+#returntosearch { /* return to dashboard link from search results */
+	text-decoration: none;
+	color:black;
+}
+#message { /* search results messages */
+	font-size: 13px;
+}
+#details { /* book details */
+	font-size: 15px;
+}
+/* #book-action { */
+	/* text-decoration: none; */
+/* } */

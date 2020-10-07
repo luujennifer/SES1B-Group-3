@@ -2,20 +2,24 @@
 
 <!-- PHP SCRIPT FOR DYNAMIC CONTENT -->
 <?php
+	session_start();
 	$dbhost = "localhost";
 	$dbuser = "root";
 	$dbpass = "689iABj";
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error); 
+	
+	$login_email = $_SESSION["acc_email"];
+	$login_password = $_SESSION["acc_pass"];
 
-	$sqlValue = "SELECT * FROM `users` WHERE `account_type`='Admin' AND 'firstname'='$' AND 'lastname'='$'"; // need to match up name to admin account name
+	$sqlValue = "SELECT * FROM `users` WHERE `account_type`='Student' AND 'email'='$login_email' AND 'password'='$login_password'"; // need to match up name to admin account name
 	$resultValue = mysqli_query($conn,$sqlValue);
 	if (mysqli_num_rows($resultValue) >= 1) {
 		while($row = $resultValue->fetch_assoc()) {
 			$firstname = $row['firstname'];
 			$lastname = $row['lastname'];
 			$phonenumber = $row['phonenumber'];
-			$email = $row['username'];
+			$email = $row['email'];
 			$password = $row['password'];
 		}
 		
@@ -35,7 +39,7 @@
 		$message = "Please ensure password is filled to update account details."; 
 		}
 	} else { 
-		$sql = "SELECT * FROM `users` WHERE `usertype`='Admin' AND 'firstname'='$' AND 'lastname'='$'"; // need to match up name to admin account name
+		$sql = "SELECT * FROM `users` WHERE `usertype`='Student' AND 'email'='$login_email' AND 'password'='$login_password'"; // need to match up name to admin account name
 		$result = mysqli_query($conn,$sql);
 		if (mysqli_num_rows($result) == 1) {
 		//Pass
@@ -56,6 +60,7 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" type="text/css" href="../CSS Files/UserStyling.css"> <!--Styling for user account-->
 		<link rel="stylesheet" href="../CSS Files/AccountSettingsStyling.css"> <!-- Skeleton css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
@@ -63,11 +68,11 @@
 	<body>
 		<!-- fixed top navigation bar -->
 		<header>
-			<div class="navigation" > 
-				<a onclick="window.location.href='admin-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+			<div class="navigation" >
+				<a onclick="window.location.href='../HTML Files/User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<p><b>Lisa Ron</b><br>Student</p>
-					<a id="settings" onclick="window.location.href='user-account-settings.html'"><i class="fas fa-cog"></i></a>
+					<a id="settings" onclick="window.location.href='../HTML Files/user-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="logout" onclick="window.location.href='../index.php'"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
 			</div>
 		</header>
@@ -76,6 +81,9 @@
 		
 		<!-- content body of website -->
 		<div class="body">
+		<br>
+		<br>
+		<a id="returnhome" href="../HTML Files/User Account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
 			
 				<form class="settings" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST"> <!-- account  settings form -->
@@ -106,7 +114,7 @@
 					<!-- button and link group -->
 					<center>
 						<div class="buttons">
-							<button id="updateAcc" type="submit"><b>UPDATE ACCOUNT</b></button>
+							<button id="updateAcc" name="submit" type="submit"><b>UPDATE ACCOUNT</b></button>
 							<button id="clearChanges" type="reset"><b>CLEAR</b></button>
 						</div>
 					</center>

@@ -1,13 +1,19 @@
 <!-- MANAGE LOANS PAGE -->
 <!-- establish connection with db -->
 <?php
+	session_start();
+	
 	$dbhost = "localhost";
 	$dbuser = "root";
 	$dbpass = "689iABj";
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+	
+	$login_email = $_SESSION["acc_email"];
+	$login_password = $_SESSION["acc_pass"];
 
-	$sqlValue = "SELECT * FROM `loans` WHERE account_type = '$' AND firstname ='$' and lastname ='$' "; // need to match up firstname and lastname and account type
+	$sqlValue = "SELECT * FROM `loans` WHERE 'email' = $login_email "; // need complete sql query for user loans
+	$results = mysqli_query($conn, $sqlValue);
 
 ?>
 
@@ -17,44 +23,67 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" type="text/css" href="../CSS Files/UserStyling.css"> <!--Styling for user account-->
+		<link rel="stylesheet" href="../CSS Files/SearchStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
 	<body>
 		<!-- fixed top navigation bar -->
 		<header>
-			<div class="navigation" > 
-				<a onclick="window.location.href='User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+			<div class="navigation" >
+				<a onclick="window.location.href='../HTML Files/User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<p><b>Lisa Ron</b><br>Student</p>
-					<a id="settings" onclick="window.location.href='user-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
+					<a id="settings" onclick="window.location.href='../HTML Files/user-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="logout" onclick="window.location.href='../index.php'"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
 			</div>
 		</header>
 		
 		<!-- content body of website -->
 		<div class="body">
+		<br>
+		<br>
+		<a id="returnhome" href="../HTML Files/User Account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
 				<h1>Manage my Materials</h1>
-				<input type="text" id="search-bar" placeholder="Search" onkeyup="">
-				<a href="#"><i id="search-icon" class="fas fa-search"></i></a>
+				<form action="" method=""> <!-- need to write script to search the table below -->
+					<div id="search-container">
+						<input type="text" id="search-bar" name="query" placeholder="Enter * to view all or search via material title or author"/>
+						<button type="submit"><i class="fas fa-search"></i></button>
+					</div>
+				</form>
 			
 				<table>
 					<tr>
-						<th> </th>
+						<th>Loan ID</th>
+						<th>Title</th>
+						<th>Author</th>
+						<th>Borrow Date</th>
+						<th>Due Date</th>
+						<th>Fees</th>
 					</tr>
 					
 					<!-- print all database data into a table -->
 					<?php
-						if()
+						if(mysqli_num_rows($results) > 0 ) //result greater than 0
 						{
-							while()
+							while($results->fetch_assoc()) //fetch associate
 							{
 								echo'<tr>
-										<td>'.$.'</td>
+										<td>'.$loan_id.'</td>
+										<td>'.$book_title.'</td>
+										<td>'.$book_author.'</td>
+										<td>'.$borrow_date.'</td>
+										<td>'.$due_date.'</td>
+										<td>'.$fee.'</td>
 									</tr>';
 							}
 							
+						}
+						else 
+						{
+							echo "<br><br>No current loans.<br><br>";
 						}
 					?>
 				</table>

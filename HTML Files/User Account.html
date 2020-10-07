@@ -5,6 +5,7 @@
     <title>Bookshelf Account</title>
     <link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
     <link rel="stylesheet" type="text/css" href="../CSS Files/UserStyling.css"> <!--Styling for user account-->
+	<link rel="stylesheet" href="../CSS Files/SearchStyling.css"> <!-- Search css file -->
     <link rel="icon" type="image/x-icon"  href="../Misc Files/logo.ico"> <!--Icon image for logo-->
     <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--stylesheet for gear-->
@@ -44,24 +45,27 @@
     <!-- fixed top navigation bar copied from logn-page -->
 		<header>
 			<div class="navigation" >
-				<a onclick="window.location.href='User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+				<a onclick="window.location.href='../HTML Files/User Account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<p><b>Lisa Ron</b><br>Student</p>
-					<a id="settings" onclick="window.location.href='user-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
+					<a id="settings" onclick="window.location.href='../HTML Files/user-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="logout" onclick="window.location.href='../index.php'"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
-        		
 			</div>
 		</header>
 
 		<div class="body">
 			<section class="contentContainer">
-				<h1 class="welcomeMessage">Welcome back Lisa!</h1>
-				<input type="text" id="search-bar" placeholder="Search" onkeyup="searchFunction()">
-				<a href="#"><i id="search-icon" class="fas fa-search"></i></a>
+				<h1 class="welcomeMessage">Welcome back!</h1>
+				<form action="../HTML Files/user-search-results.php" method="GET">
+					<div id="search-container">
+						<input type="text" id="search-bar" name="query" placeholder="Enter * to view all or search via material title or author"/>
+						<button type="submit"><i class="fas fa-search"></i></button>
+					</div>
+				</form>
 				
 				<div id="menuOptions">
-					<a id="borrow" onclick="window.location.href='index.html'"><img src="../Misc Files/borrow-material.png"/><br><b> Borrow<br>Material</b></a>
-					<a id="manage" onclick="window.location.href='index.html'"><img src="../Misc Files/manage-loans.png"/><br><b> Manage<br>Loans</b></a>
+					<a id="borrow" onclick="window.location.href='../HTML Files/user-borrow-materials.html'"><img src="../Misc Files/borrow-material.png"/><br><b> Borrow<br>Material</b></a>
+					<a id="manage" onclick="window.location.href='../HTML Files/user-manage-loans.php'"><img src="../Misc Files/manage-loans.png"/><br><b> Manage<br>Loans</b></a>
 				</div>
 			</section>
 		</div>
