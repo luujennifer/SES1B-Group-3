@@ -3,7 +3,7 @@
 <?php
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = "689iABj";
+	$dbpass = "";
 	$db ="bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die ("Error connecting to database: ". $conn -> error);
 ?>
