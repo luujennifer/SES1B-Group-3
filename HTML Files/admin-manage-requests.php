@@ -1,4 +1,4 @@
-<!-- MANAGE LOANS PAGE -->
+<!-- MANAGE REQUEST PAGE -->
 <!-- establish connection with db -->
 <?php
 	session_start();
@@ -11,7 +11,7 @@
 	
 	$login_email = $_SESSION["acc_email"];
 
-	$sqlValue = "SELECT * FROM `loans` WHERE 'email' = $login_email"; // need complete sql query for staff loans
+	$sqlValue = "SELECT * FROM `book_request`"; 
 	$results = mysqli_query($conn, $sqlValue);
 
 ?>
@@ -55,27 +55,27 @@
 			
 				<table>
 					<tr>
-						<th>Loan ID</th>
-						<th>Title</th>
+						<th>Request ID</th>
 						<th>Author</th>
-						<th>Borrow Date</th>
-						<th>Due Date</th>
-						<th>Fees</th>
+						<th>Title</th>
+						<th>ISBN</th>
+						<th>Category</th>
+						<th>Format</th>
 					</tr>
 					
 					<!-- print all database data into a table -->
 					<?php
-						if(mysqli_num_rows($results) > 1 ) //result greater than 0
+						if(mysqli_num_rows($results)) //result greater than 0
 						{
 							while($results->fetch_assoc()) //fetch associate
 							{
 								echo'<tr>
-										<td>'.$loan_id.'</td>
-										<td>'.$book_title.'</td>
-										<td>'.$book_author.'</td>
-										<td>'.$borrow_date.'</td>
-										<td>'.$due_date.'</td>
-										<td>'.$fee.'</td>
+										<td>'.$row['request_id'].'</td>
+										<td>'.$row['author'].'</td>
+										<td>'.$row['title'].'</td>
+										<td>'.$row['ISBN'].'</td>
+										<td>'.$row['type'].'</td>
+										<td>'.$row['format'].'</td>
 									</tr>';
 							}
 							
