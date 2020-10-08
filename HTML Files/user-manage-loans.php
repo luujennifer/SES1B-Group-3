@@ -1,4 +1,4 @@
-<!-- MANAGE LOANS PAGE -->
+<!-- USER MANAGE LOANS PAGE -->
 <!-- establish connection with db -->
 <?php
 	session_start();

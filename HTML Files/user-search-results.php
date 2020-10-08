@@ -1,4 +1,4 @@
-<!-- search results page -->
+<!-- USER SEARCH RESULTS -->
 
 <?php
 	$dbhost = "localhost";
