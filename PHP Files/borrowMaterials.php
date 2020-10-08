@@ -13,9 +13,10 @@
 	$book_id = $_POST['book_id'];
 	$book_title = $_POST['book_title'];
 	$book_author = $_POST['book_author'];
+	$fee = '12';
 
-	$sql = "INSERT INTO loans (email, book_id, book_title, book_author) 
-			VALUES ('$email', '$book_id', '$book_title','$book_author')";
+	$sql = "INSERT INTO loans (email, book_id, book_title, book_author, fee) 
+			VALUES ('$email', '$book_id', '$book_title','$book_author', '$fee')";
 			
 	if (!mysqli_query($conn, $sql)) {
 		echo "<script>alert('Book loan failed, please try again.')</script>";
