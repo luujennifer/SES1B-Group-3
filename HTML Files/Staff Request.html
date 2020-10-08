@@ -35,13 +35,13 @@
 		<input type="text" placeholder="Enter material author" name="author" required>
 		<input type="text" placeholder="Enter material title" name="title" required>
 		<input type="text" placeholder="Enter material ISBN" name="ISBN" required>
-		<select>
-			<option>Fiction</option>
-			<option>Non-Fiction</option>
+		<select name="category">
+			<option value="Fiction">Fiction</option>
+			<option value="Non-Fiction">Non-Fiction</option>
 		</select>
-		<select>
-			<option>Hardcopy</option>
-			<option>E-Book</option>
+		<select name="format">
+			<option value="Hardcopy">Hardcopy</option>
+			<option value="E-Book">E-Book</option>
 		</select>
 		<button type="submit" id="submitBtn" value="Submit" onclick=""><b>Submit</b></button>
 		
