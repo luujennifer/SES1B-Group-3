@@ -25,7 +25,7 @@
 	
 	else {
 		echo "<script>alert('Book request sucessfully processed.')</script>";
-		echo "<script>location.replace('../HTML Files/staff-account.php')</script>";
+		echo "<script>location.replace('../HTML Files/staff-account.html')</script>";
 	}
 
 ?>
