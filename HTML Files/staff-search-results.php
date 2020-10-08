@@ -35,12 +35,12 @@
 		<!-- return to search -->
 		<br>
 		<br>
-		<a id="returnhome" href="../HTML Files/staff-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
+		<a id="returnhome" href="../HTML Files/staff-borrow-materials.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
 				<h1 id="searchtitle">Search Results</h1>
 				<?php
 					$query = $_GET['query']; 
-					$location = '"index.html"'; // NEED TO CHANGE TO BE BORROW MATERIALS FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
+					$location = '"../HTML Files/staff-borrow-materials.html"'; // NEED TO CHANGE TO BE BORROW MATERIALS FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
 					// gets value sent over search form
 					
 					$min_length = 1;

@@ -25,6 +25,7 @@
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
 		<link rel="stylesheet" type="text/css" href="../CSS Files/UserStyling.css"> <!--Styling for user account-->
 		<link rel="stylesheet" href="../CSS Files/SearchStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" href="../CSS Files/ManageLoansStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -66,7 +67,7 @@
 					
 					<!-- print all database data into a table -->
 					<?php
-						if(mysqli_num_rows($results) > 0 ) //result greater than 0
+						if(mysqli_num_rows($results) > 1 ) //result greater than 0
 						{
 							while($results->fetch_assoc()) //fetch associate
 							{
