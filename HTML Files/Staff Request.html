@@ -30,19 +30,32 @@
 	<br>
 	<a id="returnhome" href="../HTML Files/staff-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
     <section class="wideContentContainer">
-	  <form class="request" action="" method="POST"> <!--- need to write php script for request-->
+		<style>
+			select:disabled {color: gray;}
+		</style>
+	  <form class="request" action="../PHP Files/staffRequest.php" method="POST"> <!--- need to write php script for request-->
         <h1 id="requestTitle">Request Materials</h1>
 		<input type="text" placeholder="Enter material author" name="author" required>
 		<input type="text" placeholder="Enter material title" name="title" required>
 		<input type="text" placeholder="Enter material ISBN" name="ISBN" required>
-		<select>
-			<option>Fiction</option>
-			<option>Non-Fiction</option>
-		</select>
-		<select>
-			<option>Hardcopy</option>
-			<option>E-Book</option>
-		</select>
+		<div class="select-group">
+			<div class="select-box-wrapper" id="left">
+				<select class="select-box" name="category">
+					<option value="" disabled selected hidden>Select material category</option>
+					<option value="Fiction">Fiction</option>
+					<option value="Non-Fiction">Non-Fiction</option>
+				</select>
+			</div>
+			<div class="select-box-wrapper" id="right">
+				<select class="select-box" name="format">
+					<option value="" disabled selected hidden>Select material format</option>
+					<option value="Hardcopy">Hardcopy</option>
+					<option value="E-Book">E-Book</option>
+				</select>
+			</div>
+		</div>
+		
+		
 		<button type="submit" id="submitBtn" value="Submit" onclick=""><b>Submit</b></button>
 		
       </form>

@@ -1,32 +1,31 @@
 <?php
+
 	session_start();
-	
+
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = ""; // TO CHANGE TO DESIGNATED PASS
+	$dbpass = "";
 	$db = "bookshelf";
 	
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
-	
+
+	$email = $_POST['email'];
 	$book_id = $_POST['book_id'];
 	$book_title = $_POST['book_title'];
-	$book_author =$_POST['book_author'];
-	$fee = "12";
-	$email = $_SESSION["acc_email"];
-	
+	$book_author = $_POST['book_author'];
+	$fee = '12';
 
-	$sql = "INSERT INTO 'loans' (email, book_id, book_title, book_author, borrow_date, due_date, fee) 
-			VALUES ('$email', '$book_id', '$book_title','$book_author', now(), DATE_ADD(now(), INTERVAL 2 WEEK), '$fee')";
-		
-		
+	$sql = "INSERT INTO loans (email, book_id, book_title, book_author, fee) 
+			VALUES ('$email', '$book_id', '$book_title','$book_author', '$fee')";
 			
 	if (!mysqli_query($conn, $sql)) {
-		echo "<script>alert('Oops, an error has occured. Please try again.')</script>";
-		
+		echo "<script>alert('Book loan failed, please try again.')</script>";
+		echo "<script>location.replace('../HTML Files/user-borrow-materials.html')</script>";
 	}
 	
 	else {
-		echo "<script>alert('Loan has been processed.')</script>";
+		echo "<script>alert('Book loan sucessfully processed.')</script>";
+		echo "<script>location.replace('../HTML Files/User Account.html')</script>";
 	}
 
 ?>
