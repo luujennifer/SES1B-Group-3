@@ -10,6 +10,7 @@
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
 	
 	$login_email = $_SESSION["acc_email"];
+	$login_password = $_SESSION["acc_pass"];
 
 	$sqlValue = "SELECT * FROM `loans` WHERE 'email' = $login_email"; // need complete sql query for staff loans
 	$results = mysqli_query($conn, $sqlValue);
@@ -22,8 +23,7 @@
 	<head>
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
-		<link rel="stylesheet" type="text/css" href="../CSS Files/StaffStyling.css"> <!--Styling for staff account-->
-		<link rel="stylesheet" href="../CSS Files/SearchStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" type="text/css" href="../CSS Files/AdminStyling.css"> <!--Styling for user account-->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -31,9 +31,9 @@
 		<!-- fixed top navigation bar -->
 		<header>
 			<div class="navigation" > 
-				<a onclick="window.location.href='../HTML Files/staff-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+				<a onclick="window.location.href='../HTML Files/admin-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
 				<div id="name">
-					<a id="settings" onclick="window.location.href='../HTML Files/staff-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="settings" onclick="window.location.href='../HTML Files/admin-account-settings.php'">My Account</a> <!-- linked to settings -->
 					<a id="logout" onclick="window.location.href='../index.php'"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
 			</div>
@@ -43,24 +43,20 @@
 		<div class="body">
 		<br>
 		<br>
-		<a id="returnhome" href="../HTML Files/staff-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
+		<a id="returntosearch" href="../HTML Files/admin-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
-				<h1>Manage my Loans</h1>
-				<form action="" method=""> <!-- need to write script to search the table below -->
-					<div id="search-container">
-						<input type="text" id="search-bar" name="query" placeholder="Enter * to view all or search via material title or author"/>
-						<button type="submit"><i class="fas fa-search"></i></button>
-					</div>
-				</form>
+				<h1>Manage Material Request</h1>
+				<input type="text" id="search-bar" placeholder="Search" onkeyup="">
+				<a href="#"><i id="search-icon" class="fas fa-search"></i></a>
 			
 				<table>
 					<tr>
-						<th>Loan ID</th>
+						<th>Request ID</th>
 						<th>Title</th>
 						<th>Author</th>
-						<th>Borrow Date</th>
-						<th>Due Date</th>
-						<th>Fees</th>
+						<th>ISBN</th>
+						<th>Category</th>
+						<th>Format</th>
 					</tr>
 					
 					<!-- print all database data into a table -->
@@ -69,6 +65,7 @@
 						{
 							while($results->fetch_assoc()) //fetch associate
 							{
+								//NEED TO CHANGE THE FIELDS
 								echo'<tr>
 										<td>'.$loan_id.'</td>
 										<td>'.$book_title.'</td>
@@ -82,7 +79,7 @@
 						}
 						else 
 						{
-							echo "<br><br>No current loans.<br><br>";
+							echo "No current loans.";
 						}
 					?>
 				</table>
