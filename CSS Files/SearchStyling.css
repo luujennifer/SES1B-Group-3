@@ -1,4 +1,5 @@
 /* SEARCH BAR STYLING */
+
 input[type=text] { /* design consistent with other input */
 	width: 98%;
 	padding: 12px 20px;

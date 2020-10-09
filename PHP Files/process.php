@@ -1,9 +1,11 @@
 <?php
+	// LOGIN SCRIPT
+	
 	session_start();
 
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = ""; // TO CHANGE TO DESIGNATED PASS
+	$dbpass = ""; 
 	$db = "bookshelf";
 	
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);

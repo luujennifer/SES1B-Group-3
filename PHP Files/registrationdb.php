@@ -1,5 +1,6 @@
 <?php
-
+	// SIGN UP SCRIPT
+	
 	session_start();
 
 	$dbhost = "localhost";

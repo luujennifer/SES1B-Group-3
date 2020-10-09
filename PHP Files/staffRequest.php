@@ -1,5 +1,6 @@
 <?php
-
+    // STAFF REQUEST SCRIPT 
+    
 	session_start();
 
 	$dbhost = "localhost";

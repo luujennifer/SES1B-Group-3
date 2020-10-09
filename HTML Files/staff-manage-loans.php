@@ -1,4 +1,4 @@
-<!-- MANAGE LOANS PAGE -->
+<!-- STAFF MANAGE LOANS PAGE -->
 <!-- establish connection with db -->
 <?php
 	session_start();
@@ -71,12 +71,12 @@
 							while($results->fetch_assoc()) //fetch associate
 							{
 								echo'<tr>
-										<td>'.$loan_id.'</td>
-										<td>'.$book_title.'</td>
-										<td>'.$book_author.'</td>
-										<td>'.$borrow_date.'</td>
-										<td>'.$due_date.'</td>
-										<td>'.$fee.'</td>
+										<td>'.$row['loan_id'].'</td>
+										<td>'.$row['book_title'].'</td>
+										<td>'.$row['book_author'].'</td>
+										<td>'.$row['borrow_date'].'</td>
+										<td>'.$row['due_date'].'</td>
+										<td>'.$row['fee'].'</td>
 									</tr>';
 							}
 							
