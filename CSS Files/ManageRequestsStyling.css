@@ -1,0 +1,12 @@
+/* MANAGE REQUESTS STYLING */
+
+#manageRequestsTitle {
+    font-size: 30px;
+    background: linear-gradient(to right, #E30A51, #B30275);
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 0;
+	margin: 0;
+}
