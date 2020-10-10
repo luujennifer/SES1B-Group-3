@@ -1,4 +1,4 @@
-<!-- ADMIN ACCOUNT PAGE -->
+<!-- ADMIN SET FEES PAGE -->
 
 <!DOCTYPE html>
 <html> 
@@ -7,7 +7,7 @@
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
 		<link rel="stylesheet" type="text/css" href="../CSS Files/AdminStyling.css"> <!--Styling for admin account-->
-		<link rel="stylesheet" href="../CSS Files/SearchStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" href="../CSS Files/AdminSetFeeStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -25,20 +25,16 @@
 		
 		<!-- content body of website -->
 		<div class="body">
+        <br>
+		<br>
+		<a id="returnhome" href="../HTML Files/admin-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
-			
-				<h1 class="welcomeMessage">Welcome back!</h1>
-				<form action="admin-search-results.php" method="GET">
-					<div id="search-container">
-						<input type="text" id="search-bar" name="query" placeholder="Enter * to view all or search via material title or author"/>
-						<button type="submit"><i class="fas fa-search"></i></button>
-					</div>
+				<form class="setFees" action="" method="POST"> <!-- NEED TO WRITE SCRIPT TO UPDATE ALL FEE ROWS FOR DB -->
+                    <h1 id="SetFeesTitle">Set Fees</h1>
+                    <p>Enter the new late return fee below to change the current late fee amount. </p>
+                    <input type="text" name="fee" placeholder="Enter new fee amount">
+                    <center><button name="submit" type="submit"><b>Submit</b></button></center>
 				</form>
-				<div id="menuOptions"> <!--NEED TO REPLACE PAGE LINKS TO MATCH THE PAGES FOR ADMIN-->
-					<a id="manage" onclick="window.location.href='index.html'"><img src="../Misc Files/manage-material.png"/><br><b> Manage<br>Material</b></a>
-					<a id="fines" onclick="window.location.href='../HTML Files/admin-set-fee.html'"><img src="../Misc Files/set-fine.png"/><br><b> Set<br>Fines</b></a>
-					<a id="request" onclick="window.location.href='../HTML Files/admin-manage-requests.php'"><img src="../Misc Files/request-materials.png"/><br><b> View<br>Requests</b></a>
-				</div>
 			</section>
 		</div>
 		
