@@ -37,7 +37,7 @@
   height:10%;
   overflow: hidden;
   color: black;
-  display: inline-block;
+  /*display: inline-block;*/
 }
 #returntosearch { /* return to dashboard link from search results */
 	text-decoration: none;
