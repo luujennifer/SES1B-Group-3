@@ -49,10 +49,10 @@
 				<h1>Manage my Loans</h1>
 				<?php
 				//session_start();
-				$email = 'wintersoldier@email.com'; // NEED TO WORK OUT HOW TO GET email
+				//$email = 'wintersoldier@email.com'; // NEED TO WORK OUT HOW TO GET email
 					$location = '"index.html"'; // NEED TO CHANGE TO BE manage loans FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
 					
-					$raw_results = mysqli_query($conn, "SELECT * FROM loans WHERE email = $email ORDER BY loan_id") or die($conn -> error);
+					$raw_results = mysqli_query($conn, "SELECT * FROM loans  ORDER BY loan_id") or die($conn -> error);
 						
 					if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 					$num = mysqli_num_rows($raw_results);
