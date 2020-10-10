@@ -96,13 +96,13 @@
 }
 .settings #left { /* left aligned items */
 	float: left;
-	display: inline-block;
+	/*display: inline-block;*/
 	width: 49%;
 	padding-bottom: 20px;
 }
 .settings #right { /* right aligned items */
 	float: right;
-	display: inline-block;
+	/*display: inline-block;*/
 	width: 49%;
 	padding-bottom: 20px;
 }

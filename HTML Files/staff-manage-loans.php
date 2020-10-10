@@ -47,46 +47,27 @@
 		<a id="returnhome" href="../HTML Files/staff-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
 				<h1>Manage my Loans</h1>
-				<form action="" method=""> <!-- need to write script to search the table below -->
-					<div id="search-container">
-						<input type="text" id="search-bar" name="query" placeholder="Enter * to view all or search via material title or author"/>
-						<button type="submit"><i class="fas fa-search"></i></button>
-					</div>
-				</form>
-			
-				<table>
-					<tr>
-						<th>Loan ID</th>
-						<th>Title</th>
-						<th>Author</th>
-						<th>Borrow Date</th>
-						<th>Due Date</th>
-						<th>Fees</th>
-					</tr>
+				<?php
+				//session_start();
+				$email = 'wintersoldier@email.com'; // NEED TO WORK OUT HOW TO GET email
+					$location = '"index.html"'; // NEED TO CHANGE TO BE manage loans FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
 					
-					<!-- print all database data into a table -->
-					<?php
-						if(mysqli_num_rows($results) > 1 ) //result greater than 0
-						{
-							while($results->fetch_assoc()) //fetch associate
-							{
-								echo'<tr>
-										<td>'.$row['loan_id'].'</td>
-										<td>'.$row['book_title'].'</td>
-										<td>'.$row['book_author'].'</td>
-										<td>'.$row['borrow_date'].'</td>
-										<td>'.$row['due_date'].'</td>
-										<td>'.$row['fee'].'</td>
-									</tr>';
-							}
+					$raw_results = mysqli_query($conn, "SELECT * FROM loans WHERE email = $email ORDER BY loan_id") or die($conn -> error);
+						
+					if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+					$num = mysqli_num_rows($raw_results);
+					echo "<br><p id='message'>There are <b>".$num."</b>&nbspcurrent loans.</p><br>";
+						while($results = $raw_results->fetch_assoc()){
+						echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>Loan ID: ".$results['loan_id']."</h3></a><p id='details'><b>Title: </b>".$results['book_title']."&nbsp&nbsp&nbsp&nbsp<b>Author: </b>".$results['book_author']."&nbsp&nbsp&nbsp&nbsp<b>Borrow Date: </b>".$results['borrow_date']."&nbsp&nbsp&nbsp&nbsp<b>Due Date: </b>".$results['due_date']."&nbsp&nbsp&nbsp&nbsp<b>Late Fee: $</b>".$results['fee']."</p><br>";
 							
 						}
-						else 
-						{
-							echo "<br><br>No current loans.<br><br>";
-						}
-					?>
-				</table>
+						echo "<p id='message'>End of loans.</p><br><br>";
+						
+					}
+					else{ // if there is no matching rows do following
+						echo "<br><p id='message'>No loans.</p>";
+					}
+				?>
 			
 			</section>
 		</div>
