@@ -58,7 +58,7 @@
 					$num = mysqli_num_rows($raw_results);
 					echo "<br><p id='message'>There are <b>".$num."</b>&nbspcurrent loans.</p><br>";
 						while($results = $raw_results->fetch_assoc()){
-						echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>Loan ID: ".$results['loan_id']."</h3></a><p id='details'><b>Title: </b>".$results['book_title']."&nbsp&nbsp&nbsp&nbsp<b>Author: </b>".$results['book_author']."&nbsp&nbsp&nbsp&nbsp<b>Borrow Date: </b>".$results['borrow_date']."&nbsp&nbsp&nbsp&nbsp<b>Due Date: </b>".$results['due_date']."&nbsp&nbsp&nbsp&nbsp<b>Late Fee: $</b>".$results['fee']."</p><br>";
+						echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>Loan ID: ".$results['loan_id']."</h3></a><p id='details'><b>Title: </b>".$results['book_title']."&nbsp&nbsp&nbsp&nbsp<b>Author: </b>".$results['book_author']."<br><b>Borrow Date: </b>".$results['borrow_date']."&nbsp&nbsp&nbsp&nbsp<b>Due Date: </b>".$results['due_date']."&nbsp&nbsp&nbsp&nbsp<b>Late Fee: $</b>".$results['fee']."</p><br>";
 							
 						}
 						echo "<p id='message'>End of loans.</p><br><br>";
