@@ -29,7 +29,7 @@
 		<br>
 		<a id="returnhome" href="../HTML Files/admin-view-requests.php"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Requests</a>
 			<section class="contentContainer">
-				<form class="manageRequest" action="" method="POST"> <!-- NEED TO WRITE SCRIPT TO UPDATE DB BASED ON REQUEST-->
+				<form class="manageRequest" action="../PHP Files/manageRequest.php" method="POST"> <!-- NEED TO WRITE SCRIPT TO UPDATE DB BASED ON REQUEST-->
                     <h1 id="manageRequestTitle">Manage Material Requests</h1>
                     <p>Manage material requests below. Enter request detail to add to catalogue or delete.</p>
 					<input type="text" name="title" placeholder="Enter material title" required> 
@@ -53,8 +53,8 @@
 					</div>
 
 					<div id="buttonGroup">
-						<button id="leftBtn" name="submit" type="submit"><b>Submit</b></button>
-						<button id="rightBtn" name="delete" type="submit"><b>Delete</b></button>
+						<button id="leftBtn" name="submit" type="submit"><b>Add to Catalogue</b></button>
+						<button id="rightBtn" name="delete" type="submit"><b>Delete Request</b></button>
 					</div>
 				
 				</form>
