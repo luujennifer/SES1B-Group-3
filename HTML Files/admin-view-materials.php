@@ -55,7 +55,7 @@
                                 echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>".$results['title']." [Book ID: ".$results['book_id']."]</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
                             }
                         }
-                        echo "<p id='message'>End of search materials.</p><br><br>";
+                        echo "<p id='message'>End of catalogue.</p><br><br>";
                         
                     }
                     else{ // if there is no matching rows do following
