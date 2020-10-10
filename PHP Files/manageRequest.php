@@ -14,14 +14,14 @@
     $format = $_POST['format'];
     $copies = '1';
     
+    
     if(isset($_POST['submit'])){
-        $sql = "INSERT INTO books (author, title, ISBN, type, format, copies) 
-			VALUES ('$author', '$title', '$ISBN','$type', '$format', '$copies')";
-    } else if(isset($_POST['delete'])) { /* THIS DOESNT WORK */
-        $sql = "DELETE FROM book_request WHERE 'ISBN'=$ISBN";
+       $sql = "INSERT INTO books (author, title, ISBN, type, format, copies) 
+            VALUES ('$author', '$title', '$ISBN','$type', '$format', '$copies')";
+    } else if(isset($_POST['delete'])) { 
+        $sql = "DELETE FROM book_request WHERE ISBN=$ISBN";
     }
 
-	
 			
 	if (!mysqli_query($conn, $sql)) {
 		echo "<script>alert('Material request was not updated, please try again.')</script>";
