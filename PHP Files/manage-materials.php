@@ -92,17 +92,17 @@
                     <div id="livesearch" class="resultContainer">
                         <!-- Initialise container -->
                         <?php foreach($materials as $material){ ?>
-                            <input type="checkbox" class="row">
-                                <option class="card" value="<?php echo htmlspecialchars($material['book_id']); ?>">
-                                    <div class="card-content">
+                            <input type='checkbox' class='row'>
+                                <option class='card' value='<?php echo htmlspecialchars($material['book_id']); ?>'>
+                                    <div class='card-content'>
                                         <p><?php echo htmlspecialchars($material['title']); ?><br/>
                                             <small><?php echo htmlspecialchars($material['author']) .
                                                     ' | ' . htmlspecialchars($material['publisher']); ?></small><br/>
                                             <small><em><?php echo htmlspecialchars($material['ISBN']); ?></em></small><br/>
                                         </p>
                                     </div>
-                                    <div class="card-action">
-                                        <a class="brand-text" href="#">More Info</a>
+                                    <div class='card-action'>
+                                        <a class='brand-text' href='#'>More Info</a>
                                     </div>
                                 </option>
                             </input>

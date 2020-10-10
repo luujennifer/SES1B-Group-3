@@ -22,19 +22,21 @@ $materials = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $output = "";
 foreach($materials as $material){
     $output = $output .
-        "<div class='row'>
-            <div class='card'>
+        "<input type='checkbox' class='row'>
+            <option class='card' value='" . $material['book_id'] . "'>
                 <div class='card-content'>
-                    <div>" . htmlspecialchars($material['title']) . "</div>
-                    <div>" . htmlspecialchars($material['author']) . "</div>
-                    <div>" . htmlspecialchars($material['publisher']) . "</div>
-                    <div>" . htmlspecialchars($material['ISBN']) . "</div>
+                    <p>" . htmlspecialchars($material['title']) . "<br/>
+                        <small>" .  htmlspecialchars($material['author']) .
+                                ' | ' . htmlspecialchars($material['publisher']) . "</small><br/>
+                        <small><em>" .  htmlspecialchars($material['ISBN']) . "</em></small><br/>
+                    </p>
                 </div>
-                <div class='card-action' >
+                <div class='card-action'>
                     <a class='brand-text' href='#'>More Info</a>
                 </div>
-            </div>
-        </div>";
+            </option>
+        </input>
+        <hr>";
 }
 
 //Set a default response message if output is empty
