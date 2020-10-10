@@ -25,9 +25,15 @@
     background: #fafafa;
     border-radius: 17px;
 }
+.search .inputIconWrap::after{
+     font-family: FontAwesome;
+     content: '\f002';
+     color: gray;
+     margin-left: -2em;
+ }
 .search button {
     padding: 14px 20px;
-    margin: 8px 8px;
+    margin: 0px 8px;
     cursor: pointer;
     font-size: 11px;
     border-radius: 17px;
@@ -42,7 +48,6 @@
     background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(to bottom right, #E30A51, #B30275);
     background-origin: border-box;
     background-clip: content-box, border-box;
-
 }
 .search .formBtn:hover {
     color: #D6085B;
@@ -50,12 +55,11 @@
     border: solid 3px transparent;
     box-shadow: 2px 1000px 1px #fff inset;
 }
-.search .inputIconWrap::after{
-    font-family: FontAwesome;
-    content: '\f002';
-    color: gray;
-    margin-left: -2em;
- }
+.search .btnContainer{
+    float: right;
+    margin: 8px 0px;
+    display: inline-block;
+}
 .search .resultContainer{
     width: 100%;
     min-height: 250px;

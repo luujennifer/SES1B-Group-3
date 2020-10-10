@@ -23,6 +23,7 @@
         <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
         <link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 
+        <!-- Live search script -->
         <script>
             function showResult(str) {
                 var xmlhttp = new XMLHttpRequest();
@@ -33,6 +34,21 @@
                 }
                 xmlhttp.open("GET","livesearch.php?q="+str,true);
                 xmlhttp.send();
+            }
+        </script>
+        <!-- Switch button script -->
+        <script>
+            function changeButtons(){
+                var linkBtn = document.getElementById('linkBtn');
+                var functionBtn = document.getElementById('functionBtn');
+                if(linkBtn.style.display == 'none'){
+                    linkBtn.style.display = 'block';
+                    functionBtn.style.display = 'none';
+                }
+                else{
+                    linkBtn.style.display = 'none';
+                    functionBtn.style.display = 'block';
+                }
             }
         </script>
     </head>
@@ -53,16 +69,28 @@
             <section class="contentContainer">
                 <form class="search" action="manage-materials.php" method="GET">
                     <label class="title"><b>Manage Materials</b></label>
-                    <button type="reset" id="clearBtn" class="formBtn" onclick=""><b>Clear Selection</b></button>
-                    <button type="button" id="deleteBtn" class="formBtn" onclick=""><b>Delete Selected</b></button>
-                    <button type="button" id="addBtn" class="formBtn" onclick="window.location.href='../PHP Files/add-material.php'"><b>Add Material</b></button>
+                    <div class="btnContainer">
+                        <div id="functionBtn" style="display: none">
+                            <button type="button" id="cancelBtn" class="formBtn" onclick="changeButtons()"><b>Cancel</b></button>
+                            <button type="reset" id="clearBtn" class="formBtn" onclick=""><b>Clear Selection</b></button>
+                            <button type="button" id="deleteBtn" class="formBtn" onclick=""><b>Delete Selected</b></button>
+                        </div>
+                        <div id="linkBtn" style="display: block">
+                            <button type="button" id="editBtn" class="formBtn" onclick="changeButtons()"><b>Edit Material</b></button>
+                            <button type="button" id="addBtn" class="formBtn" onclick="window.location.href='../PHP Files/add-material.php'"><b>Add Material</b></button>
+                        </div>
+                    </div>
+
                     <br>
+                    <!-- Search bar -->
                     <span class="inputIconWrap">
                         <input type="text" id="search-bar" placeholder="Search" onkeyup="showResult(this.value)">
                     </span>
                     <br>
                     <br>
+                    <!-- Container for search results -->
                     <div id="livesearch" class="resultContainer">
+                        <!-- Initialise container -->
                         <?php foreach($materials as $material){ ?>
                             <div class="row">
                                 <div class="card">
