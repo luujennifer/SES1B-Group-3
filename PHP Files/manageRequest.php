@@ -1,8 +1,5 @@
 <?php
-	// SIGN UP SCRIPT
-	
-
-
+	// MANAGE REQUESTS SCRIPT
 	$dbhost = "localhost";
 	$dbuser = "root";
 	$dbpass = "";
