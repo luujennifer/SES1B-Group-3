@@ -59,7 +59,7 @@
 							while($results = $raw_results->fetch_assoc()){
 							// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 								
-								echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>".$results['title']."</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
+								echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>Request ID ".$results['request_id']."&nbsp-&nbsp".$results['title']."</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
 								
 								
 							}
