@@ -1,4 +1,4 @@
-<!-- MANAGE REQUEST PAGE -->
+<!-- VIEW REQUEST PAGE -->
 <!-- establish connection with db -->
 <?php
 	session_start();
@@ -23,9 +23,8 @@
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
 		<link rel="stylesheet" type="text/css" href="../CSS Files/AdminStyling.css"> <!--Styling for staff account-->
-		<link rel="stylesheet" href="../CSS Files/SearchStyling.css"> <!-- Search css file -->
 		<link rel="stylesheet" href="../CSS Files/SearchResultsStyling.css"> <!-- Search css file -->
-		<link rel="stylesheet" href="../CSS Files/ManageRequestsStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" href="../CSS Files/ViewRequestsStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -47,9 +46,9 @@
 		<br>
 		<a id="returnhome" href="../HTML Files/admin-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
-				<h1 id="manageRequestsTitle">Manage Material Requests</h1>
+				<h1 id="viewRequestsTitle">View Material Requests</h1>
 				<?php
-					$location = '"index.html"'; // NEED TO CHANGE TO BE edit MATERIALS FORM 
+					$location = '"../HTML Files/admin-manage-request.html"'; // NEED TO CHANGE TO BE edit MATERIALS FORM 
 					
 					$raw_results = mysqli_query($conn, "SELECT * FROM book_request ORDER BY request_id") or die($conn -> error);
 						
