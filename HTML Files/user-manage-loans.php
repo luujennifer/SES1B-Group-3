@@ -47,7 +47,7 @@
 		<br>
 		<a id="returnhome" href="../HTML Files/User Account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
-				<h1>Manage my Materials</h1>
+				<h1>Manage my Loans</h1>
 				<?php
 				//session_start();
 				//$email = 'wintersoldier@email.com'; // NEED TO WORK OUT HOW TO GET email
