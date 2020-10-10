@@ -56,10 +56,6 @@
     color: gray;
     margin-left: -2em;
  }
-.search #returntosearch {
-    text-decoration: none;
-    color:black;
-}
 .search .resultContainer{
     width: 100%;
     min-height: 250px;

@@ -1,15 +1,9 @@
 <?php
-    session_start();
     $dbhost = "localhost";
     $dbuser = "root";
     $dbpass = "";
-    $db = "bookshelf";
-    $port = "81";
-
-    $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
-    if(!$conn){
-        echo "Connection error: " .mysqli_error();
-    }
+    $db ="bookshelf";
+    $conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die ("Error connecting to database: ". $conn -> error);
 
     $sql = "SELECT * FROM books ORDER BY book_id";
     $result = mysqli_query($conn, $sql);
@@ -29,37 +23,18 @@
         <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
         <link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 
-        <!--script>
-            $(document).ready(function() {
-
-                // Save all selects' id in an array
-                // to determine which select's option and value would be changed
-                // after you select an option in another select.
-                var selectors = ['category', 'topic']
-
-                $('#type').on('change', function() {
-                    var index = selectors.indexOf(this.id)
-                    var value = this.value
-
-                    // check if is the last one or not
-                    if (index < selectors.length - 1) {
-                        var next = $('#' + selectors[index + 1])
-
-                        // Show all the options in next select
-                        $(next).find('option').show()
-                        if (value != "") {
-                            // if this select's value is not empty
-                            // hide some of the options
-                            $(next).find('option[data-value!=' + value + ']').hide()
-                        }
-
-                        // set next select's value to be the first option's value
-                        // and trigger change()
-                        $(next).val($(next).find("option:first").val()).change()
+        <script>
+            function showResult(str) {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState===4 && this.status===200) {
+                        document.getElementById("livesearch").innerHTML = this.responseText;
                     }
-                })
-            });
-        </script-->
+                }
+                xmlhttp.open("GET","livesearch.php?q="+str,true);
+                xmlhttp.send();
+            }
+        </script>
     </head>
     <body>
         <!-- fixed top navigation bar -->
@@ -76,18 +51,18 @@
         <!-- content body of website -->
         <div class="body">
             <section class="contentContainer">
-                <form class="search" action="../HTML%20Files/search_results.php" method="GET">
+                <form class="search" action="manage-materials.php" method="GET">
                     <label class="title"><b>Manage Materials</b></label>
                     <button type="reset" id="clearBtn" class="formBtn" onclick=""><b>Clear Selection</b></button>
                     <button type="button" id="deleteBtn" class="formBtn" onclick=""><b>Delete Selected</b></button>
                     <button type="button" id="addBtn" class="formBtn" onclick="window.location.href='../PHP Files/add-material.php'"><b>Add Material</b></button>
                     <br>
                     <span class="inputIconWrap">
-                        <input type="text" id="search-bar" placeholder="Search" onkeyup="searchFunction()">
+                        <input type="text" id="search-bar" placeholder="Search" onkeyup="showResult(this.value)">
                     </span>
                     <br>
                     <br>
-                    <div class="resultContainer">
+                    <div id="livesearch" class="resultContainer">
                         <?php foreach($materials as $material){ ?>
                             <div class="row">
                                 <div class="card">
