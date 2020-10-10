@@ -61,8 +61,6 @@
                     else{ // if there is no matching rows do following
                         echo "<br><p id='message'>No materials.</p>";
                     }
-                    
-					}
 					
 				?>
 			</section>
