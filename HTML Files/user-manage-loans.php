@@ -24,7 +24,7 @@
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
 		<link rel="stylesheet" type="text/css" href="../CSS Files/UserStyling.css"> <!--Styling for user account-->
-		<link rel="stylesheet" href="../CSS Files/SearchStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" href="../CSS Files/SearchResultsStyling.css"> <!-- Search css file -->
 		<link rel="stylesheet" href="../CSS Files/ManageLoansStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
@@ -50,16 +50,16 @@
 				<h1>Manage my Materials</h1>
 				<?php
 				//session_start();
-				$email = 'wintersoldier@email.com'; // NEED TO WORK OUT HOW TO GET email
+				//$email = 'wintersoldier@email.com'; // NEED TO WORK OUT HOW TO GET email
 					$location = '"index.html"'; // NEED TO CHANGE TO BE manage loans FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
 					
-					$raw_results = mysqli_query($conn, "SELECT * FROM loans WHERE email = $email ORDER BY loan_id") or die($conn -> error);
+					$raw_results = mysqli_query($conn, "SELECT * FROM loans ORDER BY loan_id") or die($conn -> error);
 						
 					if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 					$num = mysqli_num_rows($raw_results);
 					echo "<br><p id='message'>There are <b>".$num."</b>&nbspcurrent loans.</p><br>";
 						while($results = $raw_results->fetch_assoc()){
-						echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>Loan ID: ".$results['loan_id']."</h3></a><p id='details'><b>Title: </b>".$results['book_title']."&nbsp&nbsp&nbsp&nbsp<b>Author: </b>".$results['book_author']."&nbsp&nbsp&nbsp&nbsp<b>Borrow Date: </b>".$results['borrow_date']."&nbsp&nbsp&nbsp&nbsp<b>Due Date: </b>".$results['due_date']."&nbsp&nbsp&nbsp&nbsp<b>Late Fee: $</b>".$results['fee']."</p><br>";
+						echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>Loan ID: ".$results['loan_id']."</h3></a><p id='details'><b>Title: </b>".$results['book_title']."&nbsp&nbsp&nbsp&nbsp<b>Author: </b>".$results['book_author']."<br><b>Borrow Date: </b>".$results['borrow_date']."&nbsp&nbsp&nbsp&nbsp<b>Due Date: </b>".$results['due_date']."&nbsp&nbsp&nbsp&nbsp<b>Late Fee: </b>$".$results['fee']."</p><br>";
 							
 						}
 						echo "<p id='message'>End of loans.</p><br><br>";
