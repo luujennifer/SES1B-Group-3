@@ -37,7 +37,7 @@
 		<br>
 		<a id="returntosearch" href="../HTML Files/admin-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
-				<h1 id="searchtitle">Search Results</h1>
+				<h1 id="searchtitle">View Materials</h1>
 				<?php
 					$location = '"../HTML Files/admin-manage-materials.html"'; // NEED TO CHANGE TO BE BORROW MATERIALS FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
                     
