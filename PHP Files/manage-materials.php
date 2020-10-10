@@ -92,22 +92,21 @@
                     <div id="livesearch" class="resultContainer">
                         <!-- Initialise container -->
                         <?php foreach($materials as $material){ ?>
-                            <div class="row">
-                                <div class="card">
+                            <input type="checkbox" class="row">
+                                <option class="card" value="<?php echo htmlspecialchars($material['book_id']); ?>">
                                     <div class="card-content">
-                                        <div><?php echo htmlspecialchars($material['author']); ?></div>
-                                        <div><?php echo htmlspecialchars($material['title']); ?></div>
-                                        <div><?php echo htmlspecialchars($material['publisher']); ?></div>
-                                        <div><?php echo htmlspecialchars($material['ISBN']); ?></div>
-                                        <div><?php echo htmlspecialchars($material['type']); ?></div>
-                                        <div><?php echo htmlspecialchars($material['format']); ?></div>
-                                        <div><?php echo htmlspecialchars($material['available']); ?></div>
+                                        <p><?php echo htmlspecialchars($material['title']); ?><br/>
+                                            <small><?php echo htmlspecialchars($material['author']) .
+                                                    ' | ' . htmlspecialchars($material['publisher']); ?></small><br/>
+                                            <small><em><?php echo htmlspecialchars($material['ISBN']); ?></em></small><br/>
+                                        </p>
                                     </div>
                                     <div class="card-action">
                                         <a class="brand-text" href="#">More Info</a>
                                     </div>
-                                </div>
-                            </div>
+                                </option>
+                            </input>
+                            <hr>
                         <?php } ?>
                     </div>
                 </form>

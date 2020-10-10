@@ -76,19 +76,17 @@
     -ms-overflow-y: scroll;
 }
 .search .resultContainer .row{
-    width: 100%;
+    /*width: 100%;
     padding: 16px;
     border-bottom: 1px solid #e7e7e7;
     box-sizing: border-box;
-    background: #fafafa;
+    background: #fafafa;*/
+    display: inline-block;
 }
 .search .resultContainer .card{
     display: grid;
     grid-template-columns: 100fr 1fr;
 }
 .search .resultContainer .card .card-content{
-    display: flex;
-}
-.search .resultContainer .card .card-content > div{
-    flex: 1;
+    display: inline-block;
 }

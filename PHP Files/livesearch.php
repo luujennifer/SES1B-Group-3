@@ -25,13 +25,10 @@ foreach($materials as $material){
         "<div class='row'>
             <div class='card'>
                 <div class='card-content'>
-                    <div>" . htmlspecialchars($material['author']) . "</div>
                     <div>" . htmlspecialchars($material['title']) . "</div>
+                    <div>" . htmlspecialchars($material['author']) . "</div>
                     <div>" . htmlspecialchars($material['publisher']) . "</div>
                     <div>" . htmlspecialchars($material['ISBN']) . "</div>
-                    <div>" . htmlspecialchars($material['type']) . "</div>
-                    <div>" . htmlspecialchars($material['format']) . "</div>
-                    <div>" . htmlspecialchars($material['available']) . "</div>
                 </div>
                 <div class='card-action' >
                     <a class='brand-text' href='#'>More Info</a>
