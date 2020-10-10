@@ -12,23 +12,25 @@
 	$ISBN = $_POST['ISBN'];
 	$type = $_POST['category'];
     $format = $_POST['format'];
-    $copies = '1';
+    $copies = '1'; /* default */
     
     
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit'])){ /* add to catalogue and remove from requests */
        $sql = "INSERT INTO books (author, title, ISBN, type, format, copies) 
-            VALUES ('$author', '$title', '$ISBN','$type', '$format', '$copies')";
-    } else if(isset($_POST['delete'])) { 
+            VALUES ('$author', '$title', '$ISBN','$type', '$format', '$copies')"; 
+        $remove_request = "DELETE FROM book_request WHERE ISBN=$ISBN";
+        mysqli_query($conn, $remove_request);
+    } else if(isset($_POST['delete'])) {  /* remove from request */
         $sql = "DELETE FROM book_request WHERE ISBN=$ISBN";
     }
 
 			
-	if (!mysqli_query($conn, $sql)) {
+	if (!mysqli_query($conn, $sql)) { /* failed */
 		echo "<script>alert('Material request was not updated, please try again.')</script>";
 		echo "<script>location.replace('../HTML Files/admin-manage-request.html')</script>";
 	}
 	
-	else {
+	else { /* pass */
 		echo "<script>alert('Material request updated sucessfully.')</script>";
 		echo "<script>location.replace('../HTML Files/admin-view-requests.php')</script>";
 	}
