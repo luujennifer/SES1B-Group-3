@@ -1,22 +1,39 @@
 <?php
-    session_start();
-    $dbhost = "localhost";
-    $dbuser = "root";
-    $dbpass = "";
-    $db = "bookshelf";
-    $port = "81";
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$db ="bookshelf";
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die ("Error connecting to database: ". $conn -> error);
 
-    $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
-    if(!$conn){
-        echo "Connection error: " .mysqli_error();
+if(isset($_POST['submit'])){
+    $bookTitle = $_POST['bookTitle'];
+    $bookType = $_POST['bookType'];
+    $author = $_POST['author'];
+    $publisher = $_POST['publisher'];
+    $pubPlace = $_POST['pubPlace'];
+    $pubDate = $_POST['pubDate'];
+    $isbn = $_POST['isbn'];
+    $genre = $_POST['genre'];
+    $format = $_POST['format'];
+    $copyNo = $_POST['copyNo'];
+    $renewNo = $_POST['renewNo'];
+    $fineAmount = $_POST['fineAmount'];
+
+
+    $sql = "INSERT INTO books (title, type, author, publisher, place_of_publication, date_of_publication,
+                                ISBN, fiction_topic, format, copies, available) 
+        VALUES ('$bookTitle', '$bookType', '$author','$publisher', '$pubPlace', '$pubDate', '$isbn', '$genre', '$format',
+                    '$copyNo', '$copyNo')";
+
+    if(!mysqli_query($conn, $sql)) {
+        echo "<script>alert('Failed to add material, please try again.')</script>";
     }
+    else {
+        echo "<script>alert('Material added successfully.')</script>";
+        header('Location: manage-materials.php');
+    }
+}
 
-    $sql = "SELECT * FROM books ORDER BY book_id";
-    $result = mysqli_query($conn, $sql);
-    $materials = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    mysqli_free_result($result);
-    mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -49,12 +66,12 @@
 <!-- content body of website -->
 <div class="body">
     <section class="contentContainer">
-        <form class="add" action="" method="POST">
+        <form class="add" action="add-material.php" method="POST">
             <br>
             <label class="title"><b>Add Material</b></label>
             <div class="inputFields">
                 <div class="floating-label-wrap">
-                    <input type="text" id="bookTitle" name="bookTitle" pattern="[A-Z][a-zA-Z-\s]{1,}" required>
+                    <input type="text" id="bookTitle" name="bookTitle" required>
                     <label for="bookTitle" class="floating-label">Book Title</label>
                 </div>
                 <div class="floating-label-wrap">
@@ -99,7 +116,7 @@
                     <label for="format" class="floating-label">Format</label>
                 </div>
                 <div class="floating-label-wrap">
-                    <input type="text" id="copyNo" name="copyNo" pattern="[1-9]([0-9])" required>
+                    <input type="text" id="copyNo" name="copyNo" pattern="[0-9]{1,}" required>
                     <label for="copyNo" class="floating-label">Number of Copies</label>
                 </div>
                 <div class="floating-label-wrap">
