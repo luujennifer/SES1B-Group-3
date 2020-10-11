@@ -22,8 +22,11 @@ $materials = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $output = "";
 foreach($materials as $material){
     $output = $output .
-        "<input type='checkbox' class='row'>
-            <option class='card' value='" . $material['book_id'] . "'>
+        "<div class='row'>
+            <div class='checkContainer'>
+                <input type='checkbox' value='" . htmlspecialchars($material['book_id']) . "'>
+            </div>
+            <div class='card'>
                 <div class='card-content'>
                     <p>" . htmlspecialchars($material['title']) . "<br/>
                         <small>" .  htmlspecialchars($material['author']) .
@@ -34,7 +37,7 @@ foreach($materials as $material){
                 <div class='card-action'>
                     <a class='brand-text' href='#'>More Info</a>
                 </div>
-            </option>
+            </div>
         </input>
         <hr>";
 }

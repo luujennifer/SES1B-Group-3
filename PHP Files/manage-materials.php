@@ -44,11 +44,43 @@
                 if(linkBtn.style.display == 'none'){
                     linkBtn.style.display = 'block';
                     functionBtn.style.display = 'none';
+                    showResult('');
                 }
                 else{
                     linkBtn.style.display = 'none';
                     functionBtn.style.display = 'block';
                 }
+            }
+        </script>
+        <script>
+            function refreshResult(){
+                showResult("");
+            }
+        </script>
+        <script>
+            function deleteItems(){
+                var items = document.getElementsByTagName("input");
+                var checkItems = []
+                var data = new FormData();
+                for(var item = 0; item < items.length; item++){
+                    if(items[item].getAttribute("type") === "checkbox"){
+                        if(items[item].checked){
+                            checkItems.push(items[item].value)
+                        }
+                    }
+                }
+                data.append('ids', JSON.stringify(checkItems));
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("POST", "delete-item.php", true);
+
+                xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
+                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        alert(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.send(data);
+
+                showResult(document.getElementById('search-bar').value);
             }
         </script>
     </head>
@@ -71,9 +103,9 @@
                     <label class="title"><b>Manage Materials</b></label>
                     <div class="btnContainer">
                         <div id="functionBtn" style="display: none">
-                            <button type="button" id="cancelBtn" class="formBtn" onclick="changeButtons()"><b>Cancel</b></button>
-                            <button type="reset" id="clearBtn" class="formBtn" onclick=""><b>Clear Selection</b></button>
-                            <button type="button" id="deleteBtn" class="formBtn" onclick=""><b>Delete Selected</b></button>
+                            <button type="reset" id="cancelBtn" class="formBtn" onclick="changeButtons()"><b>Cancel</b></button>
+                            <button type="reset" id="clearBtn" class="formBtn" onclick="refreshResult()"><b>Clear Selection</b></button>
+                            <button type="button" id="deleteBtn" class="formBtn" onclick="deleteItems()"><b>Delete Selected</b></button>
                         </div>
                         <div id="linkBtn" style="display: block">
                             <button type="button" id="editBtn" class="formBtn" onclick="changeButtons()"><b>Edit Material</b></button>
@@ -92,8 +124,11 @@
                     <div id="livesearch" class="resultContainer">
                         <!-- Initialise container -->
                         <?php foreach($materials as $material){ ?>
-                            <input type='checkbox' class='row'>
-                                <option class='card' value='<?php echo htmlspecialchars($material['book_id']); ?>'>
+                            <div class='row'>
+                                <div class='checkContainer'>
+                                    <input type='checkbox' value='<?php echo htmlspecialchars($material['book_id']); ?>'>
+                                </div>
+                                <div class='card'>
                                     <div class='card-content'>
                                         <p><?php echo htmlspecialchars($material['title']); ?><br/>
                                             <small><?php echo htmlspecialchars($material['author']) .
@@ -104,8 +139,8 @@
                                     <div class='card-action'>
                                         <a class='brand-text' href='#'>More Info</a>
                                     </div>
-                                </option>
-                            </input>
+                                </div>
+                            </div>
                             <hr>
                         <?php } ?>
                     </div>
