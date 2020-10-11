@@ -10,7 +10,8 @@
 	
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
-	$email = $_POST['email'];
+	//$email = $_POST['email'];
+	$email = $_SESSION["acc_email"];
 	$book_id = $_POST['book_id'];
 	$fee = '12';
 

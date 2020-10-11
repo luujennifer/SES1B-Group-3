@@ -48,13 +48,12 @@
 			<section class="contentContainer">
 				<h1>Manage my Loans</h1>
 				<?php
-				//session_start();
-				//NEED TO WORK OUT HOW TO USE SESSION EMAIL
-				//$email = $_SESSION["acc_email"];
-				//$email = '"wintersoldier@email.com"'; 
-					$location = '"../HTML Files/staff-update-loans.html"'; // NEED TO CHANGE TO BE manage loans FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
+				
+				$email = $_SESSION["acc_email"];
+			
+					$location = '"../HTML Files/staff-update-loans.html"'; 
 					
-					$raw_results = mysqli_query($conn, "SELECT * FROM loans  ORDER BY loan_id") or die($conn -> error);
+					$raw_results = mysqli_query($conn, "SELECT * FROM loans WHERE email='$email'  ORDER BY loan_id") or die($conn -> error);
 						
 					if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 					$num = mysqli_num_rows($raw_results);
