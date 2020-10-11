@@ -26,10 +26,11 @@
     border-radius: 17px;
 }
 .search .inputIconWrap::after{
-     font-family: FontAwesome;
-     content: '\f002';
-     color: gray;
-     margin-left: -2em;
+    font-family: FontAwesome;
+    content: '\f002';
+    color: black;
+    margin-left: -2.5em;
+    font-size: smaller;
  }
 .search button {
     padding: 14px 20px;
@@ -80,19 +81,52 @@
     height: max-content;
 }
 .search .resultContainer .checkContainer{
-    max-width: min-content;
+    width: 10%;
     display: inline-block;
     position: relative;
     top: 50%;
     -ms-transform: translateY(-100%);
     transform: translateY(-100%);
 }
+/* Replaces the checkbox */
+.search .resultContainer .checkContainer label {
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+}
+/* Creates the tick shape in the middle of the checkbox */
+.search .resultContainer .checkContainer label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 30px;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 12px;
+}
+.search .resultContainer .checkContainer input[type="checkbox"] {
+    visibility: hidden;
+}
+.search .resultContainer .checkContainer input[type="checkbox"]:checked + label {
+    background-color: #B30275;
+    border-color: #B30275;
+}
+.search .resultContainer .checkContainer input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+}
 .search .resultContainer .card{
     width: 80%;
     height: max-content;
     display: inline-block;
     position: relative;
-    left: 10%;
 }
 .search .resultContainer .card .card-content{
     max-width: 50%;
@@ -103,7 +137,7 @@
     display: inline-block;
     position: relative;
     top: 50%;
-    left: 80%;
+    right: -50%;
     -ms-transform: translateY(-100%);
     transform: translateY(-100%);
 }

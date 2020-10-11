@@ -126,7 +126,9 @@
                         <?php foreach($materials as $material){ ?>
                             <div class='row'>
                                 <div class='checkContainer'>
-                                    <input type='checkbox' value='<?php echo htmlspecialchars($material['book_id']); ?>'>
+                                    <input type='checkbox' id='checkbox<?php echo htmlspecialchars($material['book_id']); ?>'
+                                           value='<?php echo htmlspecialchars($material['book_id']); ?>'>
+                                    <label for='checkbox<?php echo htmlspecialchars($material['book_id']); ?>'></label>
                                 </div>
                                 <div class='card'>
                                     <div class='card-content'>
