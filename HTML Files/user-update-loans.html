@@ -1,4 +1,21 @@
-<!-- USER BORROW MATERIAL -->
+<!-- USER MANAGE LOANS PAGE -->
+<!-- establish connection with db -->
+<?php
+	session_start();
+	
+	$dbhost = "localhost";
+	$dbuser = "root";
+	$dbpass = "";
+	$db = "bookshelf";
+	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+	
+	$login_email = $_SESSION["acc_email"];
+	$login_password = $_SESSION["acc_pass"];
+
+	$sqlValue = "SELECT * FROM `loans` WHERE 'email' = $login_email "; // need complete sql query for user loans
+	$results = mysqli_query($conn, $sqlValue);
+
+?>
 
 <!DOCTYPE html>
 <html> 
@@ -7,7 +24,8 @@
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
 		<link rel="stylesheet" type="text/css" href="../CSS Files/UserStyling.css"> <!--Styling for user account-->
-		<link rel="stylesheet" href="../CSS Files/BorrowMaterialsStyling.css"> <!-- Borrow css file -->
+		<link rel="stylesheet" href="../CSS Files/SearchResultsStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" href="../CSS Files/UpdateLoansStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -25,17 +43,25 @@
 		
 		<!-- content body of website -->
 		<div class="body">
-		<br>
-		<br>
-		<a id="returnhome" href="../HTML Files/User Account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
+	
+		<a id="returnhome" href="../HTML Files/user-manage-loans.php"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Loans</a>
 			<section class="contentContainer">
-				<form class="borrow" action="../PHP Files/userBorrowMaterials.php" method="POST">
-					<h1 id="borrowTitle">Borrow Materials</h1>
-					<p>Fill out the form below to borrow materials.</p>
-					
-					<input type="text" placeholder="Enter material id" name="book_id" required>
-					<center><button name="submit" type="submit"><b>Borrow</b></button></center>
-				  </form>
+                <form class="update-loans" action="../PHP Files/userUpdateLoans.php" method="POST">
+                    <h1>Update Loan</h1>
+                    <p>Enter loan ID and book ID below to return or renew loan.</p>
+                    <input type="text" name="loan_id" placeholder="Enter loan ID" required> 
+                    <input type="text" name="book_id" placeholder="Enter book ID" required> 
+
+					<div id="buttonGroup">
+						<button id="leftBtn" name="return" type="submit"><b>Return</b></button>
+						<button id="rightBtn" name="renew" type="submit"><b>Renew</b></button>
+					</div>
+				
+
+                </form>
+				
+				
+			
 			</section>
 		</div>
 		
