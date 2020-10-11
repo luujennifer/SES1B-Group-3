@@ -24,7 +24,9 @@ foreach($materials as $material){
     $output = $output .
         "<div class='row'>
             <div class='checkContainer'>
-                <input type='checkbox' value='" . htmlspecialchars($material['book_id']) . "'>
+                <input type='checkbox' id='checkbox" . htmlspecialchars($material['book_id']) . "'
+                                           value='" . htmlspecialchars($material['book_id']) . "'>
+                <label for='checkbox" . htmlspecialchars($material['book_id']) . "'></label>
             </div>
             <div class='card'>
                 <div class='card-content'>
