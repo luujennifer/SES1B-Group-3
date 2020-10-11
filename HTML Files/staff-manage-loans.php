@@ -49,8 +49,10 @@
 				<h1>Manage my Loans</h1>
 				<?php
 				//session_start();
-				//$email = 'wintersoldier@email.com'; // NEED TO WORK OUT HOW TO GET email
-					$location = '"index.html"'; // NEED TO CHANGE TO BE manage loans FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
+				//NEED TO WORK OUT HOW TO USE SESSION EMAIL
+				//$email = $_SESSION["acc_email"];
+				//$email = '"wintersoldier@email.com"'; 
+					$location = '"../HTML Files/staff-update-loans.html"'; // NEED TO CHANGE TO BE manage loans FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
 					
 					$raw_results = mysqli_query($conn, "SELECT * FROM loans  ORDER BY loan_id") or die($conn -> error);
 						
