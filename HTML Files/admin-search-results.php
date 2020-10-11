@@ -40,7 +40,7 @@
 				<h1 id="searchtitle">Search Results</h1>
 				<?php
 					$query = $_GET['query']; 
-					$location = '"index.html"'; // NEED TO CHANGE TO BE BORROW MATERIALS FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
+					$location = '"../HTML Files/admin-manage-materials.html"'; 
 					// gets value sent over search form
 					
 					$min_length = 1;
