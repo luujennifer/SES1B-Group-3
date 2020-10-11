@@ -48,17 +48,18 @@
 			<section class="contentContainer">
 				<h1>Manage my Loans</h1>
 				<?php
-				//session_start();
-				$email = 'wintersoldier@email.com'; // NEED TO WORK OUT HOW TO GET email
-					$location = '"index.html"'; // NEED TO CHANGE TO BE manage loans FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
+				
+				$email = $_SESSION["acc_email"];
+			
+					$location = '"../HTML Files/staff-update-loans.html"'; 
 					
-					$raw_results = mysqli_query($conn, "SELECT * FROM loans WHERE email = $email ORDER BY loan_id") or die($conn -> error);
+					$raw_results = mysqli_query($conn, "SELECT * FROM loans WHERE email='$email'  ORDER BY loan_id") or die($conn -> error);
 						
 					if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 					$num = mysqli_num_rows($raw_results);
 					echo "<br><p id='message'>There are <b>".$num."</b>&nbspcurrent loans.</p><br>";
 						while($results = $raw_results->fetch_assoc()){
-						echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>Loan ID: ".$results['loan_id']."</h3></a><p id='details'><b>Title: </b>".$results['book_title']."&nbsp&nbsp&nbsp&nbsp<b>Author: </b>".$results['book_author']."&nbsp&nbsp&nbsp&nbsp<b>Borrow Date: </b>".$results['borrow_date']."&nbsp&nbsp&nbsp&nbsp<b>Due Date: </b>".$results['due_date']."&nbsp&nbsp&nbsp&nbsp<b>Late Fee: $</b>".$results['fee']."</p><br>";
+						echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>Loan ID: ".$results['loan_id']."</h3></a><p id='details'><b>Title: </b>".$results['book_title']."&nbsp&nbsp&nbsp&nbsp<b>Author: </b>".$results['book_author']."<br><b>Borrow Date: </b>".$results['borrow_date']."&nbsp&nbsp&nbsp&nbsp<b>Due Date: </b>".$results['due_date']."&nbsp&nbsp&nbsp&nbsp<b>Late Fee: $</b>".$results['fee']."</p><br>";
 							
 						}
 						echo "<p id='message'>End of loans.</p><br><br>";
