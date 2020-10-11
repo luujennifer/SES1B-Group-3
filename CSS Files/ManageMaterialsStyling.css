@@ -82,11 +82,14 @@
 }
 .search .resultContainer .checkContainer{
     width: 10%;
-    display: inline-block;
+    display: none;
     position: relative;
     top: 50%;
     -ms-transform: translateY(-125%);
     transform: translateY(-125%);
+}
+.search .resultContainer .editing{
+    display: inline-block;
 }
 /* Replaces the checkbox */
 .search .resultContainer .checkContainer label {
@@ -123,7 +126,7 @@
     opacity: 1;
 }
 .search .resultContainer .card{
-    width: 80%;
+    width: 85%;
     height: max-content;
     display: inline-block;
     position: relative;

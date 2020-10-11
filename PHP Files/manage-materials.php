@@ -39,18 +39,39 @@
         <!-- Switch button script -->
         <script>
             function changeButtons(){
-                var linkBtn = document.getElementById('linkBtn');
-                var functionBtn = document.getElementById('functionBtn');
-                if(linkBtn.style.display == 'none'){
-                    linkBtn.style.display = 'block';
-                    functionBtn.style.display = 'none';
+                var functions = document.getElementById('functions');
+                var editFunctions = document.getElementById('editFunctions');
+
+                if(functions.style.display == 'none'){
+                    //Exit editing state
+                    functions.style.display = 'block';
+                    editFunctions.style.display = 'none';
+
+                    var items = document.getElementsByClassName("checkContainer");
+                    for(var item = 0; item < items.length; item++) {
+                        items[item].classList.remove("editing");
+                    }
+
                     showResult('');
                 }
                 else{
-                    linkBtn.style.display = 'none';
-                    functionBtn.style.display = 'block';
+                    //Enter editing state
+                    functions.style.display = 'none';
+                    editFunctions.style.display = 'block';
+
+                    var items = document.getElementsByClassName("checkContainer");
+                    for(var item = 0; item < items.length; item++) {
+                        items[item].classList.add("editing");
+                    }
                 }
             }
+            document.ready(function (){
+                var items = document.getElementsByClassName("checkContainer");
+                for(var item = 0; item < items.length; item++) {
+                    items[item].style.display = 'none';
+                }
+            });
+
         </script>
         <script>
             function refreshResult(){
@@ -102,12 +123,12 @@
                 <form class="search" action="manage-materials.php" method="GET">
                     <label class="title"><b>Manage Materials</b></label>
                     <div class="btnContainer">
-                        <div id="functionBtn" style="display: none">
+                        <div id="editFunctions" style="display: none">
                             <button type="reset" id="cancelBtn" class="formBtn" onclick="changeButtons()"><b>Cancel</b></button>
                             <button type="reset" id="clearBtn" class="formBtn" onclick="refreshResult()"><b>Clear Selection</b></button>
                             <button type="button" id="deleteBtn" class="formBtn" onclick="deleteItems()"><b>Delete Selected</b></button>
                         </div>
-                        <div id="linkBtn" style="display: block">
+                        <div id="functions" style="display: block">
                             <button type="button" id="editBtn" class="formBtn" onclick="changeButtons()"><b>Edit Material</b></button>
                             <button type="button" id="addBtn" class="formBtn" onclick="window.location.href='../PHP Files/add-material.php'"><b>Add Material</b></button>
                         </div>
