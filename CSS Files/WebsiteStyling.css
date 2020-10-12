@@ -32,6 +32,10 @@
 	cursor: pointer;
 	vertical-align: -13px;
 }
+.title {
+	margin: 0px 8px;
+	font-size: 30px;
+}
 
 /* body of the site = everything outside the navbar and footer bar */
 .body{
@@ -40,7 +44,7 @@
 	margin-left: 20px;
 	margin-right: 20px;
 	overflow: auto;
-	top: 7
+	top: 7;
 }
 
 /* body content format, centres all the content regardless of screen size */
