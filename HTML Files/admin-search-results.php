@@ -40,7 +40,7 @@
 				<h1 id="searchtitle">Search Results</h1>
 				<?php
 					$query = $_GET['query']; 
-					$location = '"../HTML Files/admin-manage-materials.html"'; 
+					$location = '"../PHP Files/manage-materials.php"'; 
 					// gets value sent over search form
 					
 					$min_length = 1;
@@ -66,11 +66,13 @@
 						echo "<br><p id='message'>There are <b>".$num."</b>&nbspmaterials that match the search criteria.</p><br>";
 							while($results = $raw_results->fetch_assoc()){
 							// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
-								if($results['type'] == 'Fiction'){
-									echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>".$results['title']." [Book ID: ".$results['book_id']."]</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
+
+								if($results['category'] == 'Fiction'){
+									echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>".$results['title']." [Book ID: ".$results['book_id']."]</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['category']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
 								}
 								else {
-									echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>".$results['title']." [Book ID: ".$results['book_id']."]</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
+									echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>".$results['title']." [Book ID: ".$results['book_id']."]</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['category']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
+
 								}
 							}
 							echo "<p id='message'>End of search results.</p><br><br>";

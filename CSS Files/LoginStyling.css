@@ -1,12 +1,16 @@
 /* LOGIN STYLING */
-
+h1 {
+	font-size: 30px;
+    background: linear-gradient(to right, #E30A51, #B30275);
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 .login {
 	padding: 16px;
 	max-width: 460px;
 	margin: auto;
-}
-.login #loginTitle {
-	font-size: 30px;
 }
 .login input[type=email] { /* Compensation relative to FloatingLabels.css */
 	width: 170%;

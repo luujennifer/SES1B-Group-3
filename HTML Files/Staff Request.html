@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
   <script src="https://kit.fontawesome.com/56b24aa4ed.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Imports JQuery librry -->
+        <script src="../Javascript%20Files/KeepFloating.js"></script> <!-- Script for keeping labels afloat -->
   <head>
     <title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 	<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
@@ -34,6 +36,7 @@
 		</style>
 	  <form class="request" action="../PHP Files/staffRequest.php" method="POST"> <!--- need to write php script for request-->
         <h1 id="requestTitle">Request Materials</h1>
+		<p>Fill out the form below to request for new material.</p>
 		<input type="text" placeholder="Enter material author" name="author" required>
 		<input type="text" placeholder="Enter material title" name="title" required>
 		<input type="text" placeholder="Enter material ISBN" name="ISBN" required>
@@ -56,6 +59,7 @@
 		
 		
 		<center><button type="submit" id="submitBtn" value="Submit" onclick=""><b>Submit</b></button></center>
+		<br>
 		
       </form>
 

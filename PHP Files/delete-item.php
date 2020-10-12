@@ -10,10 +10,12 @@ foreach(explode(',', $ids) as $id){
     $id = preg_replace('/[^A-Za-z0-9\-]/', '', $id);;
     $sql = "DELETE FROM books WHERE book_id = '$id'";
     if(mysqli_query($conn, $sql)){
-        echo "Material successfully deleted";
+        echo "<script>alert('Material sucessfully deleted.')</script>";
+		echo "<script>location.replace('../PHP Files/manage-materials.php')</script>";
     }
     else{
-        echo ($conn -> error);
+        echo "<script>alert('Material could not be deleted, please try again.')</script>";
+		echo "<script>location.replace('../PHP Files/manage-materials.php')</script>";
     }
 }
 

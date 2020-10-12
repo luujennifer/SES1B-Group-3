@@ -1,15 +1,21 @@
 #name {
-    float: right;
-    padding: 10px;
-}
-#name p {
-    float: left;
-    padding-top: 4px;
+	float: right;
+	padding: 10px;
 }
 #settings { /* aligning the settings cog */
-    float: right;
-    padding: 25px;
-    cursor: pointer;
+	float: left;
+	cursor: pointer;
+	text-decoration: underline;
+	font-size: 18px;
+	
+}
+#logout {
+	float: right;
+	padding-top: 12px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	cursor: pointer;
+	font-size: 25px;
 }
 .search {
      padding: 16px;
@@ -144,4 +150,12 @@
     float: right;
     -ms-transform: translateY(150%);
     transform: translateY(150%);
+}
+h1 {
+	font-size: 30px;
+    background: linear-gradient(to right, #E30A51, #B30275);
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
