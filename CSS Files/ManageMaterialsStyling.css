@@ -1,0 +1,161 @@
+#name {
+	float: right;
+	padding: 10px;
+}
+#settings { /* aligning the settings cog */
+	float: left;
+	cursor: pointer;
+	text-decoration: underline;
+	font-size: 18px;
+	
+}
+#logout {
+	float: right;
+	padding-top: 12px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	cursor: pointer;
+	font-size: 25px;
+}
+.search {
+     padding: 16px;
+     margin: auto;
+}
+.search input[type=text] { /* design consistent with other input */
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background: #fafafa;
+    border-radius: 17px;
+}
+.search .inputIconWrap::after{
+    font-family: FontAwesome;
+    content: '\f002';
+    color: black;
+    margin-left: -2.5em;
+    font-size: smaller;
+ }
+.search button {
+    padding: 14px 20px;
+    margin: 0px 8px;
+    cursor: pointer;
+    font-size: 11px;
+    border-radius: 17px;
+    display: inline-block;
+}
+.search .formBtn {
+    float: right;
+    width: 15%;
+    min-width: max-content;
+    color: white;
+    border: solid 3px transparent;
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(to bottom right, #E30A51, #B30275);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+.search .formBtn:hover {
+    color: #D6085B;
+    box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+    border: solid 3px transparent;
+    box-shadow: 2px 1000px 1px #fff inset;
+}
+.search .btnContainer{
+    float: right;
+    margin: 8px 0px;
+    display: inline-block;
+}
+.search .resultContainer{
+    width: 100%;
+    min-height: 250px;
+    max-height: 400px;
+    padding: 8px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background: #fafafa;
+    border-radius: 17px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-x: hidden;
+    -ms-overflow-y: scroll;
+}
+.search.resultContainer .row {
+    width: 100%;
+    height: max-content;
+}
+.search .resultContainer .checkContainer{
+    width: 10%;
+    display: none;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-125%);
+    transform: translateY(-125%);
+}
+.search .resultContainer .editing{
+    display: inline-block;
+}
+/* Replaces the checkbox */
+.search .resultContainer .checkContainer label {
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+}
+/* Creates the tick shape in the middle of the checkbox */
+.search .resultContainer .checkContainer label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 30px;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 12px;
+}
+.search .resultContainer .checkContainer input[type="checkbox"] {
+    visibility: hidden;
+}
+.search .resultContainer .checkContainer input[type="checkbox"]:checked + label {
+    background-color: #B30275;
+    border-color: #B30275;
+}
+.search .resultContainer .checkContainer input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+}
+.search .resultContainer .card{
+    width: 85%;
+    height: max-content;
+    display: inline-block;
+    position: relative;
+}
+.search .resultContainer .card .card-content{
+    max-width: 50%;
+    display: inline-block;
+    float: left;
+}
+.search .resultContainer .card .card-action{
+    width: fit-content;
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    float: right;
+    -ms-transform: translateY(150%);
+    transform: translateY(150%);
+}
+h1 {
+	font-size: 30px;
+    background: linear-gradient(to right, #E30A51, #B30275);
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

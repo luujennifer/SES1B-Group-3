@@ -1,9 +1,9 @@
-<!-- search results page -->
+<!-- STAFF SEARCH RESULTS -->
 
 <?php
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = "689iABj";
+	$dbpass = "";
 	$db ="bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die ("Error connecting to database: ". $conn -> error);
 ?>
@@ -16,7 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="../CSS Files/StaffStyling.css"> <!--Styling for user account-->
 		<link rel="stylesheet" href="../CSS Files/SearchResultsStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
-		<link rel="icon" type="image/x-icon" href="/logo.ico"/> <!-- icon file -->
+		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
 	<body>
 		<!-- fixed top navigation bar -->
@@ -35,12 +35,12 @@
 		<!-- return to search -->
 		<br>
 		<br>
-		<a id="returnhome" href="../HTML Files/staff-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
+		<a id="returnhome" href="../HTML Files/staff-borrow-materials.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
 				<h1 id="searchtitle">Search Results</h1>
 				<?php
 					$query = $_GET['query']; 
-					$location = '"index.html"'; // NEED TO CHANGE TO BE BORROW MATERIALS FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
+					$location = '"../HTML Files/staff-borrow-materials.html"'; // NEED TO CHANGE TO BE BORROW MATERIALS FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
 					// gets value sent over search form
 					
 					$min_length = 1;
@@ -55,10 +55,10 @@
 						// makes sure nobody uses SQL injection
 						
 						if($query == '*'){
-							$raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY title") or die($conn -> error);
+							$raw_results = mysqli_query($conn, "SELECT * FROM books ORDER BY book_id") or die($conn -> error);
 						} 
 						else {
-							$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY title") or die($conn -> error);
+							$raw_results = mysqli_query($conn, "SELECT * FROM books WHERE (`title` LIKE '%".$query."%') OR (`author` LIKE '%".$query."%') ORDER BY book_id") or die($conn -> error);
 						}
 
 						if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
@@ -66,11 +66,11 @@
 						echo "<br><p id='message'>There are <b>".$num."</b>&nbspmaterials that match the search criteria.</p><br>";
 							while($results = $raw_results->fetch_assoc()){
 							// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
-								if($results['type'] == 'Fiction'){
-									echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>".$results['title']."</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
+								if($results['category'] == 'Fiction'){
+									echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>".$results['title']." [Book ID: ".$results['book_id']."]</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['category']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
 								}
 								else {
-									echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>".$results['title']."</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['type']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
+									echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>".$results['title']." [Book ID: ".$results['book_id']."]</h3></a><p id='details'><b>By: </b>".$results['author']."&nbsp&nbsp&nbsp&nbsp<b>Type: </b>".$results['category']."&nbsp&nbsp&nbsp&nbsp<b>Topic: </b>".$results['non_fiction_topic']."&nbsp&nbsp&nbsp&nbsp<b>ISBN: </b>".$results['ISBN']."</p><br>";
 								}
 							}
 							echo "<p id='message'>End of search results.</p><br><br>";

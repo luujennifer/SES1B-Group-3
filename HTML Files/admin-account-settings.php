@@ -6,7 +6,7 @@
 	
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = "689iABj";
+	$dbpass = "";
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error); 
 	$message = "Edit your account details below, remember to click Update Account to save changes.";

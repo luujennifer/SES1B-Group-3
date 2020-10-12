@@ -1,11 +1,11 @@
-<!-- MANAGE LOANS PAGE -->
+<!-- USER MANAGE LOANS PAGE -->
 <!-- establish connection with db -->
 <?php
 	session_start();
 	
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = "689iABj";
+	$dbpass = "";
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
 	
@@ -24,7 +24,8 @@
 		<title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
 		<link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
 		<link rel="stylesheet" type="text/css" href="../CSS Files/UserStyling.css"> <!--Styling for user account-->
-		<link rel="stylesheet" href="../CSS Files/SearchStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" href="../CSS Files/SearchResultsStyling.css"> <!-- Search css file -->
+		<link rel="stylesheet" href="../CSS Files/ManageLoansStyling.css"> <!-- Search css file -->
 		<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
 		<link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 	</head>	
@@ -46,47 +47,29 @@
 		<br>
 		<a id="returnhome" href="../HTML Files/User Account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
-				<h1>Manage my Materials</h1>
-				<form action="" method=""> <!-- need to write script to search the table below -->
-					<div id="search-container">
-						<input type="text" id="search-bar" name="query" placeholder="Enter * to view all or search via material title or author"/>
-						<button type="submit"><i class="fas fa-search"></i></button>
-					</div>
-				</form>
-			
-				<table>
-					<tr>
-						<th>Loan ID</th>
-						<th>Title</th>
-						<th>Author</th>
-						<th>Borrow Date</th>
-						<th>Due Date</th>
-						<th>Fees</th>
-					</tr>
+				<h1>Manage my Loans</h1>
+				<?php
+				$email = $_SESSION["acc_email"];
+				
+					$location = '"../HTML Files/user-update-loans.html"'; // NEED TO CHANGE TO BE manage loans FORM FOR USER AND STAFF, AND EDIT FOR ADMIN
 					
-					<!-- print all database data into a table -->
-					<?php
-						if(mysqli_num_rows($results) > 0 ) //result greater than 0
-						{
-							while($results->fetch_assoc()) //fetch associate
-							{
-								echo'<tr>
-										<td>'.$loan_id.'</td>
-										<td>'.$book_title.'</td>
-										<td>'.$book_author.'</td>
-										<td>'.$borrow_date.'</td>
-										<td>'.$due_date.'</td>
-										<td>'.$fee.'</td>
-									</tr>';
-							}
+					$raw_results = mysqli_query($conn, "SELECT * FROM loans WHERE email='$email' ORDER BY loan_id") or die($conn -> error);
+						
+					if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+					$num = mysqli_num_rows($raw_results);
+					echo "<br><p id='message'>There are <b>".$num."</b>&nbspcurrent loans.</p><br>";
+						while($results = $raw_results->fetch_assoc()){
+						echo "<a id='booktitle' style='cursor:pointer;' onclick='window.location.href=".$location."'><h3>Loan ID: ".$results['loan_id']."</h3></a><p id='details'><b>Book ID: </b>".$results['book_id']."&nbsp&nbsp&nbsp&nbsp<b>Title: </b>".$results['book_title']."&nbsp&nbsp&nbsp&nbsp<b>Author: </b>".$results['book_author']."<br><b>Borrow Date: </b>".$results['borrow_date']."&nbsp&nbsp&nbsp&nbsp<b>Due Date: </b>".$results['due_date']."&nbsp&nbsp&nbsp&nbsp<b>Late Fee: </b>$".$results['fee']."</p><br>";
 							
 						}
-						else 
-						{
-							echo "<br><br>No current loans.<br><br>";
-						}
-					?>
-				</table>
+						echo "<p id='message'>End of loans.</p><br><br>";
+						
+					}
+					else{ // if there is no matching rows do following
+						echo "<br><p id='message'>No loans.</p>";
+					}
+				?>
+			
 			
 			</section>
 		</div>

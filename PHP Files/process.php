@@ -1,9 +1,11 @@
 <?php
+	// LOGIN SCRIPT
+	
 	session_start();
 
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = ""; // TO CHANGE TO DESIGNATED PASS
+	$dbpass = ""; 
 	$db = "bookshelf";
 	
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
@@ -23,11 +25,11 @@
 		
 		$account_type = $row['account_type'];
 		if($account_type == "Student"){
-			include ("../HTML Files/User Account.html");
+			echo "<script>location.replace('../HTML Files/User Account.html')</script>"; 
 		} else if ($account_type == "Staff") {
-			include ("../HTML Files/staff-account.html");
+			echo "<script>location.replace('../HTML Files/staff-account.html')</script>"; 
 		} else if ($account_type == "Admin") {
-			include ("../HTML Files/admin-account.html");
+			echo "<script>location.replace('../HTML Files/admin-account.html')</script>"; 
 		}
 		
 	}

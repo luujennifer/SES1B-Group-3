@@ -1,4 +1,4 @@
-<!-- BASIC WEBSITE SKELETON -->
+<!-- USER BORROW MATERIAL -->
 
 <!DOCTYPE html>
 <html> 
@@ -27,15 +27,14 @@
 		<div class="body">
 		<br>
 		<br>
-		<a id="returntohome" href="../HTML Files/User Account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
+		<a id="returnhome" href="../HTML Files/User Account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
 			<section class="contentContainer">
-				<form class="borrow" action="../PHP Files/borrowMaterials.php" method="POST">
+				<form class="borrow" action="../PHP Files/userBorrowMaterials.php" method="POST">
 					<h1 id="borrowTitle">Borrow Materials</h1>
 					<p>Fill out the form below to borrow materials.</p>
+					
 					<input type="text" placeholder="Enter material id" name="book_id" required>
-					<input type="text" placeholder="Enter material title" name="book_title" required>
-					<input type="text" placeholder="Enter material author" name="book_author" required>
-					<button name="submit" type="submit"><b>Borrow</b></button>
+					<center><button name="submit" type="submit"><b>Borrow</b></button></center>
 				  </form>
 			</section>
 		</div>
