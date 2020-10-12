@@ -1,0 +1,56 @@
+#name {
+    float: right;
+    padding: 10px;
+}
+#name p {
+    float: left;
+    padding-top: 4px;
+}
+#settings { /* aligning the settings cog */
+    float: right;
+    padding: 25px;
+    cursor: pointer;
+}
+/* Formats the input fields of the form */
+.add .inputFields{
+    padding-top: 16px;
+}
+/* Formats the button */
+.add button {
+    padding: 14px 20px;
+    margin: 8px 8px;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 17px;
+}
+.add #addMaterialBtn {
+    float: left;
+    width: 25%;
+    min-width: max-content;
+    color: white;
+    border: solid 3px transparent;
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(to bottom right, #E30A51, #B30275);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+.add #addMaterialBtn:hover {
+    color: #D6085B;
+    box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+    border: solid 3px transparent;
+    box-shadow: 2px 1000px 1px #fff inset;
+}
+.add #cancelBtn {
+    float: left;
+    width: 25%;
+    color: #D6085B;
+    box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+    border: solid 3px transparent;
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(to bottom right, #E30A51, #B30275);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px #fff inset;
+}
+.add #cancelBtn:hover {
+    box-shadow: none;
+    color: white;
+}
