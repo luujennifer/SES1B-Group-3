@@ -3,19 +3,7 @@
 #message {
 	color: red;
 }
-#name {
-	float: right;
-	padding: 10px;
-}
-#name p {
-	float: left;
-	padding-top: 4px;
-}
-#settings { /* aligning the settings cog */
-	float: right;
-	padding: 25px;
-	cursor: pointer;
-}
+
 .settings { /* form formatting */
 	padding: 16px;
 	/* max-width: 550px; */
