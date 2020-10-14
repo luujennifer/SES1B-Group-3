@@ -11,7 +11,7 @@
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error); 
 	$message = "Edit your account details below, remember to click Update Account to save changes.";
 	
-	$login_email = $_SESSION["acc_email"];
+	/*$login_email = $_SESSION["acc_email"];
 	$login_password = $_SESSION["acc_pass"];
 
 	$sqlValue = "SELECT * FROM `users` WHERE `account_type`='Admin' AND 'email'='$login_email' AND 'password'='$login_password'"; // need to match up name to admin account name
@@ -25,18 +25,18 @@
 			$password = $row['password'];
 		}
 		
-	}
+	}*/
 	
-		$firstname = $_POST['FirstName'];
+		/*$firstname = $_POST['FirstName'];
 		$lastname = $_POST['LastName'];
 		$phonenumber = $_POST['PhoneNumber'];
 		$email = $_POST['Email'];
 		$password = $_POST['password'];
-		$password2 = $_POST['password2'];
+		$password2 = $_POST['password2'];*/
 	
 	
 	//if($_SERVER["REQUEST_METHOD"] == "POST"){
-	if(isset($_POST['submit'])) {
+/*	if(isset($_POST['submit'])) {
 		if (empty($password)) { 
 		$message = "Please ensure password is filled to update account details."; 
 		}
@@ -53,7 +53,7 @@
 			}
 		
 		}
-	} 
+	} */
 ?>
 
 <!DOCTYPE html>
@@ -103,20 +103,20 @@
 					
 					<div id="left"> <!-- left aligned items -->
 						<label id="firstnamelabel" for="firstName"><b>First Name</b></label>
-						<input type="text" id="firstnamefield" name="FirstName" value="<?php echo $firstname ?>">
+						<input type="text" id="firstnamefield" name="FirstName" value="">
 						<label id="emaillabel" for="email"><b>Email</b></label>
-						<input type="email" id="emailfield" name="Email" value="<?php echo $email ?>">
+						<input type="email" id="emailfield" name="Email" value="">
 						<label id="password1label" for="password"><b>Password</b></label>
-						<input id="password1field" type="password" value="<?php echo $password ?>" minlength="5" name="password" required> <!-- password is required for all changes - need to check this works -->
+						<input id="password1field" type="password" value="" name="password" required> <!-- password is required for all changes - need to check this works -->
 					</div>
 								
 					<div id="right"> <!-- right aligned items -->
 						<label id="lastnamelabel" for="lastName"><b>Last Name</b></label>
-						<input type="text" id="lastnamefield" name="LastName" value="<?php echo $lastname ?>">
+						<input type="text" id="lastnamefield" name="LastName" value="">
 						<label id="phonenumberlabel" for="phoneNumber"><b>Phone Number</b></label>
-						<input type="text" id="phonenumberfield" name="phoneNumber" minlength="10" value="<?php echo $phonenumber ?>">
+						<input type="text" id="phonenumberfield" name="phoneNumber" minlength="10" value="">
 						<label id="password2label" for="password"><b>Confirm Password</b></label>
-						<input id="password2field" type="password" value="<?php echo $password2 ?>" minlength="5" name="password2">
+						<input id="password2field" type="password" value="" name="password2">
 					</div>
 					
 					<!-- button and link group -->
@@ -126,6 +126,10 @@
 							<button id="clearChanges" type="reset"><b>CLEAR</b></button>
 						</div>
 					</center>
+					<br>
+					<br>
+					<br>
+					<br>
 				</form>
 			
 			</section>
