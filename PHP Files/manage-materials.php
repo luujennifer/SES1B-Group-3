@@ -103,6 +103,19 @@
 
                 showResult(document.getElementById('search-bar').value);
             }
+            function editItem(material_id){
+                var data = new FormData();
+                data.append('id', material_id);
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("POST", "edit-material.php", true);
+
+                xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
+                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        alert(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.send(data);
+            }
         </script>
     </head>
     <body>
@@ -129,7 +142,7 @@
                             <button type="button" id="deleteBtn" class="formBtn" onclick="deleteItems()"><b>Delete Selected</b></button>
                         </div>
                         <div id="functions" style="display: block">
-                            <button type="button" id="editBtn" class="formBtn" onclick="changeButtons()"><b>Edit Material</b></button>
+                            <button type="button" id="editBtn" class="formBtn" onclick="changeButtons()"><b>Edit Materials</b></button>
                             <button type="button" id="addBtn" class="formBtn" onclick="window.location.href='../PHP Files/add-material.php'"><b>Add Material</b></button>
                         </div>
                     </div>
@@ -160,7 +173,7 @@
                                         </p>
                                     </div>
                                     <div class='card-action'>
-                                        <a class='brand-text' href='#'>More Info</a>
+                                        <a id="edit<?php echo htmlspecialchars($material['book_id']); ?>'" class='brand-text' onclick="editItem(this.id)">Edit</a>
                                     </div>
                                 </div>
                             </div>
