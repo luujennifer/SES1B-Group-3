@@ -37,7 +37,7 @@ foreach($materials as $material){
                     </p>
                 </div>
                 <div class='card-action'>
-                    <a id='edit" . htmlspecialchars($material['book_id']) . "' class='brand-text' href='#'>Edit</a>
+                    <a class='brand-text' href='update-material.php?id=" . htmlspecialchars($material['book_id']) . ">Update</a>
                 </div>
             </div>
         </input>

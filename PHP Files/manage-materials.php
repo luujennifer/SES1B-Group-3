@@ -103,19 +103,6 @@
 
                 showResult(document.getElementById('search-bar').value);
             }
-            function editItem(material_id){
-                var data = new FormData();
-                data.append('id', material_id);
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("POST", "edit-material.php", true);
-
-                xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
-                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-                        alert(xmlhttp.responseText);
-                    }
-                }
-                xmlhttp.send(data);
-            }
         </script>
     </head>
     <body>
@@ -173,7 +160,7 @@
                                         </p>
                                     </div>
                                     <div class='card-action'>
-                                        <a id="edit<?php echo htmlspecialchars($material['book_id']); ?>'" class='brand-text' onclick="editItem(this.id)">Edit</a>
+                                        <a class='brand-text' href='update-material.php?id=<?php echo htmlspecialchars($material['book_id']); ?>'>Update</a>
                                     </div>
                                 </div>
                             </div>

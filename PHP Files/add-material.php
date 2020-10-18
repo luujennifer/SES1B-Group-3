@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Imports JQuery librry -->
     <script src="../Javascript%20Files/KeepFloating.js"></script> <!-- Script for keeping labels afloat -->
 
-    <title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
+    <title>Add Material</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
     <link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
     <link rel="stylesheet" href="../CSS Files/AddMaterialStyling.css"> <!-- Add Material css file -->
     <link rel="stylesheet" href="../CSS Files/FloatingLabels.css"> <!-- Floating labels css file -->
@@ -130,7 +130,7 @@ if(isset($_POST['submit'])){
             </div>
 
             <!-- Button and return login group -->
-            <button type="submit" id="addMaterialBtn" value="Submit" onclick=""><b>Add Material</b></button>
+            <button type="submit" id="addMaterialBtn" value="submit" onclick=""><b>Add Material</b></button>
             <button type="button" id="cancelBtn" onclick="window.location.href='../PHP Files/manage-materials.php'"><b>Cancel</b></button>
             <br>
             <br>
