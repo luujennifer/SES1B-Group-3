@@ -134,7 +134,7 @@
                             <button type="button" id="deleteBtn" class="formBtn" onclick="deleteItems()"><b>Delete Selected</b></button>
                         </div>
                         <div id="functions" style="display: block">
-                            <button type="button" id="editBtn" class="formBtn" onclick="changeButtons()"><b>Edit Material</b></button>
+                            <button type="button" id="editBtn" class="formBtn" onclick="changeButtons()"><b>Edit Materials</b></button>
                             <button type="button" id="addBtn" class="formBtn" onclick="window.location.href='../PHP Files/add-material.php'"><b>Add Material</b></button>
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                                         </p>
                                     </div>
                                     <div class='card-action'>
-                                        <a class='brand-text' href='#'>More Info</a>
+                                        <a class='brand-text' href='update-material.php?id=<?php echo htmlspecialchars($material['book_id']); ?>'>Update</a>
                                     </div>
                                 </div>
                             </div>
