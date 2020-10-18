@@ -19,12 +19,13 @@
     <head>
         <title>Manage Materials</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
         <link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
+		<link rel="stylesheet" type="text/css" href="../CSS Files/AdminStyling.css"> <!--Styling for admin account-->
         <link rel="stylesheet" href="../CSS Files/ManageMaterialsStyling.css"> <!-- Manage Materials css file -->
         <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
         <link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- icon file -->
 
         <!-- Live search script -->
-        <script>
+          <script>
             function showResult(str) {
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
@@ -108,20 +109,24 @@
     <body>
         <!-- fixed top navigation bar -->
         <header style="position: fixed; z-index: 100;">
-            <div class="navigation" >
-                <a onclick="window.location.href='../index.php'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
-                <div id="name">
-                    <p><b>Jane Smith</b><br>Admin</p>
-                    <a id="settings" onclick="window.location.href='../HTML%20Files/admin-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
-                </div>
-            </div>
+            <div class="navigation" > 
+				<a onclick="window.location.href='../HTML Files/admin-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+				<div id="name">
+					<a id="settings" onclick="window.location.href='../HTML Files/admin-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="logout" onclick="window.location.href='../index.php'"><i id="logout" class="fas fa-sign-out-alt"></i></a>
+				</div>
+			</div>
         </header>
 
         <!-- content body of website -->
         <div class="body">
+		<br>
+		<br>
+		<a id="returnhome" href="../HTML Files/admin-account.html"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Dashboard</a>
             <section class="contentContainer">
                 <form class="search" action="manage-materials.php" method="GET">
-                    <label class="title"><b>Manage Materials</b></label>
+				
+                    <h1>Manage Materials</h1>
                     <div class="btnContainer">
                         <div id="editFunctions" style="display: none">
                             <button type="reset" id="cancelBtn" class="formBtn" onclick="changeButtons()"><b>Cancel</b></button>
@@ -147,7 +152,7 @@
                         <?php foreach($materials as $material){ ?>
                             <div class='row'>
                                 <div class='checkContainer'>
-                                    <input type='checkbox' id='checkbox<?php echo htmlspecialchars($material['book_id']); ?>'
+                                   <input type='checkbox' id='checkbox<?php echo htmlspecialchars($material['book_id']); ?>'
                                            value='<?php echo htmlspecialchars($material['book_id']); ?>'>
                                     <label for='checkbox<?php echo htmlspecialchars($material['book_id']); ?>'></label>
                                 </div>

@@ -30,7 +30,7 @@
 				<form class="login" action="PHP Files/process.php" method="POST">
 
 					<center>
-						<label for="loginTitle" id="loginTitle"><b>Welcome Back!</b></label>
+						<h1>Welcome Back!</h1>
 						<p id="signinText">Sign in to continue where you left off.</p>
 					</center>
 					
@@ -56,8 +56,12 @@
 					
 					<br>
 					
-					<button id="loginBtn" type="submit" value="submit"><b>Login</b></button>
-					<a id="signupBtn" href="HTML%20Files/bookshelf-signup.html"><b>Sign Up</b></a>
+					<button id="loginBtn" type="submit"><b>Login</b></button>
+					<a id="signupBtn" href="HTML Files/bookshelf-signup.html"><b>Sign Up</b></a>
+					<br>
+					<br>
+					<br>
+					<br>
 				</form>
 			
 			</section>

@@ -8,6 +8,7 @@
 	$dbpass = "";
 	$db = "bookshelf";
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error); 
+	$message = "Edit your account details below, remember to click Update Account to save changes.";
 	
 	$login_email = $_SESSION["acc_email"];
 	$login_password = $_SESSION["acc_pass"];
@@ -88,8 +89,8 @@
 			
 				<form class="settings" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST"> <!-- account  settings form -->
 					<label for="settingsTitle" id="settingsTitle"><b>Account Settings</b></label>
-					<p>Edit your account details below, remember to click <b>Update Account</b> to save changes.</p>
-					<br>
+					<!--<p>Edit your account details below, remember to click <b>Update Account</b> to save changes.</p>
+					<br>-->
 					<p id="message" name="message"><?php echo $message ?></p>
 					<br>
 					

@@ -16,7 +16,6 @@
 	$fee = '12';
 
 	// GET BOOK TITLE AND AUTHOR FROM BOOKS TABLE BASED ON ID ENTERED
-
 	$sql = "INSERT INTO loans (email, book_id, book_title, book_author, due_date, fee) 
 			VALUES ('$email', '$book_id', (SELECT title FROM books WHERE book_id = $book_id),(SELECT author FROM books WHERE book_id = $book_id), ADDDATE(now(), INTERVAL 14 DAY), '$fee')";
 			

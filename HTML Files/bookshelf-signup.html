@@ -24,6 +24,10 @@
 		
 		<!-- Content body of website -->
 		<div class="body">
+		<br>
+			<br>
+			<a id="login" href="../index.php"><i class="fas fa-caret-left"></i><!-- this is a non breaking space --> &nbsp; &nbsp; Return to Login</a> <!-- Return to login link -->
+			
 			<section class="wideContentContainer">
 			<style>
 				select:invalid {color: gray;}
@@ -31,10 +35,12 @@
 				<!-- Registration form -->
 
 				<form class="signup" action="../PHP Files/registrationdb.php" method="POST">
+				
 
-					<label for="signupTitle" id="signupTitle"><b>Sign Up</b></label>
+					<h1>Sign Up</h1>
+					<p>Fill out the form below to sign up for a Bookshelf account.</p>
 
-					<br>
+				
 					<br>
 					<!-- All input fields -->
 					<div class="inputFields">
@@ -81,6 +87,7 @@
 					<button type="submit" id="createAccBtn" value="Submit" onclick=""><b>Create Account</b></button>
 					<label class="login">Already have an account? <a href="../index.php">Sign in</a>.</label>
 
+					<br>
 					<br>
 					<br>
 				</form>
