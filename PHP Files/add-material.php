@@ -1,22 +1,39 @@
 <?php
-    session_start();
-    $dbhost = "localhost";
-    $dbuser = "root";
-    $dbpass = "";
-    $db = "bookshelf";
-    $port = "81";
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$db ="bookshelf";
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die ("Error connecting to database: ". $conn -> error);
 
-    $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
-    if(!$conn){
-        echo "Connection error: " .mysqli_error();
+if(isset($_POST['submit'])){
+    $bookTitle = $_POST['bookTitle'];
+    $bookType = $_POST['bookType'];
+    $author = $_POST['author'];
+    $publisher = $_POST['publisher'];
+    $pubPlace = $_POST['pubPlace'];
+    $pubDate = $_POST['pubDate'];
+    $isbn = $_POST['isbn'];
+    $genre = $_POST['genre'];
+    $format = $_POST['format'];
+    $copyNo = $_POST['copyNo'];
+    $renewNo = $_POST['renewNo'];
+    $fineAmount = $_POST['fineAmount'];
+
+
+    $sql = "INSERT INTO books (title, type, author, publisher, place_of_publication, date_of_publication,
+                                ISBN, fiction_topic, format, copies, available) 
+        VALUES ('$bookTitle', '$bookType', '$author','$publisher', '$pubPlace', '$pubDate', '$isbn', '$genre', '$format',
+                    '$copyNo', '$copyNo')";
+
+    if(!mysqli_query($conn, $sql)) {
+        echo "<script>alert('Failed to add material, please try again.')</script>";
     }
+    else {
+        echo "<script>alert('Material added successfully.')</script>";
+        header('Location: manage-materials.php');
+    }
+}
 
-    $sql = "SELECT * FROM books ORDER BY book_id";
-    $result = mysqli_query($conn, $sql);
-    $materials = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    mysqli_free_result($result);
-    mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +43,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Imports JQuery librry -->
     <script src="../Javascript%20Files/KeepFloating.js"></script> <!-- Script for keeping labels afloat -->
 
-    <title>Bookshelf</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
+    <title>Add Material</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
     <link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
     <link rel="stylesheet" href="../CSS Files/AddMaterialStyling.css"> <!-- Add Material css file -->
 	<link rel="stylesheet" type="text/css" href="../CSS Files/AdminStyling.css"> <!--Styling for admin account-->
@@ -53,13 +70,15 @@
 		<br>
 		<a id="returnhome" href="../PHP Files/manage-materials.php"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Manage Materials</a>
     <section class="contentContainer">
+
         <form class="add" action="../PHP Files/add-material-script.php" method="POST">
             
             <h1>Add Material</h1>
 			<p>Fill out the form below to add new material to the catalogue.</p>
+
             <div class="inputFields">
                 <div class="floating-label-wrap">
-                    <input type="text" id="bookTitle" name="bookTitle" pattern="[A-Z][a-zA-Z-\s]{1,}" required>
+                    <input type="text" id="bookTitle" name="bookTitle" required>
                     <label for="bookTitle" class="floating-label">Book Title</label>
                 </div>
                 
@@ -119,6 +138,7 @@
                     </select>
                     <label for="bookType" class="floating-label">Non-Fiction Genre</label>
                 </div>
+
 				
 				<div class="floating-label-wrap">
                     <select name="fiction-genre" id="format" required>
@@ -140,6 +160,7 @@
 						<option value="Dystopian">Dystopian</option>
                     </select>
                     <label for="bookType" class="floating-label">Fiction Genre</label>
+
                 </div>
                 
 				<div class="floating-label-wrap">
@@ -151,15 +172,16 @@
                     <label for="bookType" class="floating-label">Format</label>
                 </div>
                 <div class="floating-label-wrap">
-                    <input type="text" id="copyNo" name="copyNo"  required>
+                    <input type="text" id="copyNo" name="copyNo" pattern="[0-9]{1,}" required>
                     <label for="copyNo" class="floating-label">Number of Copies</label>
                 </div>
             </div>
 
             <!-- Button and return login group -->
 
-            <button type="submit" id="addMaterialBtn" value="Submit" onclick=""><b>Add Material</b></button>
-            <button type="clear" id="cancelBtn" onclick="window.location.href='../PHP Files/manage-materials.php'"><b>Cancel</b></button>
+            <button type="submit" id="addMaterialBtn" value="submit" onclick=""><b>Add Material</b></button>
+            <button type="button" id="cancelBtn" onclick="window.location.href='../PHP Files/manage-materials.php'"><b>Cancel</b></button>
+
             <br>
             <br>
             <br>

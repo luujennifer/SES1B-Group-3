@@ -93,7 +93,7 @@
                 }
                 data.append('ids', JSON.stringify(checkItems));
                 var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("POST", "delete-item.php", true);
+                xmlhttp.open("POST", "../PHP Files/delete-item.php", true);
 
                 xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
                     if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -134,7 +134,7 @@
                             <button type="button" id="deleteBtn" class="formBtn" onclick="deleteItems()"><b>Delete Selected</b></button>
                         </div>
                         <div id="functions" style="display: block">
-                            <button type="button" id="editBtn" class="formBtn" onclick="changeButtons()"><b>Edit Material</b></button>
+                            <button type="button" id="editBtn" class="formBtn" onclick="changeButtons()"><b>Edit Materials</b></button>
                             <button type="button" id="addBtn" class="formBtn" onclick="window.location.href='../PHP Files/add-material.php'"><b>Add Material</b></button>
                         </div>
                     </div>
@@ -162,10 +162,11 @@
                                             <small><?php echo htmlspecialchars($material['author']) .
                                                     ' | ' . htmlspecialchars($material['publisher']); ?></small><br/>
                                             <small><em><?php echo htmlspecialchars($material['ISBN']); ?></em></small><br/>
+                                            <small>Copies: <?php echo htmlspecialchars($material['copies']); ?></small><br/>
                                         </p>
                                     </div>
                                     <div class='card-action'>
-                                        <a class='brand-text' href='#'>More Info</a>
+                                        <a class='brand-text' href='update-material.php?id=<?php echo htmlspecialchars($material['book_id']); ?>'>Update</a>
                                     </div>
                                 </div>
                             </div>
