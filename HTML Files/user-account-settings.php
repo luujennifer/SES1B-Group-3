@@ -10,7 +10,7 @@
 	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error); 
 	$message = "Edit your account details below, remember to click Update Account to save changes.";
 	
-	$login_email = $_SESSION["acc_email"];
+	/*$login_email = $_SESSION["acc_email"];
 	$login_password = $_SESSION["acc_pass"];
 
 	$sqlValue = "SELECT * FROM `users` WHERE `account_type`='Student' AND 'email'='$login_email' AND 'password'='$login_password'"; // need to match up name to admin account name
@@ -52,7 +52,7 @@
 			}
 		
 		}
-	} 
+	} */
 ?>
 
 <!DOCTYPE html>

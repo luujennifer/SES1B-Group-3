@@ -7,16 +7,18 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die ("Error connecting to 
 
 $id = $_POST['book_id'];
 $copyNo = $_POST['copyNo'];
-$renewNo = $_POST['renewNo'];
-$fineAmount = $_POST['fineAmount'];
 
-$sql = "UPDATE books SET copies = '$copyNo', available = '$renewNo' WHERE book_id = '$id'";
-if(mysqli_query($conn, $sql)) {
-    echo "<script>alert('Material updated successfully.')</script>";
-    header('Location: manage-materials.php');
+
+$sql = "UPDATE books SET copies = '$copyNo' WHERE book_id = '$id'";
+
+if (!mysqli_query($conn, $sql)) {
+    echo "<script>alert('Unable to update material, please try again.')</script>";
+    echo "<script>location.replace('../PHP Files/update-material.php')</script>";
 }
 else {
-    echo "<script>alert('Failed to update material, please try again.')</script>";
-    header('Location: update-material.php?id=' . $id);
+    
+    echo "<script>alert('Material successfully updated.')</script>";
+    echo "<script>location.replace('../PHP Files/manage-materials.php')</script>";
+
 }
 ?>

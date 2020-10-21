@@ -93,7 +93,7 @@
                 }
                 data.append('ids', JSON.stringify(checkItems));
                 var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("POST", "delete-item.php", true);
+                xmlhttp.open("POST", "../PHP Files/delete-item.php", true);
 
                 xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
                     if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -162,6 +162,7 @@
                                             <small><?php echo htmlspecialchars($material['author']) .
                                                     ' | ' . htmlspecialchars($material['publisher']); ?></small><br/>
                                             <small><em><?php echo htmlspecialchars($material['ISBN']); ?></em></small><br/>
+                                            <small>Copies: <?php echo htmlspecialchars($material['copies']); ?></small><br/>
                                         </p>
                                     </div>
                                     <div class='card-action'>

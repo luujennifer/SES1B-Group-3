@@ -13,7 +13,8 @@ if(isset($_GET['id'])){
     $material = mysqli_fetch_assoc($result);
 
     $genre = '';
-    if($material['type'] === 'Fiction'){
+    if($material['category'] === 'Fiction'){
+
         $genre = $material['fiction_topic'];
     }
     else{
@@ -37,6 +38,9 @@ if(isset($_GET['id'])){
     <title>Update Material</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
     <link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
     <link rel="stylesheet" href="../CSS%20Files/UpdateMaterialStyling.css"> <!-- Update Material css file -->
+
+    <link rel="stylesheet" type="text/css" href="../CSS Files/AdminStyling.css"> <!--Styling for user account-->
+
     <link rel="stylesheet" href="../CSS Files/FloatingLabels.css"> <!-- Floating labels css file -->
     <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
     <link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- Icon file -->
@@ -45,42 +49,52 @@ if(isset($_GET['id'])){
 <body>
 <!-- fixed top navigation bar -->
 <header style="position: fixed; z-index: 100;">
-    <div class="navigation" >
-        <a onclick="window.location.href='../index.php'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
-        <div id="name">
-            <p><b>Jane Smith</b><br>Admin</p>
-            <a id="settings" onclick="window.location.href='../HTML%20Files/admin-account-settings.php'"><i class="fas fa-cog"></i></a> <!-- need to link to settings page -->
-        </div>
-    </div>
+<div class="navigation" > 
+				<a onclick="window.location.href='../HTML Files/admin-account.html'"><img src="../Misc Files/logo(colour).png"/><b> Bookshelf</b></a>
+				<div id="name">
+					<a id="settings" onclick="window.location.href='../HTML Files/admin-account-settings.php'">My Account</a> <!-- linked to settings -->
+					<a id="logout" onclick="window.location.href='../index.php'"><i id="logout" class="fas fa-sign-out-alt"></i></a>
+				</div>
+			</div>
+
 </header>
 
 <!-- content body of website -->
 <div class="body">
+
+<br>
+<br>
+<a id="returnhome" href="../PHP Files/manage-materials.php"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Materials</a>
     <section class="contentContainer">
-        <form class="update" action="save-changes.php" method="POST">
+        <form class="update" action="../PHP Files/save-changes.php" method="POST">
             <br>
-            <label class="title"><b>Update Material</b></label>
+            <h1>Update Material</h1>
+            <p>Update the number of copies for the material below.</p>
             <br>
             <input id="book_id" name="book_id" value="<?php echo htmlspecialchars($material['book_id']); ?>" style="display:none;">
-            <label class="subheading"><b>ISBN:</b> <?php echo htmlspecialchars($material['ISBN']); ?></label>
+            <label class="subheading">&nbsp;<b>ISBN:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($material['ISBN']); ?></label>
+            <br>
+            <Br>
             <div class="staticFields">
+            
                 <div class="leftContainer">
-                    <label><b>Book Title:</b> <?php echo htmlspecialchars($material['title']); ?></label>
+                    <label><b>Book Title:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($material['title']); ?></label>
                     <br>
-                    <label><b>Book Type:</b> <?php echo htmlspecialchars($material['type']); ?></label>
+                    <label><b>Book Type:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($material['category']); ?></label>
                     <br>
-                    <label><b>Genre:</b> <?php echo htmlspecialchars($genre); ?></label>
+                    <label><b>Genre:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($genre); ?></label>
                     <br>
-                    <label><b>Format:</b> <?php echo htmlspecialchars($material['format']); ?></label>
+                    <label><b>Format:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($material['format']); ?></label>
                 </div>
                 <div class="rightContainer">
-                    <label><b>Author:</b> <?php echo htmlspecialchars($material['author']); ?></label>
+                    <label><b>Author:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($material['author']); ?></label>
                     <br>
-                    <label><b>Publisher:</b> <?php echo htmlspecialchars($material['publisher']); ?></label>
+                    <label><b>Publisher:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($material['publisher']); ?></label>
                     <br>
-                    <label><b>Place of Publication:</b> <?php echo htmlspecialchars($material['place_of_publication']); ?></label>
+                    <label><b>Place of Publication:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($material['place_of_publication']); ?></label>
                     <br>
-                    <label><b>Date of Publication:</b> <?php echo htmlspecialchars($material['date_of_publication']); ?></label>
+                    <label><b>Date of Publication:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($material['date_of_publication']); ?></label>
+
                 </div>
             </div>
             <br>
@@ -91,14 +105,7 @@ if(isset($_GET['id'])){
                     <input type="text" id="copyNo" name="copyNo" value="<?php echo htmlspecialchars($material['copies']); ?>" pattern="[0-9]{1,}" required>
                     <label for="copyNo" class="floating-label input-focus-label">Number of Copies</label>
                 </div>
-                <div class="floating-label-wrap">
-                    <input type="text" id="renewNo" name="renewNo" value="<?php echo htmlspecialchars($material['copies']); ?>" pattern="[0-9]{1,}" required>
-                    <label for="renewNo" class="floating-label input-focus-label">Number of Renewals</label>
-                </div>
-                <div class="floating-label-wrap">
-                    <input type="text" id="fineAmount" name="fineAmount" value="<?php echo htmlspecialchars($material['copies']); ?>" pattern="^\d+(\.\d{1,2})?$" required>
-                    <label for="fineAmount" class="floating-label input-focus-label">Fine Amount</label>
-                </div>
+
             </div>
 
             <!-- Button and return login group -->

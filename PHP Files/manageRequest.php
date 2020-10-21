@@ -16,7 +16,7 @@
     
     
     if(isset($_POST['submit'])){ /* add to catalogue and remove from requests */
-       $sql = "INSERT INTO books (author, title, ISBN, type, format, copies) 
+       $sql = "INSERT INTO books (author, title, ISBN, category, format, copies) 
             VALUES ('$author', '$title', '$ISBN','$type', '$format', '$copies')"; 
         $remove_request = "DELETE FROM book_request WHERE ISBN=$ISBN";
         mysqli_query($conn, $remove_request);
