@@ -14,6 +14,7 @@ if(isset($_GET['id'])){
 
     $genre = '';
     if($material['category'] === 'Fiction'){
+
         $genre = $material['fiction_topic'];
     }
     else{
@@ -37,7 +38,9 @@ if(isset($_GET['id'])){
     <title>Update Material</title> <!-- This is the title of the site that shows up in the tab feel free to change it -->
     <link rel="stylesheet" href="../CSS Files/WebsiteStyling.css"> <!-- Skeleton css file -->
     <link rel="stylesheet" href="../CSS%20Files/UpdateMaterialStyling.css"> <!-- Update Material css file -->
+
     <link rel="stylesheet" type="text/css" href="../CSS Files/AdminStyling.css"> <!--Styling for user account-->
+
     <link rel="stylesheet" href="../CSS Files/FloatingLabels.css"> <!-- Floating labels css file -->
     <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'> <!-- Google font file -->
     <link rel="icon" type="image/x-icon" href="../Misc Files/logo.ico"/> <!-- Icon file -->
@@ -53,10 +56,12 @@ if(isset($_GET['id'])){
 					<a id="logout" onclick="window.location.href='../index.php'"><i id="logout" class="fas fa-sign-out-alt"></i></a>
 				</div>
 			</div>
+
 </header>
 
 <!-- content body of website -->
 <div class="body">
+
 <br>
 <br>
 <a id="returnhome" href="../PHP Files/manage-materials.php"><i class="fas fa-caret-left"></i>&nbsp; &nbsp; Return to Materials</a>
@@ -89,6 +94,7 @@ if(isset($_GET['id'])){
                     <label><b>Place of Publication:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($material['place_of_publication']); ?></label>
                     <br>
                     <label><b>Date of Publication:</b>&nbsp;&nbsp; <?php echo htmlspecialchars($material['date_of_publication']); ?></label>
+
                 </div>
             </div>
             <br>
@@ -99,6 +105,7 @@ if(isset($_GET['id'])){
                     <input type="text" id="copyNo" name="copyNo" value="<?php echo htmlspecialchars($material['copies']); ?>" pattern="[0-9]{1,}" required>
                     <label for="copyNo" class="floating-label input-focus-label">Number of Copies</label>
                 </div>
+
             </div>
 
             <!-- Button and return login group -->

@@ -19,5 +19,6 @@ else {
     
     echo "<script>alert('Material successfully updated.')</script>";
     echo "<script>location.replace('../PHP Files/manage-materials.php')</script>";
+
 }
 ?>
